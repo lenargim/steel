@@ -1,0 +1,69 @@
+.portfolio
+  &__wrap
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    padding-bottom: 80px
+  &__desc
+    max-width: 665px
+    padding-right: 163px
+    font: normal normal normal 16px/28px Inter
+    color: #414141
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      max-width: 540px
+      padding-right: 140px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      max-width: 505px
+      padding-right: 135px
+
+  &__gallery
+    display: grid
+    grid-gap: 32px
+    grid-template-columns: repeat(3, 367px)
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      grid-template-columns: repeat(3, 292px)
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      grid-template-columns: repeat(3, 271px)
+
+    &-item
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+      &:nth-child(2n)
+        flex-direction: column-reverse
+      &:hover .portfolio__gallery-title:before
+        width: 100px
+    &-img
+      max-width: 367px
+      height: 446px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        max-width: 292px
+        height: 371px
+      @media screen and (min-width: 1280px) and (max-width: 1365px)
+        max-width: 271px
+        height: 344px
+    &-link
+      padding: 32px
+    &-title
+      display: block
+      color: $colorGreen
+      padding-bottom: 8px
+      font-weight: 600
+      font-size: 20px
+      line-height: 24px
+      position: relative
+      white-space: nowrap
+      &:before
+        content: ""
+        position: absolute
+        height: 3px
+        width: 0
+        background-color: $colorGreen
+        transition: width 0.3s ease-in-out
+        left: 0
+        top: -10px
+    &-desc
+      font: normal normal normal 14px/16px Inter
+      max-width: 200px
+      color: #000

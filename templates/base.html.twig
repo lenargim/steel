@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Сталь в интерьерах{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+  {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+  {% endblock %}
+  {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+  {% endblock %}
+</head>
+<body>
+<header id="header" class="header">
+  <div class="container-outer">
+    <div class="container">
+      <div class="header__wrap">
+        <a href="/" class="header__logo"><img src="{{ asset('build/logo.svg') }}" alt="Сталь в интерьерах"/></a>
+        <div class="header__contact">
+          <div class="header__callback">Заказать звонок</div>
+          <a href="#" class="header__phone"><span class="grey">343</span> 305 50 12</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="side-menu">
+  <div class="side-menu__burger"><span></span></div>
+  <div class="side-menu__copy"><span>&#169;</span> Сталь в интерьерах, 2021</div>
+  <div class="side-menu__socials">
+    <a target="_blank" href="#" class="side-menu__social">
+      {{ source('@public_path'~asset('build/vk.svg')) }}
+    </a>
+    <a target="_blank" href="#" class="side-menu__social">
+      {{ source('@public_path'~asset('build/fb.svg')) }}
+    </a>
+    <a target="_blank" href="#" class="side-menu__social">
+      {{ source('@public_path'~asset('build/inst.svg')) }}
+    </a>
+  </div>
+  <div class="side-menu__list">
+    <nav>
+      <li class="side-menu__item"><a href="#" class="side-menu__link">О компании</a></li>
+      <li class="side-menu__item"><a href="#" class="side-menu__link">Портфолио</a></li>
+      <li class="side-menu__item"><a href="#" class="side-menu__link">Каталог</a></li>
+      <li class="side-menu__item"><a href="#" class="side-menu__link">Интерьерные решения</a></li>
+      <li class="side-menu__item"><a href="#" class="side-menu__link">Отзывы</a></li>
+      <li class="side-menu__item"><a href="#" class="side-menu__link">Контакты</a></li>
+    </nav>
+    <a href="#" class="side-menu__phone mobile">343 305 50 12</a>
+    <div class="side-menu__callback mobile">Заказать звонок</div>
+    <div class="side-menu__socials mobile">
+      <a target="_blank" href="#" class="side-menu__social">
+        {{ source('@public_path'~asset('build/vk.svg')) }}
+      </a>
+      <a target="_blank" href="#" class="side-menu__social">
+        {{ source('@public_path'~asset('build/fb.svg')) }}
+      </a>
+      <a target="_blank" href="#" class="side-menu__social">
+        {{ source('@public_path'~asset('build/inst.svg')) }}
+      </a>
+    </div>
+  </div>
+</div>
+<div id="content">
+  {% block content %}{% endblock %}
+</div>
+<footer id="footer" class="footer">
+  {% block footer %}
+    <div class="container-outer">
+      <div class="container">
+        <div class="footer__wrap">
+          <nav class="footer__nav">
+            <li><a href="#" class="footer__link">О компании</a></li>
+            <li><a href="#" class="footer__link">Портфолио</a></li>
+            <li><a href="#" class="footer__link">Каталог</a></li>
+            <li><a href="#" class="footer__link">Каталог</a></li>
+            <li><a href="#" class="footer__link">Отзывы</a></li>
+            <li><a href="#" class="footer__link">Контакты</a></li>
+          </nav>
+          <a href="#" class="footer__dev">
+            <div class="footer__dev-logo">
+              <img src="{{ asset('build/dev.png') }}" alt="developer logo">
+            </div>
+            <span>Разработка сайта</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</footer>
+</body>
+</html>

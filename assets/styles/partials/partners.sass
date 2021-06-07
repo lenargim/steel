@@ -1,0 +1,25 @@
+.partners
+  &__wrap
+    display: grid
+    grid-gap: 116px 37px
+    grid-template-columns: 1fr repeat(3, 229px)
+    font-size: 28px
+    line-height: 32px
+    font-weight: 500
+    @media screen and (min-width: 1660px)
+      width: 1160px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      grid-template-columns: 1fr repeat(3, 210px)
+      width: 100%
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      width: 100%
+      grid-template-columns: 1fr repeat(3, 200px)
+    .partner
+      text-transform: uppercase
+      color: #6C6C6C
+    .partner-label
+      font: normal normal normal 16px/24px Inter
+      color: #000
+      width: 150px
+    &:first-child
+      color: #2F3A41

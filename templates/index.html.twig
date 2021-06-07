@@ -1,0 +1,293 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <section class="banner">
+    <div class="container-outer">
+      <div class="container">
+        <div class="banner__wrap">
+          <div class="banner__info">
+            <h1 class="banner__title">Дизайнерская мебель из металла <span class="nowrap">на заказ</span></h1>
+            <p class="banner__text">Производство любых видов мебели премиум-класса по вашим эскизам</p>
+            <a href="#" class="link">
+              <span>О нас</span>
+              <span class="arrow"></span>
+            </a>
+          </div>
+          <div class="banner__slider-wrap">
+            <div class="banner__slider slider" id="banner-slider">
+              <div class="banner__slider-item">
+                <img class="banner__item-img" src="{{ asset('build/chair.png') }}" alt="кресло">
+                <div class="banner__item-info">
+                  <div class="banner__item-name">Кресло Chair Domaine Eichholtz style</div>
+                  <div class="banner__item-price">57 400 ₽</div>
+                </div>
+              </div>
+              <div class="banner__slider-item">
+                <img class="banner__item-img" src="{{ asset('build/sample-banner.png') }}" alt="кресло">
+                <div class="banner__item-info">
+                  <div class="banner__item-name">2 Кресло Chair Domaine Eichholtz style</div>
+                  <div class="banner__item-price">57 400 ₽</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="block portfolio">
+    <div class="container-outer">
+      <div class="container">
+        <h2 class="title">Портфолио</h2>
+        <div class="block__wrap">
+          <p class="block__desc">Металлический блеск — это первое что приходит на ум когда мы говорим о металле. На
+            наших производственных площадях мы можем отполировать любую металлическую поверхность до зеркального блеска
+            так , что вы сможете увидеть своё отражение.</p>
+          <a href="#" class="block__link link">
+            <span>Все работы</span>
+            <span class="arrow"></span>
+          </a>
+        </div>
+        <div class="portfolio__gallery">
+          <div class="portfolio__gallery-item">
+            <img src="{{ asset('build/gallery-1.png') }}" alt="gallery-img" class="portfolio__gallery-img">
+            <a href="#" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="portfolio__gallery-item">
+            <img src="{{ asset('build/gallery-2.png') }}" alt="gallery-img" class="portfolio__gallery-img">
+            <a href="#" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="portfolio__gallery-item">
+            <img src="{{ asset('build/gallery-3.png') }}" alt="gallery-img" class="portfolio__gallery-img">
+            <a href="#" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="block output">
+    <div class="container-outer">
+      <div class="container">
+        <h2 class="title">Готовая продукция</h2>
+        <div class="block__wrap">
+          <p class="block__desc">Металлический блеск — это первое что приходит на ум когда мы говорим о металле. На
+            наших производственных площадях мы можем отполировать любую металлическую поверхность до зеркального блеска
+            так , что вы сможете увидеть своё отражение.</p>
+          <a href="#" class="block__link link">
+            <span>Вся продукция</span>
+            <span class="arrow"></span>
+          </a>
+        </div>
+        <div class="output__gallery">
+          <div class="output__gallery-item">
+            <img src="{{ asset('build/output-1.png') }}" alt="output-img" class="output__gallery-img">
+            <a href="#" class="output__gallery-link">
+              <div class="output__gallery-title">Стол и стулья</div>
+              <div class="output__gallery-desc">Металлическая мебель для ресторана</div>
+            </a>
+          </div>
+          <div class="output__gallery-item">
+            <img src="{{ asset('build/output-2.png') }}" alt="output-img" class="output__gallery-img">
+            <a href="#" class="output__gallery-link">
+              <div class="output__gallery-title">Стол и стулья</div>
+              <div class="output__gallery-desc">Металлическая мебель для ресторана</div>
+            </a>
+          </div>
+          <div class="output__gallery-item">
+            <img src="{{ asset('build/output-3.png') }}" alt="output-img" class="output__gallery-img">
+            <a href="#" class="output__gallery-link">
+              <div class="output__gallery-title">Стол и стулья</div>
+              <div class="output__gallery-desc">Металлическая мебель для ресторана</div>
+            </a>
+          </div>
+          <div class="output__gallery-item">
+            <img src="{{ asset('build/output-4.png') }}" alt="output-img" class="output__gallery-img">
+            <a href="#" class="output__gallery-link">
+              <div class="output__gallery-title">Стол и стулья</div>
+              <div class="output__gallery-desc">Металлическая мебель для ресторана</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="block slider-block__wrap">
+    <section class="slider-block" id="slider">
+      <div class="slider-block__item">
+        <div class="container-outer">
+          <div class="container">
+            <div class="slider-block__item-info">
+              <h3 class="slider-block__item-title title">Интерьерные Решения</h3>
+              <div class="slider-block__item-greentext">Салон красоты Топ Ган</div>
+              <div class="slider-block__item-text">Чтобы изделие служило как можно дольше и не теряло свой товарный вид,
+                мы
+                с должным вниманием и ответственностью подходим ко всем этапам обработки металла. Для покраски мы
+                используем
+                порошковую краску, по нашему мнению, наилучшего качества, международного концерна AkzoNobel.
+              </div>
+              <a href="#" class="slider-block__item-link link">
+                <span>Подробнее</span>
+                <div class="arrow"></div>
+              </a>
+              <div class="slider-block__item-year">2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-block__item-img"><img src="{{ asset('build/slider-block.png') }}" alt="slider-img"></div>
+      </div>
+      <div class="slider-block__item">
+        <div class="container-outer">
+          <div class="container">
+            <div class="slider-block__item-info">
+              <h3 class="slider-block__item-title title">2Интерьерные Решения</h3>
+              <div class="slider-block__item-greentext">Салон красоты Топ Ган</div>
+              <div class="slider-block__item-text">Чтобы изделие служило как можно дольше и не теряло свой товарный вид,
+                мы
+                с должным вниманием и ответственностью подходим ко всем этапам обработки металла. Для покраски мы
+                используем
+                порошковую краску, по нашему мнению, наилучшего качества, международного концерна AkzoNobel.
+              </div>
+              <a href="#" class="slider-block__item-link link">
+                <span>Подробнее</span>
+                <div class="arrow"></div>
+              </a>
+              <div class="slider-block__item-year">2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-block__item-img"><img src="{{ asset('build/slider-block.png') }}" alt="slider-img"></div>
+      </div>
+    </section>
+    <div class="slider-block__arrow-box">
+      {{ source('@public_path'~asset('build/arrow_left.svg')) }}
+      <span class="slider-block__counter"></span>
+      {{ source('@public_path'~asset('build/arrow_right.svg')) }}
+    </div>
+  </div>
+  <section class="block quality">
+    <div class="container-outer">
+      <div class="container">
+        <div class="quality__wrap">
+          <img src="{{ asset('build/quantity-img.png') }}" alt="quantity-img" class="quality__img">
+          <div class="quality__info">
+            <div class="quality__title title">Высокое качество покраски</div>
+            <div class="quality__text">
+              <p>Чтобы изделие служило как можно дольше и не теряло свой товарный вид, мы с должным вниманием и
+                ответственностью подходим ко всем этапам обработки металла. Для покраски мы используем порошковую
+                краску, по нашему мнению, наилучшего качества, международного концерна AkzoNobel. Широкая гамма цветов и
+                текстур, позволяет воплотить практически любой замысел дизайнеров. Так же, в скором времени, планируем
+                красить жидкими красками в т.ч. под золото, латунь, медь.</p>
+              <p>Металлический блеск — это первое что приходит на ум когда мы говорим о металле. На наших
+                производственных площадях мы можем отполировать любую металлическую поверхность до зеркального блеска
+                так , что вы сможете увидеть своё отражение.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="block partners">
+    <div class="container-outer">
+      <div class="container">
+        <div class="partners__wrap">
+          <span>Нам доверяют</span>
+          <span class="partner">EURODOM</span>
+          <span class="partner">WHITE&BLACK</span>
+          <span class="partner">МОДЭ</span>
+          <span class="partner-label">Наши клиенты и партнёры</span>
+          <span class="partner">Alexander Tischler</span>
+          <span class="partner">Architector</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="block reviews">
+    <div class="container-outer">
+      <div class="container">
+        <h2 class="title">Отзывы наших клиентов</h2>
+        <div class="block__wrap">
+          <p class="block__desc">Металлический блеск — это первое что приходит на ум когда мы говорим о металле. На
+            наших производственных площадях мы можем отполировать любую металлическую поверхность до зеркального блеска
+            так , что вы сможете увидеть своё отражение.</p>
+          <a href="#" class="block__link link">
+            <span>Все отзывы</span>
+            <span class="arrow"></span>
+          </a>
+        </div>
+        <div class="reviews__slider" id="reviews-slider">
+          <div class="reviews__slider-item-wrap">
+            <div class="reviews__slider-item">
+              <div class="reviews__slider-img"><img src="{{ asset('build/review-img-1.png') }}" alt="euro dom"></div>
+              <div class="reviews__slider-info">
+                <div class="reviews__slider-position">Технический директор Euro Dom</div>
+                <div class="reviews__slider-name">Шлопак Михаил</div>
+                <div class="reviews__slider-text">Для выполнения нашего авторского замысла, мы искали исполнителя с
+                  собственным производством полного цикла. Наши поиски увенчались успехом и в лице фабрики «Interior
+                  Steel» мы обрели надежного производителя авторской мебели. Желаем им успеха во всех начинаниях.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reviews__slider-item-wrap">
+            <div class="reviews__slider-item">
+              <div class="reviews__slider-img"><img src="{{ asset('build/review-img-2.png') }}" alt="white an d black">
+              </div>
+              <div class="reviews__slider-info">
+                <div class="reviews__slider-position">Собственник и руководитель студии мебели «White & Black»</div>
+                <div class="reviews__slider-name">Целиков Антон</div>
+                <div class="reviews__slider-text">При работе над проектом интерьера нашей компании понадобилось
+                  изготовление мебели из металла, дерево и стекла под ключ. Нас приятно удивил тот факт, что для этого
+                  не
+                  нужно ехать в Москву, а можно доверить заказ местной фабрике. Опыт сотрудничества было положительным и
+                  от лица компании могу советовать «Interior Steel» как надежного исполнителя.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reviews__slider-arrow-box">
+          {{ source('@public_path'~asset('build/arrow_left.svg')) }}
+          <span class="reviews__slider-counter"></span>
+          {{ source('@public_path'~asset('build/arrow_right.svg')) }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="map">
+    <div class="container-outer">
+      <div class="container">
+        <div class="map__box">
+          <div class="map__box-title title">Контакты</div>
+          <div>
+            <a href="tel:73433055012">+7 (343) 305-50-12</a>
+            <a href="mailto:steelii@mail.ru">steelii@mail.ru</a>
+            <address>Екатеринбург,<br> Фронтовых Бригад, 18, <span>корпус 3</span></address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="googleMap" class="map__wrap"></div>
+  </div>
+
+  <script>
+    function myMap() {
+      const office = { lat: 56.88280065740292, lng: 60.63786188076285 };
+      var mapProp= {
+        center:new google.maps.LatLng(56.883639, 60.635223),
+        zoom:17,
+        disableDefaultUI: true,
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+      const marker = new google.maps.Marker({ map, position: office });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyaiFhTLH_eOQWq_Vyel3tm6akNacxuCs&language=ru&callback=myMap"></script>
+{% endblock %}

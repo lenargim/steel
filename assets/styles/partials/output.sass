@@ -1,0 +1,68 @@
+.output
+  &__gallery
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    flex-wrap: wrap
+    &-link
+      padding: 32px
+      max-width: 264px
+    &-item
+      display: flex
+      flex-direction: column
+      position: relative
+      &:nth-of-type(1)
+        margin: 0 32px 32px 0
+        .output__gallery-link
+          position: absolute
+          top: 100%
+          left: 0
+      &:nth-of-type(2)
+        flex-direction: row
+        margin-bottom: 32px
+      &:nth-of-type(3)
+        margin-right: 30px
+        margin-left: 264px
+      &:hover .output__gallery-title:before
+        width: 100px
+    &-title
+      display: block
+      color: $colorGreen
+      padding-bottom: 8px
+      font-weight: 600
+      font-size: 20px
+      line-height: 24px
+      position: relative
+      white-space: nowrap
+      &:before
+        content: ""
+        position: absolute
+        height: 3px
+        width: 0
+        background-color: $colorGreen
+        transition: width 0.3s ease-in-out
+        left: 0
+        top: -10px
+
+    &-desc
+      font: normal normal normal 14px/16px Inter
+      max-width: 200px
+      color: #000
+    &-img
+      height: 262px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        height: 210px
+      @media screen and (min-width: 1280px) and (max-width: 1365px)
+        height: 195px
+      &:nth-of-type(1), &:nth-of-type(4)
+        max-width: 500px
+        @media screen and (min-width: 1366px) and (max-width: 1659px)
+          max-width: 400px
+        @media screen and (min-width: 1280px) and (max-width: 1365px)
+          max-width: 372px
+      &:nth-of-type(2), &:nth-of-type(3)
+        max-width: 367px
+        @media screen and (min-width: 1366px) and (max-width: 1659px)
+          max-width: 292px
+        @media screen and (min-width: 1280px) and (max-width: 1365px)
+          max-width: 271px

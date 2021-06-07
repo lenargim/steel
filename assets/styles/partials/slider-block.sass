@@ -1,0 +1,88 @@
+.slider-block
+  background-color: $colorSecond
+  color: #fff
+  &__wrap
+    position: relative
+  &__item
+    position: relative
+    &-img
+      position: absolute
+      right: 0
+      top: 0
+      bottom: 0
+      overflow: hidden
+      display: flex
+      justify-content: flex-end
+      @media screen and (min-width: 1920px)
+        width: 1210px
+      @media screen and (min-width: 1660px) and (max-width: 1919px)
+        width: 1080px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        width: 775px
+      img
+        object-fit: cover
+    &-info
+      position: relative
+      z-index: 1
+      max-width: 400px
+      padding: 100px 0 63px
+      @media screen and (min-width: 1920px)
+        height: 1080px
+      @media screen and (min-width: 1660px) and (max-width: 1919px)
+        height: 900px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        height: 768px
+      @media screen and (min-width: 1280px) and (max-width: 1365px)
+        height: 800px
+    &-title
+      padding-right: 100px
+      max-width: 584px
+      color: #fff
+    &-greentext
+      font-size: 20px
+      line-height: 24px
+      padding: 0 100px 26px 0
+      color: $colorGreen
+      font-weight: 600
+      @media screen and (min-width: 1920px)
+        font-size: 20px
+      @media screen and (min-width: 1280px) and (max-width: 1919px)
+        font-size: 13px
+        padding-bottom: 18px
+    &-text
+      font: normal normal normal 16px/28px Inter
+      padding: 0 100px 62px 0
+      @media screen and (min-width: 1660px) and (max-width: 1919px)
+        padding-right: 150px
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        padding-bottom: 40px
+    &-link
+      color: #fff
+    &-year
+      position: absolute
+      font: normal normal normal 18px/21px Inter
+      left: 0
+      bottom: 63px
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        bottom: 54px
+  &__arrow-box
+    width: 186px
+    height: 49px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    position: absolute
+    right: 113px
+    bottom: 48px
+    font-size: 22px
+    line-height: 28px
+    color: #414141
+    @media screen and (min-width: 1660px) and (max-width: 1919px)
+      right: 181px
+      bottom: 39px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      right: 159px
+      bottom: 40px
+  &__counter
+    font: normal normal normal 22px/28px Inter
+    letter-spacing: 2.2px
