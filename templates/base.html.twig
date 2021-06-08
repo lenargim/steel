@@ -28,32 +28,11 @@
     </div>
   </div>
 </header>
-<div class="side-menu">
-  <div class="side-menu__burger"><span></span></div>
-  <div class="side-menu__copy"><span>&#169;</span> Сталь в интерьерах, 2021</div>
-  <div class="side-menu__socials">
-    <a target="_blank" href="#" class="side-menu__social">
-      {{ source('@public_path'~asset('build/vk.svg')) }}
-    </a>
-    <a target="_blank" href="#" class="side-menu__social">
-      {{ source('@public_path'~asset('build/fb.svg')) }}
-    </a>
-    <a target="_blank" href="#" class="side-menu__social">
-      {{ source('@public_path'~asset('build/inst.svg')) }}
-    </a>
-  </div>
-  <div class="side-menu__list">
-    <nav>
-      <li class="side-menu__item"><a href="#" class="side-menu__link">О компании</a></li>
-      <li class="side-menu__item"><a href="#" class="side-menu__link">Портфолио</a></li>
-      <li class="side-menu__item"><a href="#" class="side-menu__link">Каталог</a></li>
-      <li class="side-menu__item"><a href="#" class="side-menu__link">Интерьерные решения</a></li>
-      <li class="side-menu__item"><a href="#" class="side-menu__link">Отзывы</a></li>
-      <li class="side-menu__item"><a href="#" class="side-menu__link">Контакты</a></li>
-    </nav>
-    <a href="#" class="side-menu__phone mobile">343 305 50 12</a>
-    <div class="side-menu__callback mobile">Заказать звонок</div>
-    <div class="side-menu__socials mobile">
+<main>
+  <div class="side-menu">
+    <div class="side-menu__burger"><span></span></div>
+    <div class="side-menu__copy"><span>&#169;</span> Сталь в интерьерах, 2021</div>
+    <div class="side-menu__socials">
       <a target="_blank" href="#" class="side-menu__social">
         {{ source('@public_path'~asset('build/vk.svg')) }}
       </a>
@@ -64,11 +43,34 @@
         {{ source('@public_path'~asset('build/inst.svg')) }}
       </a>
     </div>
+    <div class="side-menu__list">
+      <nav>
+        <li class="side-menu__item"><a href="#" class="side-menu__link">О компании</a></li>
+        <li class="side-menu__item"><a href="/portfolio" class="side-menu__link">Портфолио</a></li>
+        <li class="side-menu__item"><a href="#" class="side-menu__link">Каталог</a></li>
+        <li class="side-menu__item"><a href="#" class="side-menu__link">Интерьерные решения</a></li>
+        <li class="side-menu__item"><a href="#" class="side-menu__link">Отзывы</a></li>
+        <li class="side-menu__item"><a href="#" class="side-menu__link">Контакты</a></li>
+      </nav>
+      <a href="#" class="side-menu__phone mobile">343 305 50 12</a>
+      <div class="side-menu__callback mobile">Заказать звонок</div>
+      <div class="side-menu__socials mobile">
+        <a target="_blank" href="#" class="side-menu__social">
+          {{ source('@public_path'~asset('build/vk.svg')) }}
+        </a>
+        <a target="_blank" href="#" class="side-menu__social">
+          {{ source('@public_path'~asset('build/fb.svg')) }}
+        </a>
+        <a target="_blank" href="#" class="side-menu__social">
+          {{ source('@public_path'~asset('build/inst.svg')) }}
+        </a>
+      </div>
+    </div>
   </div>
-</div>
-<div id="content">
-  {% block content %}{% endblock %}
-</div>
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
+</main>
 <footer id="footer" class="footer">
   {% block footer %}
     <div class="container-outer">
@@ -76,7 +78,7 @@
         <div class="footer__wrap">
           <nav class="footer__nav">
             <li><a href="#" class="footer__link">О компании</a></li>
-            <li><a href="#" class="footer__link">Портфолио</a></li>
+            <li><a href="/portfolio" class="footer__link">Портфолио</a></li>
             <li><a href="#" class="footer__link">Каталог</a></li>
             <li><a href="#" class="footer__link">Каталог</a></li>
             <li><a href="#" class="footer__link">Отзывы</a></li>

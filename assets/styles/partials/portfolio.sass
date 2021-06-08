@@ -35,15 +35,20 @@
       &:hover .portfolio__gallery-title:before
         width: 100px
     &-img
-      max-width: 367px
+      width: 367px
       height: 446px
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
       @media screen and (min-width: 1366px) and (max-width: 1659px)
-        max-width: 292px
+        width: 292px
         height: 371px
       @media screen and (min-width: 1280px) and (max-width: 1365px)
-        max-width: 271px
+        width: 271px
         height: 344px
     &-link
+      display: block
       padding: 32px
     &-title
       display: block
@@ -67,3 +72,68 @@
       font: normal normal normal 14px/16px Inter
       max-width: 200px
       color: #000
+
+.portfolio-page
+  &__wrap
+    max-width: 1190px
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    flex-wrap: wrap
+    gap: 64px 32px
+  &__item
+    &:hover .portfolio__gallery-title:before
+      width: 100px
+    &_big
+      .portfolio__gallery-img
+        width: 667px
+    &_left
+      margin-left: auto
+    &_right
+      margin-right: auto
+.portfolio-detailed
+  &__title
+    max-width: 766px
+  &__wrap
+    width: 1165px
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    flex-wrap: wrap
+    gap: 32px
+  &__img
+    width: 633px
+    height: 668px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &__text
+    font: normal normal normal 16px/28px Inter
+    color: #414141
+    margin-left: auto
+    width: 367px
+  &__item
+    width: 367px
+    height: 466px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      width: 292px
+      height: 371px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      width: 271px
+      height: 344px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+    &_big
+      width: 633px
+  &__review
+    background-color: #fff
+    padding: 68px 0 36px
+    margin: 88px 0
+    &-box
+      display: flex
+      align-items: flex-start
+      justify-content: flex-start
+      width: 850px

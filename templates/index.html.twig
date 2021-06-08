@@ -42,29 +42,29 @@
           <p class="block__desc">Металлический блеск — это первое что приходит на ум когда мы говорим о металле. На
             наших производственных площадях мы можем отполировать любую металлическую поверхность до зеркального блеска
             так , что вы сможете увидеть своё отражение.</p>
-          <a href="#" class="block__link link">
+          <a href="/portfolio" class="block__link link">
             <span>Все работы</span>
             <span class="arrow"></span>
           </a>
         </div>
         <div class="portfolio__gallery">
           <div class="portfolio__gallery-item">
-            <img src="{{ asset('build/gallery-1.png') }}" alt="gallery-img" class="portfolio__gallery-img">
-            <a href="#" class="portfolio__gallery-link">
+            <div class="portfolio__gallery-img"><img src="{{ asset('build/gallery-1.png') }}" alt="gallery-img"></div>
+            <a href="portfolio/portfolio-detailed" class="portfolio__gallery-link">
               <span class="portfolio__gallery-title">Стол и стулья</span>
               <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
             </a>
           </div>
           <div class="portfolio__gallery-item">
-            <img src="{{ asset('build/gallery-2.png') }}" alt="gallery-img" class="portfolio__gallery-img">
-            <a href="#" class="portfolio__gallery-link">
+            <div class="portfolio__gallery-img"><img src="{{ asset('build/gallery-2.png') }}" alt="gallery-img"></div>
+            <a href="portfolio/portfolio-detailed" class="portfolio__gallery-link">
               <span class="portfolio__gallery-title">Стол и стулья</span>
               <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
             </a>
           </div>
           <div class="portfolio__gallery-item">
-            <img src="{{ asset('build/gallery-3.png') }}" alt="gallery-img" class="portfolio__gallery-img">
-            <a href="#" class="portfolio__gallery-link">
+            <div class="portfolio__gallery-img"><img src="{{ asset('build/gallery-3.png') }}" alt="gallery-img"></div>
+            <a href="portfolio/portfolio-detailed" class="portfolio__gallery-link">
               <span class="portfolio__gallery-title">Стол и стулья</span>
               <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
             </a>
@@ -172,28 +172,7 @@
       {{ source('@public_path'~asset('build/arrow_right.svg')) }}
     </div>
   </div>
-  <section class="block quality">
-    <div class="container-outer">
-      <div class="container">
-        <div class="quality__wrap">
-          <img src="{{ asset('build/quantity-img.png') }}" alt="quantity-img" class="quality__img">
-          <div class="quality__info">
-            <div class="quality__title title">Высокое качество покраски</div>
-            <div class="quality__text">
-              <p>Чтобы изделие служило как можно дольше и не теряло свой товарный вид, мы с должным вниманием и
-                ответственностью подходим ко всем этапам обработки металла. Для покраски мы используем порошковую
-                краску, по нашему мнению, наилучшего качества, международного концерна AkzoNobel. Широкая гамма цветов и
-                текстур, позволяет воплотить практически любой замысел дизайнеров. Так же, в скором времени, планируем
-                красить жидкими красками в т.ч. под золото, латунь, медь.</p>
-              <p>Металлический блеск — это первое что приходит на ум когда мы говорим о металле. На наших
-                производственных площадях мы можем отполировать любую металлическую поверхность до зеркального блеска
-                так , что вы сможете увидеть своё отражение.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  {{ include('partials/quality.html.twig') }}
   <section class="block partners">
     <div class="container-outer">
       <div class="container">
@@ -276,7 +255,6 @@
     </div>
     <div id="googleMap" class="map__wrap"></div>
   </div>
-
   <script>
     function myMap() {
       const office = { lat: 56.88280065740292, lng: 60.63786188076285 };
