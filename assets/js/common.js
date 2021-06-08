@@ -105,8 +105,6 @@ let interiorNextArrow = $('.interior-detailed__arrow-box .default-arrow_right');
 interiorSlider.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    //arrows: true,
-    //appendArrows: $('.interior-detailed__arrow-box'),
     prevArrow: interiorPrevArrow,
     nextArrow: interiorNextArrow,
     draggable: false,
