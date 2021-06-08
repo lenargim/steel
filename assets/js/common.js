@@ -84,3 +84,31 @@ reviewsSlider.slick({
     draggable: false,
     infinite: false
 });
+
+/* Interior detailed Page */
+
+let interiorSlider = $('#interior-slider');
+let interiorSliderCounter = $('.interior-detailed__slider-counter');
+interiorSlider.on('init afterChange', function (event, slick) {
+    updateInteriorSliderCounter(slick);
+});
+
+let updateInteriorSliderCounter = function (slick) {
+    currentSlide = slick.slickCurrentSlide() + 1;
+    slidesCount = slick.slideCount;
+    interiorSliderCounter.html(`${currentSlide}/${slidesCount}`);
+};
+
+let interiorPrevArrow = $('.interior-detailed__arrow-box .default-arrow_left');
+let interiorNextArrow = $('.interior-detailed__arrow-box .default-arrow_right');
+
+interiorSlider.slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    //arrows: true,
+    //appendArrows: $('.interior-detailed__arrow-box'),
+    prevArrow: interiorPrevArrow,
+    nextArrow: interiorNextArrow,
+    draggable: false,
+    infinite: true
+});

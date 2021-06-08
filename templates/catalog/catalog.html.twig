@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <div class="catalog-page block">
+    <div class="container-outer">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="/" class="breadcrumbs__link">Главная</a>
+          <a href="/catalog" class="breadcrumbs__link">Каталог</a>
+        </div>
+        <h1 class="page-title">Каталог</h1>
+        <div class="catalog-page__wrap">
+          <div class="catalog-page__item catalog-page__item_big">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/output-1.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/output-2.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/output-3.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/catalog-4.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/catalog-5.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/catalog-6.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item catalog-page__item_big">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/catalog-7.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__text">Металлический блеск — это первое что приходит на ум когда мы говорим о
+              металле. На наших производственных площадях мы можем отполировать любую металлическую поверхность до
+              зеркального блеска так , что вы сможете увидеть своё отражение.
+            </div>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/catalog-8.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/catalog-9.png') }}" alt="catalog-img">
+            </div>
+            <a href="/category" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ include('partials/quality.html.twig') }}
+{% endblock %}

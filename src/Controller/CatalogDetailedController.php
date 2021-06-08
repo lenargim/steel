@@ -5,13 +5,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PortfolioPageController extends AbstractController
+class CatalogDetailedController extends AbstractController
 {
   /**
-  +      * @Route("/portfolio")
+  +      * @Route("/catalog/catalog-detailed")
   +      */
-  public function portfolio(): Response
+  public function catalog_detailed(): Response
   {
-    return $this->render('portfolio/portfolio.html.twig', []);
+    return $this->render('catalog/detailed.html.twig', []);
   }
 }

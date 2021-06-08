@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <div class="interior-detailed block">
+    <div class="container-outer">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="/" class="breadcrumbs__link">Главная</a>
+          <a href="/interior" class="breadcrumbs__link">Интерьерные решения</a>
+          <a href="/interior/interior-detailed" class="breadcrumbs__link">Салон красоты Топ Ган</a>
+        </div>
+        <h1 class="page-title">Салон красоты Топ Ган</h1>
+        <div class="interior-detailed__slider-wrap">
+          <div class="interior-detailed__arrow-box">
+            {{ source('@public_path'~asset('build/arrow_left.svg')) }}
+            <span class="interior-detailed__slider-counter"></span>
+            {{ source('@public_path'~asset('build/arrow_right.svg')) }}
+          </div>
+          <div class="interior-detailed__slider" id="interior-slider">
+            <div class="interior-detailed__slide">
+              <div class="interior-detailed__item">
+                <div class="interior-detailed__text"><p>
+                    Чтобы изделие служило как можно дольше и не теряло свой товарный вид,
+                    мы с должным вниманием и ответственностью подходим ко всем этапам обработки металла. Для покраски мы
+                    используем порошковую краску, по нашему мнению, наилучшего качества, международного концерна
+                    AkzoNobel.
+                  </p>
+                  <div class="interior-detailed__year">2019</div>
+                </div>
+                <div class="interior-detailed__img">
+                  <img src="{{ asset('build/interior-detailed.png') }}" alt="interior detailed">
+                </div>
+              </div>
+            </div>
+            <div class="interior-detailed__slide">
+              <div class="interior-detailed__item">
+                <div class="interior-detailed__text"><p>
+                    Чтобы изделие служило как можно дольше и не теряло свой товарный вид,Чтобы изделие служило как можно
+                    дольше и не теряло свой товарный вид,Чтобы изделие служило как можно дольше и не теряло свой
+                    товарный вид,Чтобы изделие служило как можно дольше и не теряло свой товарный вид,
+                    мы с должным вниманием и ответственностью подходим ко всем этапам обработки металла. Для покраски мы
+                    используем порошковую краску, по нашему мнению, наилучшего качества, международного концерна
+                    AkzoNobel.
+
+                  </p>
+                  <div class="interior-detailed__year">2019</div>
+                </div>
+                <div class="interior-detailed__img">
+                  <img src="{{ asset('build/interior-detailed.png') }}" alt="interior detailed">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ include('partials/quality.html.twig') }}
+{% endblock %}

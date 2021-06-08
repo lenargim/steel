@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <div class="catalog-detailed block">
+    <div class="container-outer">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="/" class="breadcrumbs__link">Главная</a>
+          <a href="/catalog" class="breadcrumbs__link">Каталог</a>
+          <a href="/category" class="breadcrumbs__link">Мебель для баров, кафе и ресторанов</a>
+          <a href="/catalog/catalog-detailed" class="breadcrumbs__link">Стул барный в стиле лофт</a>
+        </div>
+        <h1 class="page-title page-title_short">Стул барный в стиле лофт</h1>
+        <section class="catalog-detailed__info block">
+          <div class="catalog-detailed__img"><img src="{{ '/build/catalog-detailed.png' }}" alt="catalog-detailed-img">
+          </div>
+          <div class="catalog-detailed__text">
+            <p>Чтобы изделие служило как можно дольше и не теряло свой товарный вид, мы с должным вниманием и
+              ответственностью подходим ко всем этапам обработки металла. Для покраски мы используем порошковую краску,
+              по нашему мнению, наилучшего качества, международного концерна AkzoNobel. Широкая гамма цветов и текстур,
+              позволяет воплотить практически любой замысел дизайнеров. Так же, в скором времени, планируем красить
+              жидкими красками в т.ч. под золото, латунь, медь.</p>
+            <div class="catalog-detailed__button button">Узнать стоимость</div>
+          </div>
+        </section>
+        <div class="catalog-page__wrap">
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/category-1.png') }}" alt="category-img">
+            </div>
+            <a href="/catalog/catalog-detailed" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/category-2.png') }}" alt="category-img">
+            </div>
+            <a href="/catalog/catalog-detailed" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/category-3.png') }}" alt="category-img">
+            </div>
+            <a href="/catalog/catalog-detailed" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/category-4.png') }}" alt="category-img">
+            </div>
+            <a href="/catalog/catalog-detailed" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+          <div class="catalog-page__item">
+            <div class="catalog-page__img">
+              <img src="{{ asset('build/category-5.png') }}" alt="category-img">
+            </div>
+            <a href="/catalog/catalog-detailed" class="portfolio__gallery-link">
+              <span class="portfolio__gallery-title">Стол и стулья</span>
+              <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
