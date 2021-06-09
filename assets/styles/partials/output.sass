@@ -4,7 +4,7 @@
     align-items: flex-start
     justify-content: flex-start
     flex-wrap: wrap
-    &-link
+    &-box
       padding: 32px
       max-width: 264px
     &-item
@@ -13,7 +13,7 @@
       position: relative
       &:nth-of-type(1)
         margin: 0 32px 32px 0
-        .output__gallery-link
+        .output__gallery-box
           position: absolute
           top: 100%
           left: 0
@@ -23,8 +23,11 @@
       &:nth-of-type(3)
         margin-right: 30px
         margin-left: 264px
-      &:hover .output__gallery-title:before
-        width: 100px
+      &:hover
+        .output__gallery-title:before
+          width: 100px
+        img
+          transform: scale(1.2)
     &-title
       display: block
       color: $colorGreen

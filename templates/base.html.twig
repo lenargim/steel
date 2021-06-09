@@ -43,13 +43,13 @@
         {{ source('@public_path'~asset('build/inst.svg')) }}
       </a>
     </div>
-    <div class="side-menu__list">
+    <div class="side-menu__list" style="background-image: url('{{ asset('/build/menu-bg.svg') }}')">
       <nav>
         <li class="side-menu__item"><a href="/about" class="side-menu__link">О компании</a></li>
         <li class="side-menu__item"><a href="/portfolio" class="side-menu__link">Портфолио</a></li>
         <li class="side-menu__item"><a href="/catalog" class="side-menu__link">Каталог</a></li>
         <li class="side-menu__item"><a href="/interior" class="side-menu__link">Интерьерные решения</a></li>
-        <li class="side-menu__item"><a href="#" class="side-menu__link">Отзывы</a></li>
+        <li class="side-menu__item"><a href="/reviews" class="side-menu__link">Отзывы</a></li>
         <li class="side-menu__item"><a href="#" class="side-menu__link">Контакты</a></li>
       </nav>
       <a href="#" class="side-menu__phone mobile">343 305 50 12</a>
@@ -81,7 +81,7 @@
             <li><a href="/portfolio" class="footer__link">Портфолио</a></li>
             <li><a href="/catalog" class="footer__link">Каталог</a></li>
             <li><a href="/interior" class="footer__link">Интерьерные решения</a></li>
-            <li><a href="#" class="footer__link">Отзывы</a></li>
+            <li><a href="/reviews" class="footer__link">Отзывы</a></li>
             <li><a href="#" class="footer__link">Контакты</a></li>
           </nav>
           <a href="#" class="footer__dev">

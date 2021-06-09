@@ -82,14 +82,25 @@
     background-color: $colorSecond
     padding: 20vh 20vw
     transition: all 0.3s ease-in-out
+    background-repeat: no-repeat
+    background-position: right center
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 0
+      background-size: 170px 337px
     @media screen and (max-width: 1279px)
       width: 100vw
       left: -100vw
       padding: 20vh 30vw
   &__item
     margin-bottom: 50px
+    list-style-type: none
     &:last-of-type
       margin-bottom: 0
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      max-width: 209px
     @media screen and (max-width: 1279px)
       margin-bottom: 32px
   &__link

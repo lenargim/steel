@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <section class="not-found">
+    <div class="container-outer">
+      <div class="container">
+        <div class="not-found__wrap">
+          <div class="not-found__info">
+            <div class="not-found__title">404</div>
+            <div class="not-found__text">Что-то пошло не так, кажется страницы которую вы ищете не существует или она
+              была
+              переименована.
+            </div>
+            <a href="/" class="not-found__link link">
+              <span>На главную</span>
+              <span class="arrow"></span>
+            </a>
+          </div>
+          <div class="not-found__img"><img src="{{ asset('build/404.png') }}" alt="not found"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

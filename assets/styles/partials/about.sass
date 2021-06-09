@@ -25,9 +25,8 @@
     width: 584px
     font-weight: 500
   &__img
-    display: flex
-    align-items: center
-    justify-content: center
+    &:hover img
+      transform: scale(1.2)
     &_big
       width: 899px
     &-wrap
@@ -35,8 +34,6 @@
       align-items: flex-start
       justify-content: flex-start
       gap: 32px
-    img
-      object-fit: cover
   &__float
     position: relative
     left: -135px

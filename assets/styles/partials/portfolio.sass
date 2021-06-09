@@ -32,23 +32,22 @@
       justify-content: flex-start
       &:nth-child(2n)
         flex-direction: column-reverse
-      &:hover .portfolio__gallery-title:before
-        width: 100px
+      &:hover
+        .portfolio__gallery-title:before
+          width: 100px
+        img
+          transform: scale(1.2)
+
     &-img
       width: 367px
       height: 446px
-      img
-        width: 100%
-        height: 100%
-        object-fit: cover
       @media screen and (min-width: 1366px) and (max-width: 1659px)
         width: 292px
         height: 371px
       @media screen and (min-width: 1280px) and (max-width: 1365px)
         width: 271px
         height: 344px
-    &-link
-      display: block
+    &-box
       padding: 32px
     &-title
       display: block
@@ -82,8 +81,11 @@
     flex-wrap: wrap
     gap: 64px 32px
   &__item
-    &:hover .portfolio__gallery-title:before
-      width: 100px
+    &:hover
+      .portfolio__gallery-title:before
+        width: 100px
+      img
+        transform: scale(1.2)
     &_big
       .portfolio__gallery-img
         width: 667px
@@ -104,10 +106,8 @@
   &__img
     width: 633px
     height: 668px
-    img
-      width: 100%
-      height: 100%
-      object-fit: cover
+    &:hover img
+      transform: scale(1.2)
   &__text
     font: normal normal normal 16px/28px Inter
     color: #414141
@@ -116,16 +116,14 @@
   &__item
     width: 367px
     height: 466px
+    &:hover img
+      transform: scale(1.2)
     @media screen and (min-width: 1366px) and (max-width: 1659px)
       width: 292px
       height: 371px
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       width: 271px
       height: 344px
-    img
-      width: 100%
-      height: 100%
-      object-fit: cover
     &_big
       width: 633px
   &__review
