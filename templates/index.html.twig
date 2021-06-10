@@ -14,18 +14,26 @@
           </div>
           <div class="banner__slider-wrap">
             <div class="banner__slider slider" id="banner-slider">
-              <div class="banner__slider-item">
-                <img class="banner__item-img" src="{{ asset('build/chair.png') }}" alt="кресло">
-                <div class="banner__item-info">
-                  <div class="banner__item-name">Кресло Chair Domaine Eichholtz style</div>
-                  <div class="banner__item-price">57 400 ₽</div>
+              <div class="banner__slider-item-wrap">
+                <div class="banner__slider-item">
+                  <div class="banner__slider-img img">
+                    <img src="{{ asset('build/chair.png') }}" alt="кресло">
+                  </div>
+                  <div class="banner__slider-info">
+                    <div class="banner__slider-name">Кресло Chair Domaine Eichholtz style</div>
+                    <div class="banner__slider-price">57 400 ₽</div>
+                  </div>
                 </div>
               </div>
-              <div class="banner__slider-item">
-                <img class="banner__item-img" src="{{ asset('build/sample-banner.png') }}" alt="кресло">
-                <div class="banner__item-info">
-                  <div class="banner__item-name">2 Кресло Chair Domaine Eichholtz style</div>
-                  <div class="banner__item-price">57 400 ₽</div>
+              <div class="banner__slider-item-wrap">
+                <div class="banner__slider-item">
+                  <div class="banner__slider-img img">
+                    <img src="{{ asset('build/sample-banner.png') }}" alt="кресло">
+                  </div>
+                  <div class="banner__slider-info">
+                    <div class="banner__slider-name">2 Кресло Chair Domaine Eichholtz style</div>
+                    <div class="banner__slider-price">57 400 ₽</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -49,21 +57,24 @@
         </div>
         <div class="portfolio__gallery">
           <a href="portfolio/portfolio-detailed" class="portfolio__gallery-item">
-            <div class="portfolio__gallery-img img"><img src="{{ asset('build/gallery-1.png') }}" alt="gallery-img"></div>
+            <div class="portfolio__gallery-img img"><img src="{{ asset('build/gallery-1.png') }}" alt="gallery-img">
+            </div>
             <div class="portfolio__gallery-box">
               <span class="portfolio__gallery-title">Стол и стулья</span>
               <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
             </div>
           </a>
           <a href="portfolio/portfolio-detailed" class="portfolio__gallery-item">
-            <div class="portfolio__gallery-img img"><img src="{{ asset('build/gallery-2.png') }}" alt="gallery-img"></div>
+            <div class="portfolio__gallery-img img"><img src="{{ asset('build/gallery-2.png') }}" alt="gallery-img">
+            </div>
             <div class="portfolio__gallery-box">
               <span class="portfolio__gallery-title">Стол и стулья</span>
               <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
             </div>
           </a>
           <a href="portfolio/portfolio-detailed" class="portfolio__gallery-item">
-            <div class="portfolio__gallery-img img"><img src="{{ asset('build/gallery-3.png') }}" alt="gallery-img"></div>
+            <div class="portfolio__gallery-img img"><img src="{{ asset('build/gallery-3.png') }}" alt="gallery-img">
+            </div>
             <div class="portfolio__gallery-box">
               <span class="portfolio__gallery-title">Стол и стулья</span>
               <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
@@ -88,7 +99,7 @@
         </div>
         <div class="output__gallery">
           <a href="/category" class="output__gallery-item">
-            <div class="output__gallery-img img">
+            <div class="output__gallery-img output__gallery-img_big img">
               <img src="{{ asset('build/output-1.png') }}" alt="output-img">
             </div>
             <div class="output__gallery-box">
@@ -115,7 +126,7 @@
             </div>
           </a>
           <a href="/category" class="output__gallery-item">
-            <div class="output__gallery-img img">
+            <div class="output__gallery-img output__gallery-img_big img">
               <img src="{{ asset('build/output-4.png') }}" alt="output-img">
             </div>
             <div class="output__gallery-box">
@@ -265,14 +276,14 @@
   </div>
   <script>
     function myMap() {
-      const office = { lat: 56.88280065740292, lng: 60.63786188076285 };
-      var mapProp= {
-        center:new google.maps.LatLng(56.883639, 60.635223),
-        zoom:17,
+      const office = {lat: 56.88280065740292, lng: 60.63786188076285};
+      var mapProp = {
+        center: new google.maps.LatLng(56.883639, 60.635223),
+        zoom: 17,
         disableDefaultUI: true,
       };
-      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-      const marker = new google.maps.Marker({ map, position: office });
+      var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+      const marker = new google.maps.Marker({map, position: office});
     }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyaiFhTLH_eOQWq_Vyel3tm6akNacxuCs&language=ru&callback=myMap"></script>
