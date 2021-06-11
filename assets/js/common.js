@@ -110,3 +110,49 @@ interiorSlider.slick({
     draggable: false,
     infinite: true
 });
+
+/* Interior detailed modal */
+
+
+
+$('.interior-detailed__img').on('click', function(){
+    $('.overlay').addClass('active')
+    $('.modal-slider').addClass('active')
+    let modalSlider = $('.modal-slider__wrap')
+    let modalSliderCounter = $('.modal-slider__counter')
+    modalSlider.on('init afterChange', function (event, slick) {
+        updateModalSliderCounter(slick);
+    });
+    let updateModalSliderCounter = function (slick) {
+        currentSlide = slick.slickCurrentSlide() + 1;
+        slidesCount = slick.slideCount;
+        modalSliderCounter.html(`${currentSlide}/${slidesCount}`);
+    };
+
+    let modalPrevArrow = $('.modal__arrow_left');
+    let modalNextArrow = $('.modal__arrow_right');
+
+    modalSlider.slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: modalPrevArrow,
+        nextArrow: modalNextArrow,
+        draggable: false,
+        infinite: true
+    });
+})
+
+$('.modal__close').on('click', function(){
+    let modalSlider = $('.modal-slider__wrap')
+    modalSlider.slick('unslick')
+    $('.overlay').removeClass('active')
+    $('.modal-slider').removeClass('active')
+})
+
+
+
+
+$('.catalog-detailed__button').on('click', function(){
+    $('.overlay').addClass('active')
+    $('.modal-callback').addClass('active')
+})

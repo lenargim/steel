@@ -11,7 +11,8 @@
         </div>
         <h1 class="page-title page-title_short">Стул барный в стиле лофт</h1>
         <section class="catalog-detailed__info block">
-          <div class="catalog-detailed__img img"><img src="{{ '/build/catalog-detailed.png' }}" alt="catalog-detailed-img">
+          <div class="catalog-detailed__img img"><img src="{{ '/build/catalog-detailed.png' }}"
+                                                      alt="catalog-detailed-img">
           </div>
           <div class="catalog-detailed__text">
             <p>Чтобы изделие служило как можно дольше и не теряло свой товарный вид, мы с должным вниманием и
@@ -70,6 +71,30 @@
           </a>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="overlay">
+    <div class="modal__close"></div>
+    <div class="modal modal-callback">
+      <div class="modal-callback__title">Узнайте стоимость вашей идеи</div>arrow
+      <div class="modal-callback__desc">Отправьте ваши контактные данные и мы свяжемся с вами</div>
+      <form action="" class="modal-callback__form">
+        <div class="modal-callback__row">
+          <div class="modal-callback__field">
+            <label for="callback-name" class="modal-callback__label">Ваше имя</label>
+            <input type="text" id="callback-name" class="modal-callback__input">
+          </div>
+          <div class="modal-callback__field">
+            <label for="callback-phone" class="modal-callback__label">Номер телефона</label>
+            <input type="tel" id="callback-phone" class="modal-callback__input">
+          </div>
+          <div class="modal-callback__field">
+            <label for="callback-email" class="modal-callback__label">Электронная почта</label>
+            <input type="email" id="callback-email" class="modal-callback__input">
+          </div>
+        </div>
+        <input type="submit" class="modal-callback__submit button" value="Отправить">
+      </form>
     </div>
   </div>
 {% endblock %}

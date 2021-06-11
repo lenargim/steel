@@ -55,4 +55,30 @@
     </div>
   </div>
   {{ include('partials/quality.html.twig') }}
+  <div class="overlay">
+    <div class="modal__close"></div>
+    <div class="modal modal-slider">
+      <div class="container-outer">
+        <div class="modal__arrow modal__arrow_left"><i class="arrow"></i></div>
+        <div class="modal__arrow modal__arrow_right"><i class="arrow"></i></div>
+        <div class="modal-slider__arrow-box">
+          <span class="modal-slider__counter"></span>
+        </div>
+        <div class="modal-slider__wrap">
+          <div class="modal-slider__item-wrap">
+            <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+          </div>
+          <div class="modal-slider__item-wrap">
+            <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+          </div>
+          <div class="modal-slider__item-wrap">
+            <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+          </div>
+          <div class="modal-slider__item-wrap">
+            <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
