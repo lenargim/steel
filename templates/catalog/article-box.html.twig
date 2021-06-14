@@ -1,0 +1,13 @@
+<div class="col-lg-3 col-md-6">
+    <div class="cat-box">
+        <div class="cat-image">
+            <a href="{{ sitePath(item.route) }}">
+                <img src="{{ item.getWebPath('image') | thumb(320,190) }}" alt="{{ item.menutitle }}">
+            </a>
+        </div>
+        <h3><a href="{{ sitePath(item.route) }}">{{ item.menutitle }}</a></h3>
+        <div class="wrap">
+            <p>{{ item.mainTitle }}</p>
+        </div>
+    </div>
+</div>

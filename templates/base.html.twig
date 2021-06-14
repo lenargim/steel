@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}" xml:lang="{{ app.request.locale }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="robots" content="all"/>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
+    <meta name="description" content="{% block description %}{% endblock %}"/>
+
+    <!-- Template Basic Images Start -->
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon-180x180.png">
+    <!-- Template Basic Images End -->
+
+    <!-- Custom Browsers Color Start -->
+    <meta name="theme-color" content="#fe0000">
+    <!-- Custom Browsers Color End -->
+    <link rel="stylesheet" href="{{ asset('build/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('libs/stacktable/stacktable.css') }}">
+    {% block stylesheets %}
+    {% endblock %}
+    {% block headmetrika %}{% endblock %}
+</head>
+{% block body %}{% endblock %}
+</html>

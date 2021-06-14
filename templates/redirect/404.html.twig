@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block keywords %}{{ page.keywords }}{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+{% block headmetrika %}{{ 'headmetrika' | getSetting | raw }}{% endblock %}
+{% block body %}
+    <body>
+    {{ render(controller('App\\Controller\\PartController::header', {'request': app.request, 'page': page})) }}
+    {{ render(controller('App\\Controller\\PartController:navigation', {'page': page})) }}
+
+    {% block main_block %}
+        <div class="crumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li class="active">Ошибка 404</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="title-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <h1>Страница не найдена</h1>
+                        <p>К сожалению страница не найдена или не сущестует,<br/> пожалуйста перейдите на главную
+                            страницу</p>
+                        <a href="{{ sitePath('zema_pages') }}" class="btn btn-blue">На главную страницу</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    {{ render(controller('App\\Controller\\PartController::feedback', {'request': app.request, 'page': page})) }}
+    {% if page.discrString != 'Текстовая страница'  or page.discrString != 'Контакты' or page.discrString == 'Каталог карточка' %}
+        {% include 'part/seo_block.html.twig' %}
+    {% endif %}
+    {{ render(controller('App\\Controller\\PartController::footer', {'page': page})) }}
+    {% include 'part/message_success.html.twig' %}
+    <div style="display: none;">{{ 'bodymetrika' | getSetting }}</div>
+    {% block javascripts %}
+        <script src="{{ asset('libs/libs.min.js') }}"></script>
+        <script src="{{ asset('build/app.js') }}"></script>
+    {% endblock %}
+    </body>
+{% endblock %}
+

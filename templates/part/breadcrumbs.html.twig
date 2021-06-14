@@ -1,0 +1,17 @@
+<section class="crumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul>
+                    {%  for item in breadcrumbs %}
+                            {% if not loop.last %}
+                                <li><a href="{{ sitePath(item.route) }}">{{ item.title }}</a></li>
+                            {% else %}
+                                <li class="active">{{ item.title }}</li>
+                            {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

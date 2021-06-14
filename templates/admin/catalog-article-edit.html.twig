@@ -1,0 +1,40 @@
+{% extends '@SonataAdmin/CRUD/base_edit.html.twig' %}
+{% block form %}
+    {{ parent() }}
+    {% if admin.hasroute('exportArticle') %}
+        <div class="col-lg-12" id="import_page" style="display: none">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Импорт цен товаров в раздел</h3>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(importform, {'attr': {'class': 'form popup-form animated bounceInDown', 'novalidate': 'novalidate'}}) }}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {{ form_widget(importform.file) }}
+                            {{ form_errors(importform.file) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {{ form_widget(importform.save) }}
+                        </div>
+                    </div>
+                    {{ form_end(importform) }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block sonata_form_actions %}
+    {{ parent() }}
+    {% if admin.hasroute('exportArticle') %}
+        <a class="btn btn-info" target="_blank" href="{{ admin.generateObjectUrl('exportArticle', object) }}">Экспорт
+            цен товаров раздела в csv</a>
+    {% endif %}
+    {% if admin.hasroute('exportArticle') %}
+        <a class="btn btn-warning" href="#import_page" onclick="$('#import_page').show()">Импорт цен товаров раздела из
+            csv</a>
+    {% endif %}
+{% endblock %}

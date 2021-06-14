@@ -1,0 +1,25 @@
+services:
+
+# sitemap
+
+
+    site.command.sitemap:
+        class: SiteBundle\Command\SitemapCommand
+        arguments:
+            - '@site.service.sitemap'
+        tags:
+            - { name: console.command, command: site:sitemap:update }
+
+    site.pages.set_path:
+        class: SiteBundle\Command\SitePagesPathCommand
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: console.command, command: site:pages:set_path }
+
+    site.pages.recalc:
+        class: SiteBundle\Command\SitePagesRecalcTreeCommand
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: console.command, command: site:pages:recalc }

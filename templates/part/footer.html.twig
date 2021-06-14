@@ -1,0 +1,38 @@
+<footer>
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-3 order-lg-4">
+                <div class="f-box soc-box">
+                    <p>{{ 'footer_social_title' | getString('Футер') }}:</p>
+                    <ul>
+                        {% if 'footer_fb' | getString('Футер') %}
+                        <li><a href="{{ 'footer_fb' | getString('Футер') }}"><i class="demo-icon icon-facebook"></i></a></li>
+                        {% endif %}
+                        {% if 'footer_vk' | getString('Футер') %}
+                        <li><a href="{{ 'footer_vk' | getString('Футер') }}"><i class="demo-icon icon-vkontakte"></i></a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 order-lg-8">
+                <div class="phone-box">
+                    <a href="tel:{{ city.phone  | replace({" ": "", "-": "", "(": "", ")": ""})  }}">
+                        {{ city.phone | raw }}
+                    </a>
+                </div>
+                <div class="phone-box">
+                    <a href="tel:{{ city.phone2  | replace({" ": "", "-": "", "(": "", ")": ""})  }}">
+                        {{ city.phone2 | raw }}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 order-lg-1">
+                <div class="f-box copyright">{{ 'footer_copyright' | getString('Футер') }}</div>
+            </div>
+            <div class="col-lg-2 order-lg-9">
+                <div class="jazz">Разработка - <a href="http://jazzme.ru/">The Jazz</a></div>
+            </div>
+        </div>
+    </div>
+</footer>

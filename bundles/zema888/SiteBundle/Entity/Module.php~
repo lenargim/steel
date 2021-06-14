@@ -1,0 +1,118 @@
+<?php
+namespace SiteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="\SiteBundle\Repository\ModuleRepository")
+ * @ORM\Table(name="module")
+ */
+class Module
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $admin;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $controller;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Module
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+    /**
+     * Set admin
+     *
+     * @param string $admin
+     *
+     * @return Module
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
+
+        return $this;
+    }
+
+    /**
+     * Get admin
+     *
+     * @return string
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * Set controller
+     *
+     * @param string $controller
+     *
+     * @return Module
+     */
+    public function setController($controller)
+    {
+        $this->controller = $controller;
+
+        return $this;
+    }
+
+    /**
+     * Get controller
+     *
+     * @return string
+     */
+    public function getController()
+    {
+        return $this->controller;
+    }
+
+    public function __toString() {
+        return $this->getTitle();
+    }
+}

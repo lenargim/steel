@@ -1,0 +1,116 @@
+{
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": "^7.4",
+    "ext-iconv": "*",
+    "beberlei/doctrineextensions": "^1.2",
+    "comur/content-admin-bundle": "^0.0.21",
+    "comur/image-bundle": "^2",
+    "friendsofsymfony/ckeditor-bundle": "^1.1",
+    "friendsofsymfony/user-bundle": "^2.1",
+    "gedmo/doctrine-extensions": "^2.4",
+    "helios-ag/fm-elfinder-bundle": "^10.1",
+    "ip2location/ip2location-php": "^8.2",
+    "paragonie/random_compat": "^2",
+    "pixassociates/sortable-behavior-bundle": "^1.5",
+    "sensio/framework-extra-bundle": "^5.5",
+    "sonata-project/admin-bundle": "^3.9",
+    "sonata-project/core-bundle": "^3.20",
+    "sonata-project/doctrine-orm-admin-bundle": "^3.9",
+    "sonata-project/easy-extends-bundle": "^2.5",
+    "sonata-project/formatter-bundle": "^4.1",
+    "sonata-project/markitup-bundle": "^2.1",
+    "sonata-project/user-bundle": "^4.5",
+    "stof/doctrine-extensions-bundle": "^1.3",
+    "symfony/acl-bundle": "^1.0",
+    "symfony/asset": "^4.3",
+    "symfony/browser-kit": "^4.3",
+    "symfony/console": "^4.3",
+    "symfony/css-selector": "^4.3",
+    "symfony/debug-pack": "*",
+    "symfony/dependency-injection": "^4.3",
+    "symfony/expression-language": "^4.3",
+    "symfony/flex": "^1.4",
+    "symfony/form": "^4.3",
+    "symfony/framework-bundle": "^4.3",
+    "symfony/lts": "^4@dev",
+    "symfony/monolog-bundle": "^3.4",
+    "symfony/orm-pack": "*",
+    "symfony/process": "^4.3",
+    "symfony/security-bundle": "^4.3",
+    "symfony/serializer-pack": "*",
+    "symfony/swiftmailer-bundle": "^3.3",
+    "symfony/templating": "^4.3",
+    "symfony/validator": "^4.3",
+    "symfony/web-link": "^4.3",
+    "symfony/webpack-encore-pack": "^1.0",
+    "symfony/yaml": "^4.3",
+    "twig/extensions": "^1.5",
+    "vich/uploader-bundle": "^1.8",
+    "zema888/zema-jsontable-bundle": "^1.6",
+    "zema888/zema-tree-bundle2": "1.1.0"
+  },
+  "require-dev": {
+    "doctrine/doctrine-fixtures-bundle": "^3.0",
+    "symfony/dotenv": "^4.3",
+    "symfony/maker-bundle": "^1.0",
+    "symfony/phpunit-bridge": "^4.3",
+    "symfony/profiler-pack": "*",
+    "symfony/web-server-bundle": "^4.3"
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true,
+    "component-dir": "public/assets"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "SiteBundle\\": "bundles/zema888/SiteBundle/",
+      "UserBundle\\": "bundles/UserBundle/",
+      "DoctrineExtensions\\": "vendor/beberlei/DoctrineExtensions/src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/"
+    }
+  },
+  "replace": {
+    "symfony/polyfill-iconv": "*",
+    "symfony/polyfill-php71": "*",
+    "symfony/polyfill-php70": "*",
+    "symfony/polyfill-php56": "*",
+    "egeloen/ckeditor-bundle": "*"
+  },
+  "scripts": {
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd",
+      "elfinder:install": "symfony-cmd"
+    },
+    "post-install-cmd": [
+      "@auto-scripts"
+    ],
+    "post-update-cmd": [
+      "@auto-scripts"
+    ]
+  },
+  "conflict": {
+    "symfony/symfony": "*"
+  },
+  "extra": {
+    "symfony": {
+      "id": "",
+      "allow-contrib": "true"
+    }
+  },
+  "repositories": [
+    { "type": "vcs", "url": "https://github.com/zema888/zema-jsontable-bundle.git" },
+    { "type": "vcs", "url": "https://github.com/zema888/zema-tree-bundle2.git" }
+  ]
+
+}

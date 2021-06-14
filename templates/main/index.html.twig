@@ -1,0 +1,172 @@
+{% extends 'layout.html.twig' %}
+{% block main_block %}
+    <section class="slider-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="slider">
+                        {% for item in sliders %}
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="slide-image">
+                                        <img src="{{item.getWebPath('mainImage') | thumb(501,445)}}" alt="{{ item.menutitle }}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h3>{{ item.menutitle }}</h3>
+                                    <p>{{ item.mainTitle }}</p>
+                                    {% if item.discr == catalogItemClass %}
+                                    <p><button  onclick="window.cart.addingItem({{ item.id }}, 1)" class="btn btn-red btn-more popup-with-form">В корзину</button></p>
+                                    {% else %}
+                                    <p>
+                                        <a data-reachgoal="message-button"
+                                           data-type="message"
+                                           href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'message', 'route': page.route, 'order_obj': 'Услуга ' ~  item.mainTitle  }) }}"
+                                           class="btn btn-red btn-more popup-with-form js-popup-open js-reachgoal">
+                                            Заказать
+                                        </a>
+                                    </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block content %}
+    <section class="catalog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="title-shield">{{ page.getBlock('catalog').string1 }}</h2>
+                    <div class="row">
+                        <div class="col-lg-12"> 
+                            <div class="catalog-wrapper">
+                            {% for key, item in catalog.getChildren([catalogArticleClass]) if key < 8 %}
+                                <div class="cat-box">
+                                    <div class="cat-image">
+                                        <a href="{{ sitePath(item.route) }}">
+                                            <img src="{{ item.getWebPath('image') | thumb(320,190) }}" alt="{{ item.menutitle }}">
+                                        </a>
+                                    </div>
+                                    <h3>{{ item.menutitle }}</h3>
+                                    <div class="wrap">
+                                        <ul>
+                                            {% for subitem in item.getChildren([catalogArticleClass]) %}
+                                                <li>
+                                                    <a href="{{ sitePath(subitem.route) }}">{{ subitem.menutitle }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-lg-12 text-center">
+                            <a href="{{ sitePath(catalog.route) }}" class="btn btn-red btn-all">{{ page.getBlock('catalog').string2 }}</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper">
+                        <h2>{{ page.getBlock('banner').string1 | raw }}</h2>
+                        <p>{{ page.getBlock('banner').string2 | raw }}с</p>
+                        <a data-reachgoal="message-button"
+                           data-type="message"
+                           href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'message', 'route': page.route, 'order_obj': 'Баннер на главной' }) }}"
+                           class="btn btn-red btn-order js-popup-open js-reachgoal">
+                            {{ page.getBlock('banner').string3 }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="popular-product">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2>{{ page.getBlock('popular_product').string1 }}</h2>
+                    <div class="wrapper">
+                        <div class="tabs">
+                            {% for item in articles %}
+                            <span class="tab">{{item.menutitle}}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="tab_content">
+                            {% for item in articles %}
+                                <div class="tab_item">
+                                    <div class="left">
+                                        <div class="image-wrap">
+                                            <img src="{{ item.getWebPath('image') | thumb(320,190) }}" alt="{{ item.menutitle }}">
+                                        </div>
+                                        <a data-reachgoal="message-button"
+                                           data-type="message"
+                                           href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'message', 'route': page.route, 'order_obj': 'Популярные товар ' ~ item.menutitle }) }}"
+                                           class="btn btn-red btn-mor js-popup-open js-reachgoal">
+                                            Оставить заявку
+                                        </a>
+                                    </div>
+                                    <div class="right">
+                                        <ul>
+                                            {% for subitem in items if subitem.isParent(item.id) %}
+                                                <li><a href="{{ sitePath(subitem.route) }}">{{ subitem.menutitle }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                        <p class="text-center"><a href="{{ sitePath(item.route) }}">Показать все товары категории</a></p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="title-shield">{{ page.getBlock('service').string1 }}</h2>
+                    <div class="row">
+                        {% for key, item in service.getChildren([serviceItemClass]) if key < 4 %}
+                            {% include 'catalog/article-box.html.twig' %}
+                        {% endfor %}
+                        <div class="col-lg-12 text-center">
+                            <a href="{{ sitePath(service.route) }}" class="btn btn-red btn-all">{{ page.getBlock('service').string2 }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="advantage">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="title-shield">{{ page.getBlock('advantage').string1 }}</h2>
+                    <div class="wrapper">
+                        {% for item in page.getBlock('advantage').arr1 %}
+                        <div class="advant-box">
+                            <span><i class="demo-icon {{ item.icon }}"></i></span>
+                            <div class="title">{{ item.title }}</div>
+                            <p>{{ item.text }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

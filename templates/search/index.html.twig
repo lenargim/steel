@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <section class="category-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row js-load-container">
+                        <div class="col-lg-12">
+                            <div class="search-res-form">
+                                <form action="{{ sitePath(page.route) }}" method="get">
+                                    <input type="text"
+                                           name="search"
+                                           value="{{ searchText }}"
+                                           placeholder="{{ 'header_search_placeholder' | getString('Поиск') }}">
+                                    <button type="submit" class="btn-search"><i class="demo-icon icon-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="total-res">Всего найдено результатов: <b>{{ searchResults.items | length }}</b></div>
+                        </div>
+                        {% for key, item in searchResults.items %}
+                            {% include 'catalog/product-box.html.twig' %}
+                        {% endfor %}
+                        {% if searchResults.items | length > 8 %}
+                            <div class="col-lg-12 text-center">
+                                <button class="btn btn-red btn-all js-show-more">Показать еще</button>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if searchResults | length == 0 %}
+        <section class="content-page">
+            <div class="container">
+                <div class="row">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            {{ page.text |  raw }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
+{% block seo %}
+{% endblock %}
+

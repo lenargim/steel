@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+{% block field%}
+{% if attribute(object, field_description.name) %}
+<img src="{{ object.getWebPath(field_description.name) | thumb(100, 100) }}">
+{% else %}
+    <p>Нет картинки</p>
+{% endif %}
+{% endblock %}

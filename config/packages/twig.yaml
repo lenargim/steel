@@ -1,0 +1,11 @@
+twig:
+    paths: ['%kernel.project_dir%/templates']
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        catalogItemClass: 'SiteBundle\Entity\Pages\CatalogItem'
+        serviceItemClass: 'SiteBundle\Entity\Pages\ServiceItem'
+        catalogArticleClass: 'SiteBundle\Entity\Pages\CatalogArticle'
+    form_themes:
+        - '@SonataFormatter/Form/formatter.html.twig'
+        - 'ZemaJsontableBundle:Form:jsontable_widget.html.twig'

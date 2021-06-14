@@ -1,0 +1,10 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script src="/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+{% endblock %}
+{% block sonata_wrapper %}
+    {{ parent() }}
+    {% include "ComurImageBundle:Form:croppable_image_modal.html.twig" with {'include_jquery': false, 'include_bootstrap': false} %}
+{% endblock %}

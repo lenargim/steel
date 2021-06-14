@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block keywords %}{{ page.keywords  }}{% endblock %}
+{% block description %}{{ page.description  }}{% endblock %}
+{% block headmetrika %}{{ 'headmetrika' | getSetting | raw }}{% endblock %}
+
+{% block body %}
+    <body>
+    <div class="wrap-main">
+        {{ render(controller('App\\Controller\\PartController::header', {'request': app.request, 'page': page})) }}
+        {% block main_block %}
+            {{ render(controller('App\\Controller\\PartController:breadcrumbs', {'page': page})) }}
+            <section class="title-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {% if page.discrString == 'Текстовая страница'  or page.discrString == 'Контакты' or page.discrString == 'Страница поиска' or page.discrString == 'Корзина' %}
+                                <h1 class="title">{{ page.h1  }}</h1>
+                            {%  else %}
+                                <div class="title">{{ page.seotitle  }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endblock %}
+    </div>
+
+
+
+
+    {% block content %}{% endblock %}
+    {% block seo %}
+    {% include 'part/seo_block.html.twig' %}
+    {% endblock %}
+    {{ render(controller('App\\Controller\\PartController::footer', {'page': page})) }}
+    <div class="hidden">
+        {{ render(controller('App\\Controller\\PartController:navigationMobile', {'page': page})) }}
+        {{ render(controller('App\\Controller\\PartController::cities', {'request': app.request})) }}
+        {{ render(controller('App\\Controller\\PartController::askUserCity', {'request': app.request})) }}
+    </div>
+    {% include 'part/message_success.html.twig' %}
+    <div style="display: none;">{{ 'bodymetrika' | getSetting | raw }}</div>
+    {% block javascripts %}
+        <script src="https://unpkg.com/vue"></script>
+        <script src="{{ asset('libs/libs.min.js') }}"></script>
+        <script src="{{ asset('build/app.js') }}"></script>
+        <script src="{{ asset('libs/stacktable/stacktable.js') }}"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('.table').stacktable();
+            });
+        </script> 
+    {% endblock %}
+    </body>
+{% endblock %}

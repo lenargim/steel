@@ -1,0 +1,24 @@
+{
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.20.0",
+        "copy-webpack-plugin": "^4.5.2",
+        "node-sass": "^4.9.3",
+        "sass-loader": "^7.1.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production"
+    },
+    "dependencies": {
+        "jquery": "^3.3.1",
+        "jquery-ui": "^1.12.1",
+        "jquery-ui-dist": "^1.12.1",
+        "jquery.fancybox": "^2.1.5",
+        "jquery.maskedinput": "^1.4.1"
+    }
+}

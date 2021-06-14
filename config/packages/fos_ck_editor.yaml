@@ -1,0 +1,30 @@
+fos_ck_editor:
+    input_sync: true
+    default_config: my_config
+    configs:
+        my_config:
+            language: 'ru'
+            toolbar:
+                - ['Source']
+                - ['youtube','Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo']
+                - ['Find','Replace']
+                - '/'
+                - ['Bold','Italic','Subscript','Superscript','-','RemoveFormat']
+                - ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']
+                - ['Link','Unlink','Anchor']
+                - '/'
+                - ['Image','Table','Iframe','SpecialChar']
+                - ['Format']
+                - ['Maximize', 'ShowBlocks']
+                - ['About']
+
+            uiColor:                "#C0C0C0"
+            startup_outline_blocks: true
+            width: 100% #Integer or %
+            height: 300 #Integer or %
+            enterMode: CKEDITOR.ENTER_P
+            allowedContent: true
+            extraAllowedContent: ['script']
+#            shiftEnterMode: CKEDITOR.ENTER_BR
+            autoParagraph: true
+            filebrowserBrowseRoute: 'elfinder'

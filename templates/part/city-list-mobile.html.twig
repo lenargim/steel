@@ -1,0 +1,9 @@
+<div class="city-select">
+    <div class="nice-select" tabindex="0"><span class="current">г. {{ city.title }}</span>
+        <ul class="list">
+            {% for item in cities %}
+                <li class="option"><a href="//{{ item.domain ~ uri }}?selected_city=1" style="color: #000 !important;">{{item.title}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

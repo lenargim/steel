@@ -1,0 +1,30 @@
+{{ form_start(form.form, {'attr': { 'class': 'form popup-form', 'id': 'callback', 'data-ajax_valid_path': path('app_main.ajax_ajax_validform', { 'type' : form.type}) } }) }}
+<h3>{{ form.title | getString('Обратный звонок') }}</h3>
+<div class="wrapper">
+    <div class="item-input js_wrap_input">
+        <legend>{{ 'forms_label_name' | getString('Обратный звонок') }} <span>*</span></legend>
+        {{ form_widget(form.form.name) }}
+        <span class="error-msg">{{ 'forms_error_name' | getString('Обратный звонок') }}</span>
+    </div>
+    <div class="item-input js_wrap_input">
+        <legend>{{ 'forms_label_phone' | getString('Обратный звонок') }} <span>*</span></legend>
+        {{ form_widget(form.form.phone, {'attr': {'class': 'tel-input', 'placeholder': 'forms_placeholder_phone' | getString('Обратный звонок'), 'data-validate': '' } }) }}
+        <span class="error-msg">{{ 'forms_error_phone' | getString('Обратный звонок') }}</span>
+    </div>
+    <div class="item-input js_wrap_input">
+        {{  form_widget(form.form.policy, {'attr': {'class': 'js_policy_chekbox checkbox'} })  }}
+        <label for="callback_mail_policy">
+            {% set policy = 'policy_page' | pageByDiscr %}
+            {% if policy %}
+                <a href="{{ sitePath(policy.route) }}" target="_blank">
+                    {{ 'forms_label_policy' | getString('Обратный звонок') }}
+                </a>
+            {% else %}
+                {{ 'forms_label_policy' | getString('Обратный звонок') }}
+            {% endif %}
+        </label>
+        <span class="error-msg">{{ 'forms_error_policy' | getString('Обратный звонок') }}</span>
+    </div>
+    <button type="submit" class="btn btn-red btn-send">{{ 'forms_label_button' | getString('Обратный звонок') }}</button>
+</div>
+{{ form_end(form.form) }}

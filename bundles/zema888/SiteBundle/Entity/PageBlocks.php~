@@ -1,0 +1,1746 @@
+<?php
+namespace SiteBundle\Entity;
+
+use SiteBundle\Entity\Traits\ImageUpload;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * @ORM\Table(name="main_blocks")
+ * @ORM\Entity(repositoryClass="SiteBundle\Repository\PageBlocksRepository")
+ */
+class PageBlocks
+{
+    use ImageUpload;
+
+    protected $upload_dir = "page";
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SiteBundle\Entity\Pages")
+     * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
+     */
+    protected $page;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $page_id;
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $title;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $type;
+
+
+    /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(name="position", type="integer")
+     */
+    protected $position;
+
+    // strings
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string4;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string5;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string6;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string7;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string8;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string9;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string10;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string11;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string12;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string13;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string14;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string15;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string16;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $string17;
+
+
+    // integers
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer1;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer2;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer3;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer4;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer5;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer6;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer7;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer8;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $integer9;
+
+    // texts
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $text1;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $text2;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $text3;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $text4;
+
+
+    // images
+
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image1;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image2;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image3;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image4;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image5;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image6;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image7;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image8;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $image9;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage1;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage2;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage3;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage4;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage5;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage6;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage7;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage8;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $originalImage9;
+
+    //array
+    /**
+     * @var array
+     * @ORM\Column(type="json_array" , nullable=true)
+     */
+    protected $arr1;
+    /**
+     * @var array
+     * @ORM\Column(type="json_array", nullable=true )
+     */
+    protected $arr2;
+    /**
+     * @var array
+     * @ORM\Column(type="json_array", nullable=true )
+     */
+    protected $arr3;
+    /**
+     * @var array
+     * @ORM\Column(type="json_array" , nullable=true)
+     */
+    protected $arr4;
+    /**
+     * @var array
+     * @ORM\Column(type="json_array" , nullable=true)
+     */
+    protected $arr5;
+
+    // upload docs
+    /**
+     * @Assert\File( maxSize="20M")
+     * @ORM\Column(type="array", nullable=true)
+     **/
+    private $doc;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return PageBlocks
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return PageBlocks
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     *
+     * @return PageBlocks
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set string1
+     *
+     * @param string $string1
+     *
+     * @return PageBlocks
+     */
+    public function setString1($string1)
+    {
+        $this->string1 = $string1;
+
+        return $this;
+    }
+
+    /**
+     * Get string1
+     *
+     * @return string
+     */
+    public function getString1()
+    {
+        return $this->string1;
+    }
+
+    /**
+     * Set string2
+     *
+     * @param string $string2
+     *
+     * @return PageBlocks
+     */
+    public function setString2($string2)
+    {
+        $this->string2 = $string2;
+
+        return $this;
+    }
+
+    /**
+     * Get string2
+     *
+     * @return string
+     */
+    public function getString2()
+    {
+        return $this->string2;
+    }
+
+    /**
+     * Set string3
+     *
+     * @param string $string3
+     *
+     * @return PageBlocks
+     */
+    public function setString3($string3)
+    {
+        $this->string3 = $string3;
+
+        return $this;
+    }
+
+    /**
+     * Get string3
+     *
+     * @return string
+     */
+    public function getString3()
+    {
+        return $this->string3;
+    }
+
+    /**
+     * Set string4
+     *
+     * @param string $string4
+     *
+     * @return PageBlocks
+     */
+    public function setString4($string4)
+    {
+        $this->string4 = $string4;
+
+        return $this;
+    }
+
+    /**
+     * Get string4
+     *
+     * @return string
+     */
+    public function getString4()
+    {
+        return $this->string4;
+    }
+
+    /**
+     * Set string5
+     *
+     * @param string $string5
+     *
+     * @return PageBlocks
+     */
+    public function setString5($string5)
+    {
+        $this->string5 = $string5;
+
+        return $this;
+    }
+
+    /**
+     * Get string5
+     *
+     * @return string
+     */
+    public function getString5()
+    {
+        return $this->string5;
+    }
+
+    /**
+     * Set string6
+     *
+     * @param string $string6
+     *
+     * @return PageBlocks
+     */
+    public function setString6($string6)
+    {
+        $this->string6 = $string6;
+
+        return $this;
+    }
+
+    /**
+     * Get string6
+     *
+     * @return string
+     */
+    public function getString6()
+    {
+        return $this->string6;
+    }
+
+    /**
+     * Set string7
+     *
+     * @param string $string7
+     *
+     * @return PageBlocks
+     */
+    public function setString7($string7)
+    {
+        $this->string7 = $string7;
+
+        return $this;
+    }
+
+    /**
+     * Get string7
+     *
+     * @return string
+     */
+    public function getString7()
+    {
+        return $this->string7;
+    }
+
+    /**
+     * Set string8
+     *
+     * @param string $string8
+     *
+     * @return PageBlocks
+     */
+    public function setString8($string8)
+    {
+        $this->string8 = $string8;
+
+        return $this;
+    }
+
+    /**
+     * Get string8
+     *
+     * @return string
+     */
+    public function getString8()
+    {
+        return $this->string8;
+    }
+
+    /**
+     * Set string9
+     *
+     * @param string $string9
+     *
+     * @return PageBlocks
+     */
+    public function setString9($string9)
+    {
+        $this->string9 = $string9;
+
+        return $this;
+    }
+
+    /**
+     * Get string9
+     *
+     * @return string
+     */
+    public function getString9()
+    {
+        return $this->string9;
+    }
+
+    /**
+     * Set integer1
+     *
+     * @param integer $integer1
+     *
+     * @return PageBlocks
+     */
+    public function setInteger1($integer1)
+    {
+        $this->integer1 = $integer1;
+
+        return $this;
+    }
+
+    /**
+     * Get integer1
+     *
+     * @return integer
+     */
+    public function getInteger1()
+    {
+        return $this->integer1;
+    }
+
+    /**
+     * Set integer2
+     *
+     * @param integer $integer2
+     *
+     * @return PageBlocks
+     */
+    public function setInteger2($integer2)
+    {
+        $this->integer2 = $integer2;
+
+        return $this;
+    }
+
+    /**
+     * Get integer2
+     *
+     * @return integer
+     */
+    public function getInteger2()
+    {
+        return $this->integer2;
+    }
+
+    /**
+     * Set integer3
+     *
+     * @param integer $integer3
+     *
+     * @return PageBlocks
+     */
+    public function setInteger3($integer3)
+    {
+        $this->integer3 = $integer3;
+
+        return $this;
+    }
+
+    /**
+     * Get integer3
+     *
+     * @return integer
+     */
+    public function getInteger3()
+    {
+        return $this->integer3;
+    }
+
+    /**
+     * Set integer4
+     *
+     * @param integer $integer4
+     *
+     * @return PageBlocks
+     */
+    public function setInteger4($integer4)
+    {
+        $this->integer4 = $integer4;
+
+        return $this;
+    }
+
+    /**
+     * Get integer4
+     *
+     * @return integer
+     */
+    public function getInteger4()
+    {
+        return $this->integer4;
+    }
+
+    /**
+     * Set integer5
+     *
+     * @param integer $integer5
+     *
+     * @return PageBlocks
+     */
+    public function setInteger5($integer5)
+    {
+        $this->integer5 = $integer5;
+
+        return $this;
+    }
+
+    /**
+     * Get integer5
+     *
+     * @return integer
+     */
+    public function getInteger5()
+    {
+        return $this->integer5;
+    }
+
+    /**
+     * Set integer6
+     *
+     * @param integer $integer6
+     *
+     * @return PageBlocks
+     */
+    public function setInteger6($integer6)
+    {
+        $this->integer6 = $integer6;
+
+        return $this;
+    }
+
+    /**
+     * Get integer6
+     *
+     * @return integer
+     */
+    public function getInteger6()
+    {
+        return $this->integer6;
+    }
+
+    /**
+     * Set integer7
+     *
+     * @param integer $integer7
+     *
+     * @return PageBlocks
+     */
+    public function setInteger7($integer7)
+    {
+        $this->integer7 = $integer7;
+
+        return $this;
+    }
+
+    /**
+     * Get integer7
+     *
+     * @return integer
+     */
+    public function getInteger7()
+    {
+        return $this->integer7;
+    }
+
+    /**
+     * Set integer8
+     *
+     * @param integer $integer8
+     *
+     * @return PageBlocks
+     */
+    public function setInteger8($integer8)
+    {
+        $this->integer8 = $integer8;
+
+        return $this;
+    }
+
+    /**
+     * Get integer8
+     *
+     * @return integer
+     */
+    public function getInteger8()
+    {
+        return $this->integer8;
+    }
+
+    /**
+     * Set integer9
+     *
+     * @param integer $integer9
+     *
+     * @return PageBlocks
+     */
+    public function setInteger9($integer9)
+    {
+        $this->integer9 = $integer9;
+
+        return $this;
+    }
+
+    /**
+     * Get integer9
+     *
+     * @return integer
+     */
+    public function getInteger9()
+    {
+        return $this->integer9;
+    }
+
+    /**
+     * Set text1
+     *
+     * @param string $text1
+     *
+     * @return PageBlocks
+     */
+    public function setText1($text1)
+    {
+        $this->text1 = $text1;
+
+        return $this;
+    }
+
+    /**
+     * Get text1
+     *
+     * @return string
+     */
+    public function getText1()
+    {
+        return $this->text1;
+    }
+
+    /**
+     * Set text2
+     *
+     * @param string $text2
+     *
+     * @return PageBlocks
+     */
+    public function setText2($text2)
+    {
+        $this->text2 = $text2;
+
+        return $this;
+    }
+
+    /**
+     * Get text2
+     *
+     * @return string
+     */
+    public function getText2()
+    {
+        return $this->text2;
+    }
+
+    /**
+     * Set text3
+     *
+     * @param string $text3
+     *
+     * @return PageBlocks
+     */
+    public function setText3($text3)
+    {
+        $this->text3 = $text3;
+
+        return $this;
+    }
+
+    /**
+     * Get text3
+     *
+     * @return string
+     */
+    public function getText3()
+    {
+        return $this->text3;
+    }
+
+    /**
+     * Set text4
+     *
+     * @param string $text4
+     *
+     * @return PageBlocks
+     */
+    public function setText4($text4)
+    {
+        $this->text4 = $text4;
+
+        return $this;
+    }
+
+    /**
+     * Get text4
+     *
+     * @return string
+     */
+    public function getText4()
+    {
+        return $this->text4;
+    }
+
+
+
+    /**
+     * Set string10
+     *
+     * @param string $string10
+     *
+     * @return PageBlocks
+     */
+    public function setString10($string10)
+    {
+        $this->string10 = $string10;
+
+        return $this;
+    }
+
+    /**
+     * Get string10
+     *
+     * @return string
+     */
+    public function getString10()
+    {
+        return $this->string10;
+    }
+
+    /**
+     * Set string11
+     *
+     * @param string $string11
+     *
+     * @return PageBlocks
+     */
+    public function setString11($string11)
+    {
+        $this->string11 = $string11;
+
+        return $this;
+    }
+
+    /**
+     * Get string11
+     *
+     * @return string
+     */
+    public function getString11()
+    {
+        return $this->string11;
+    }
+
+    /**
+     * Set string12
+     *
+     * @param string $string12
+     *
+     * @return PageBlocks
+     */
+    public function setString12($string12)
+    {
+        $this->string12 = $string12;
+
+        return $this;
+    }
+
+    /**
+     * Get string12
+     *
+     * @return string
+     */
+    public function getString12()
+    {
+        return $this->string12;
+    }
+
+    /**
+     * Set string13
+     *
+     * @param string $string13
+     *
+     * @return PageBlocks
+     */
+    public function setString13($string13)
+    {
+        $this->string13 = $string13;
+
+        return $this;
+    }
+
+    /**
+     * Get string13
+     *
+     * @return string
+     */
+    public function getString13()
+    {
+        return $this->string13;
+    }
+
+    /**
+     * Set string14
+     *
+     * @param string $string14
+     *
+     * @return PageBlocks
+     */
+    public function setString14($string14)
+    {
+        $this->string14 = $string14;
+
+        return $this;
+    }
+
+    /**
+     * Get string14
+     *
+     * @return string
+     */
+    public function getString14()
+    {
+        return $this->string14;
+    }
+
+    /**
+     * Set string15
+     *
+     * @param string $string15
+     *
+     * @return PageBlocks
+     */
+    public function setString15($string15)
+    {
+        $this->string15 = $string15;
+
+        return $this;
+    }
+
+    /**
+     * Get string15
+     *
+     * @return string
+     */
+    public function getString15()
+    {
+        return $this->string15;
+    }
+
+    /**
+     * Set string16
+     *
+     * @param string $string16
+     *
+     * @return PageBlocks
+     */
+    public function setString16($string16)
+    {
+        $this->string16 = $string16;
+
+        return $this;
+    }
+
+    /**
+     * Get string16
+     *
+     * @return string
+     */
+    public function getString16()
+    {
+        return $this->string16;
+    }
+
+    /**
+     * Set string17
+     *
+     * @param string $string17
+     *
+     * @return PageBlocks
+     */
+    public function setString17($string17)
+    {
+        $this->string17 = $string17;
+
+        return $this;
+    }
+
+    /**
+     * Get string17
+     *
+     * @return string
+     */
+    public function getString17()
+    {
+        return $this->string17;
+    }
+
+    /**
+     * Set image1
+     *
+     * @param string $image1
+     *
+     * @return PageBlocks
+     */
+    public function setImage1($image1)
+    {
+        $this->image1 = $image1;
+
+        return $this;
+    }
+
+    /**
+     * Get image1
+     *
+     * @return string
+     */
+    public function getImage1()
+    {
+        return $this->image1;
+    }
+
+    /**
+     * Set image2
+     *
+     * @param string $image2
+     *
+     * @return PageBlocks
+     */
+    public function setImage2($image2)
+    {
+        $this->image2 = $image2;
+
+        return $this;
+    }
+
+    /**
+     * Get image2
+     *
+     * @return string
+     */
+    public function getImage2()
+    {
+        return $this->image2;
+    }
+
+    /**
+     * Set image3
+     *
+     * @param string $image3
+     *
+     * @return PageBlocks
+     */
+    public function setImage3($image3)
+    {
+        $this->image3 = $image3;
+
+        return $this;
+    }
+
+    /**
+     * Get image3
+     *
+     * @return string
+     */
+    public function getImage3()
+    {
+        return $this->image3;
+    }
+
+    /**
+     * Set image4
+     *
+     * @param string $image4
+     *
+     * @return PageBlocks
+     */
+    public function setImage4($image4)
+    {
+        $this->image4 = $image4;
+
+        return $this;
+    }
+
+    /**
+     * Get image4
+     *
+     * @return string
+     */
+    public function getImage4()
+    {
+        return $this->image4;
+    }
+
+    /**
+     * Set image5
+     *
+     * @param string $image5
+     *
+     * @return PageBlocks
+     */
+    public function setImage5($image5)
+    {
+        $this->image5 = $image5;
+
+        return $this;
+    }
+
+    /**
+     * Get image5
+     *
+     * @return string
+     */
+    public function getImage5()
+    {
+        return $this->image5;
+    }
+
+    /**
+     * Set image6
+     *
+     * @param string $image6
+     *
+     * @return PageBlocks
+     */
+    public function setImage6($image6)
+    {
+        $this->image6 = $image6;
+
+        return $this;
+    }
+
+    /**
+     * Get image6
+     *
+     * @return string
+     */
+    public function getImage6()
+    {
+        return $this->image6;
+    }
+
+    /**
+     * Set image7
+     *
+     * @param string $image7
+     *
+     * @return PageBlocks
+     */
+    public function setImage7($image7)
+    {
+        $this->image7 = $image7;
+
+        return $this;
+    }
+
+    /**
+     * Get image7
+     *
+     * @return string
+     */
+    public function getImage7()
+    {
+        return $this->image7;
+    }
+
+    /**
+     * Set image8
+     *
+     * @param string $image8
+     *
+     * @return PageBlocks
+     */
+    public function setImage8($image8)
+    {
+        $this->image8 = $image8;
+
+        return $this;
+    }
+
+    /**
+     * Get image8
+     *
+     * @return string
+     */
+    public function getImage8()
+    {
+        return $this->image8;
+    }
+
+    /**
+     * Set image9
+     *
+     * @param string $image9
+     *
+     * @return PageBlocks
+     */
+    public function setImage9($image9)
+    {
+        $this->image9 = $image9;
+
+        return $this;
+    }
+
+    /**
+     * Get image9
+     *
+     * @return string
+     */
+    public function getImage9()
+    {
+        return $this->image9;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
+    /**
+     * Set arr1
+     *
+     * @param array $arr1
+     *
+     * @return PageBlocks
+     */
+    public function setArr1($arr1)
+    {
+        $this->arr1 = $arr1;
+
+        return $this;
+    }
+
+    /**
+     * Get arr1
+     *
+     * @return array
+     */
+    public function getArr1()
+    {
+        return $this->arr1 ? array_values($this->arr1) : [];
+    }
+
+    /**
+     * Set arr2
+     *
+     * @param array $arr2
+     *
+     * @return PageBlocks
+     */
+    public function setArr2($arr2)
+    {
+        $this->arr2 = $arr2;
+
+        return $this;
+    }
+
+    /**
+     * Get arr2
+     *
+     * @return array
+     */
+    public function getArr2()
+    {
+        return $this->arr2;
+    }
+
+    /**
+     * Set arr3
+     *
+     * @param array $arr3
+     *
+     * @return PageBlocks
+     */
+    public function setArr3($arr3)
+    {
+        $this->arr3 = $arr3;
+
+        return $this;
+    }
+
+    /**
+     * Get arr3
+     *
+     * @return array
+     */
+    public function getArr3()
+    {
+        return $this->arr3;
+    }
+
+    /**
+     * Set arr4
+     *
+     * @param array $arr4
+     *
+     * @return PageBlocks
+     */
+    public function setArr4($arr4)
+    {
+        $this->arr4 = $arr4;
+
+        return $this;
+    }
+
+    /**
+     * Get arr4
+     *
+     * @return array
+     */
+    public function getArr4()
+    {
+        return $this->arr4;
+    }
+
+    /**
+     * Set arr5
+     *
+     * @param array $arr5
+     *
+     * @return PageBlocks
+     */
+    public function setArr5($arr5)
+    {
+        $this->arr5 = $arr5;
+
+        return $this;
+    }
+
+    /**
+     * Get arr5
+     *
+     * @return array
+     */
+    public function getArr5()
+    {
+        return $this->arr5;
+    }
+
+    /**
+     * Set doc
+     *
+     * @param array $doc
+     *
+     * @return PageBlocks
+     */
+    public function setDoc($doc)
+    {
+        $this->doc = $doc;
+
+        return $this;
+    }
+
+    /**
+     * Get doc
+     *
+     * @return array
+     */
+    public function getDoc()
+    {
+        return $this->doc;
+    }
+
+    /**
+     * Set page
+     *
+     * @param \SiteBundle\Entity\Pages $page
+     *
+     * @return PageBlocks
+     */
+    public function setPage(\SiteBundle\Entity\Pages $page = null)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return \SiteBundle\Entity\Pages
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    /**
+     * Set pageId
+     *
+     * @param integer $pageId
+     *
+     * @return PageBlocks
+     */
+    public function setPageId($pageId)
+    {
+        $this->page_id = $pageId;
+
+        return $this;
+    }
+
+    /**
+     * Get pageId
+     *
+     * @return integer
+     */
+    public function getPageId()
+    {
+        return $this->page_id;
+    }
+
+    /**
+     * Set originalImage1
+     *
+     * @param string $originalImage1
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage1($originalImage1)
+    {
+        $this->originalImage1 = $originalImage1;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage1
+     *
+     * @return string
+     */
+    public function getOriginalImage1()
+    {
+        return $this->originalImage1;
+    }
+
+    /**
+     * Set originalImage2
+     *
+     * @param string $originalImage2
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage2($originalImage2)
+    {
+        $this->originalImage2 = $originalImage2;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage2
+     *
+     * @return string
+     */
+    public function getOriginalImage2()
+    {
+        return $this->originalImage2;
+    }
+
+    /**
+     * Set originalImage3
+     *
+     * @param string $originalImage3
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage3($originalImage3)
+    {
+        $this->originalImage3 = $originalImage3;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage3
+     *
+     * @return string
+     */
+    public function getOriginalImage3()
+    {
+        return $this->originalImage3;
+    }
+
+    /**
+     * Set originalImage4
+     *
+     * @param string $originalImage4
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage4($originalImage4)
+    {
+        $this->originalImage4 = $originalImage4;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage4
+     *
+     * @return string
+     */
+    public function getOriginalImage4()
+    {
+        return $this->originalImage4;
+    }
+
+    /**
+     * Set originalImage5
+     *
+     * @param string $originalImage5
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage5($originalImage5)
+    {
+        $this->originalImage5 = $originalImage5;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage5
+     *
+     * @return string
+     */
+    public function getOriginalImage5()
+    {
+        return $this->originalImage5;
+    }
+
+    /**
+     * Set originalImage6
+     *
+     * @param string $originalImage6
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage6($originalImage6)
+    {
+        $this->originalImage6 = $originalImage6;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage6
+     *
+     * @return string
+     */
+    public function getOriginalImage6()
+    {
+        return $this->originalImage6;
+    }
+
+    /**
+     * Set originalImage7
+     *
+     * @param string $originalImage7
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage7($originalImage7)
+    {
+        $this->originalImage7 = $originalImage7;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage7
+     *
+     * @return string
+     */
+    public function getOriginalImage7()
+    {
+        return $this->originalImage7;
+    }
+
+    /**
+     * Set originalImage8
+     *
+     * @param string $originalImage8
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage8($originalImage8)
+    {
+        $this->originalImage8 = $originalImage8;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage8
+     *
+     * @return string
+     */
+    public function getOriginalImage8()
+    {
+        return $this->originalImage8;
+    }
+
+    /**
+     * Set originalImage9
+     *
+     * @param string $originalImage9
+     *
+     * @return PageBlocks
+     */
+    public function setOriginalImage9($originalImage9)
+    {
+        $this->originalImage9 = $originalImage9;
+
+        return $this;
+    }
+
+    /**
+     * Get originalImage9
+     *
+     * @return string
+     */
+    public function getOriginalImage9()
+    {
+        return $this->originalImage9;
+    }
+}

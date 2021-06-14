@@ -1,0 +1,225 @@
+<?php
+namespace SiteBundle\Entity;
+
+use SiteBundle\Entity\Traits\ImageUpload;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Table(name="docs")
+ * @ORM\Entity *
+ */
+class PageDocs
+{
+
+    protected $upload_dir = "product";
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SiteBundle\Entity\Pages")
+     * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
+     */
+    protected $page;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $page_id;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $title;
+
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     * @Assert\File( maxSize="20M")
+     **/
+    private $file;
+
+
+    /**
+     * Only for store file info in db
+     * @ORM\Column(type="array", nullable=true)
+     **/
+    private $fileInfo;
+
+
+    /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(name="position", type="integer")
+     */
+    protected $position;
+
+
+
+    public function __toString()
+    {
+        return $this->getTitle()?:'';
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+
+    /**
+     * Set pageId
+     *
+     * @param integer $pageId
+     *
+     * @return PageDocs
+     */
+    public function setPageId($pageId)
+    {
+        $this->page_id = $pageId;
+
+        return $this;
+    }
+
+    /**
+     * Get pageId
+     *
+     * @return integer
+     */
+    public function getPageId()
+    {
+        return $this->page_id;
+    }
+
+    /**
+     * Set page
+     *
+     * @param \SiteBundle\Entity\Pages $page
+     *
+     * @return PageDocs
+     */
+    public function setPage(\SiteBundle\Entity\Pages $page = null)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return \SiteBundle\Entity\Pages
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    /**
+     * Set file
+     *
+     * @param array $file
+     *
+     * @return PageDocs
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @return array
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * Set fileInfo
+     *
+     * @param array $fileInfo
+     *
+     * @return PageDocs
+     */
+    public function setFileInfo($fileInfo)
+    {
+        $this->fileInfo = $fileInfo;
+
+        return $this;
+    }
+
+    /**
+     * Get fileInfo
+     *
+     * @return array
+     */
+    public function getFileInfo()
+    {
+        return $this->fileInfo;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     *
+     * @return PageDocs
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+}

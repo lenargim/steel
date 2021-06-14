@@ -1,0 +1,31 @@
+services:
+
+# sitemap
+
+
+    site.service.sitemap:
+        class: SiteBundle\Service\SitemapService
+        public: true
+        arguments:
+            - '%env(HOST_NAME)%'
+            - "@doctrine.orm.entity_manager"
+
+#twig
+    app.twig_extension:
+        class: SiteBundle\Twig\SiteExtension
+        public: true
+        autowire: true
+        tags:
+            - { name: twig.extension }
+#PAGES
+    SiteBundle\Routing\SitePagesLoader:
+      arguments:
+        $entityManager: "@doctrine.orm.entity_manager"
+      tags: [routing.loader]
+
+#Mail Template Service
+    SiteBundle\Service\MailTemplateService:
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "%user_email_adress%"
+            - "@mailer"

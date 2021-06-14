@@ -1,0 +1,24 @@
+<section class="seo-block">
+    <div class="container">
+        <div class="row justify-content-center js-hidden-wrapper">
+            <div class="col-lg-12">
+                <h1>{{ page.h1 }}</h1>
+            </div>
+            <div class="col-lg-12">
+                {{ page.text | raw }}
+            </div>
+            <div class="col-lg-12">
+                <div class="hidden-text-block js-hidden-block js-hidden-text-block">
+                    {{ page.announce | raw }}
+                </div>
+            </div>
+            {% if page.announce %}
+            <div class="col-lg-12 text-center">
+                <button class="btn btn-red btn-all js-btn-more"
+                        data-close="Свернуть"
+                        data-open="Подробнее">Подробнее</button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

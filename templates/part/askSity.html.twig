@@ -1,0 +1,24 @@
+{% if askedCity %}
+    <div class="form popup-form js-ask-city">
+        <h3>{{ 'Ваш город' | getString('Города') }} {{ askedCity.title }}?</h3>
+        <div class="text-center">
+            <a class="btn btn-blue" href="{{ scheme }}://{{ askedCity.domain ~ uri ~ '?selected_city=' ~ askedCity.id }}">{{ 'Да' | getString('Города') }}</a>
+            <button class="btn btn-blue js-other-region">{{ 'Выбрать другой' | getString('Города') }}</button>
+        </div>
+    </div>
+    <script>
+        window.onload = function(e) {
+            setTimeout(function () {
+                window._showPopupAdditional($('.js-ask-city'));
+            }, 5000);
+        };
+    </script>
+{% endif %}
+{% if setCityCookieId %}
+    <script>
+        var date = new Date();
+        date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+        var expires = "; expires=" + date.toUTCString();
+        document.cookie = "selectedCity={{ setCityCookieId }}" + expires + "; path=/";
+    </script>
+{% endif %}

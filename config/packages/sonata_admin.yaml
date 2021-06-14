@@ -1,0 +1,121 @@
+sonata_admin:
+    title: 'CMS'
+    show_mosaic_button: false
+    options:
+        use_bootlint:    true
+    assets:
+        extra_javascripts:
+            # ...
+            - bundles/fosckeditor/ckeditor.js
+            - bundles/fosjsrouting/js/router.js
+
+        extra_stylesheets:
+    templates:
+        layout:                         '@SiteBundle/templates/Admin/sonata_admin_base_layout.html.twig'
+    dashboard:
+        blocks:
+            -
+                class:    col-lg-12          # twitter bootstrap responsive code
+                position: bottom                        # zone in the dashboard
+                type: site.admin.block.buttons   # block id
+                settings:
+                    buttons:
+                        - {url:  "/pages-commands/remove_cache", title: "Удаление кеша", icon: "fa-recycle", info: "Удаляет весь кеш, так как пересборка не должна очень часто делаться ,лучше чтобы контенщик это делал после завершения всех правок."}
+                        - {url:  "/pages-commands/set-path", title: "Пересчет роутинга", icon: "fa-calculator", info: "Перепроверяет какие страницы скрытые и делает неактивными их и дочерние страницы (вернее роуты), нажимать после всех правок, если были изменения в активности страниц или удаление/добавление страниц."}
+                        - {url:  "/pages-commands/recalc-tree", title: "Перерасчет дерева", icon: "fa-tree", info: "Пересчитывает бинарное дерево - нажимать в очень крайних случаях,должно само и так перерасчитываться, сделано на крайний случай"}
+#                        - {url:  "/pages-commands/cache-clear", title: "Сборка кеша", icon: "fa-building-o"}
+                        - {url:  "/pages-commands/sitemap-update", title: "Обновление карты сайта", icon: "fa-map-o", info: "Делает из страниц новый sitemap. Sitemap и так обновляется по расписанию, есть смысл ручного запуска только если надо срочно обновить его"}
+                        - {url:  "/pages-commands/activate-page", title: "Активация всех страниц", icon: "fa-eye", info: "Активирует все страницы, это может привести к ошибкам у страниц, которым неправильно назначенны родители"}
+            -
+                class:    col-lg-4 col-xs-6          # twitter bootstrap responsive code
+                position: top                        # zone in the dashboard
+                type:     sonata.admin.block.stats   # block id
+                settings:
+                    code:  app_main.admin.letter    # admin code - service id
+                    icon:  fa-shopping-cart                  # font awesome icon
+                    text:  Новые заявки
+                    color: bg-red                 # colors: bg-green, bg-red and bg-aqua
+                    filters:                         # filter values
+                        status: { value: 1 }
+            -
+                class:    col-lg-4 col-xs-6          # twitter bootstrap responsive code
+                position: top                        # zone in the dashboard
+                type:     sonata.admin.block.stats   # block id
+                settings:
+                    code:  app_main.admin.letter    # admin code - service id
+                    icon:  fa-shopping-basket                  # font awesome icon
+                    text:  Заявки  в обработке
+                    color: bg-yellow                 # colors: bg-green, bg-red and bg-aqua
+                    filters:                         # filter values
+                        status: { value: 2 }
+            -
+                class:    col-lg-4 col-xs-6          # twitter bootstrap responsive code
+                position: top                        # zone in the dashboard
+                type:     sonata.admin.block.stats   # block id
+                settings:
+                    code:  app_main.admin.letter    # admin code - service id
+                    icon:  fa-shopping-bag                  # font awesome icon
+                    text:  Завершенные заявки
+                    color: bg-green                 # colors: bg-green, bg-red and bg-aqua
+                    filters:                         # filter values
+                        status: { value: 3 }
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [app_main.admin.group.pages, app_main.admin.group.settings]
+            -
+                position: right
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [app_main.admin.group.orders, app_main.admin.group.users]
+        groups:
+            app_main.admin.group.pages:
+                label: "Содержимое"
+                items:
+                    - site.admin.tree_pages
+                    - site.admin.page_blocks
+                    - site.admin.top_menu
+                roles: [ ROLE_SUPER_ADMIN, ROLE_ADMIN ]
+            app_main.admin.group.settings:
+                label: "Настройки"
+                items:
+                    - app_main.admin.city
+                    - site.admin.settings
+                    - site.admin.sitestrings
+                    - site.admin.mail_template
+                    - site.admin.redirects
+                roles: [ ROLE_SUPER_ADMIN, ROLE_ADMIN ]
+            app_main.admin.group.orders:
+                label: "Заявки"
+                items:
+                    - app_main.admin.letter
+                    - app_main.admin.order
+                roles: [ ROLE_SUPER_ADMIN, ROLE_ADMIN ]
+            app_main.admin.group.users:
+                label: "Пользователи"
+                items:
+                    - sonata.user.admin.user
+                roles: [ ROLE_SUPER_ADMIN ]
+sonata_block:
+    blocks:
+        sonata.block.service.text:
+        sonata.page.block.children_pages:
+        sonata.formatter.block.formatter:
+        sonata.user.block.menu:  # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.admin.block.stats:
+        site.admin.block.buttons:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
+
+comur_image:
+    config:
+        cropped_image_dir: 'cropped'
+        thumbs_dir: 'thumbnails'
+        media_lib_thumb_size: 150
+        public_dir: '%kernel.project_dir%/public/uploads'
+        translation_domain: 'ComurImageBundle'
+        gallery_thumb_size: 150
+        gallery_dir: 'gallery'

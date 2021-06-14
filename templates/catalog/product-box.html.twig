@@ -1,0 +1,20 @@
+
+<div class="col-lg-3 col-md-6{% if key is defined and key > 7 %} dn{% endif %} js-load-block">
+    <div class="prod-box">
+        <div class="prod-image">
+            <a href="{{ sitePath(item.route) }}">
+                <img src="{{ item.getWebPath('image') | thumb(318,238) }}" alt="{{ item.menutitle }}">
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="{{ sitePath(item.route) }}" class="title">{{ item.menutitle }}</a>
+            {% set price = item | getPrice(app.request) %}
+            {% if price %}
+                <div class="price">Цена:  <b>{{ price | number_format(0, ',', ' ')}}</b> ₽</div>
+            {% else %}
+                <div class="price">Цена:  <b>Договорная</b></div>
+            {% endif %}
+            <button onclick="window.cart.addingItem({{ item.id }}, 1)" class="btn btn-red btn-cart">В корзину</button>
+        </div>
+    </div>
+</div>

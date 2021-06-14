@@ -1,0 +1,109 @@
+services:
+    site.admin.block.buttons:
+        class: SiteBundle\SonataBlock\ButtonsBlock
+        public: true
+        arguments:
+            - '@twig'
+            - '@sonata.templating'
+        tags:
+            - { name: sonata.block }
+
+#pages tree
+    site.admin.tree_pages:
+        class: SiteBundle\Admin\TreePagesAdmin
+        arguments: [~, SiteBundle\Entity\Pages, SiteBundle:Admin\PagesAdmin, 'title', '@App\Import\Application\Services\ParseService', '@App\Import\Application\Services\UpdateService']
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Страницы"}
+        public: true
+        calls:
+            - [setSubClasses, [{'тестовая': SiteBundle\Entity\Pages, 'карточка товара': SiteBundle\Entity\Pages\CatalogItem, 'раздел каталога': SiteBundle\Entity\Pages\CatalogArticle, 'карточка услуги': SiteBundle\Entity\Pages\ServiceItem}]]
+
+
+# SettingsAdmin
+    site.admin.settings:
+        class: SiteBundle\Admin\SettingsAdmin
+        arguments: [~, SiteBundle\Entity\Settings, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.settings", label: "Настройки"}
+        public: true
+
+#mail_template
+    site.admin.mail_template:
+        class: SiteBundle\Admin\MailTemplateAdmin
+        arguments:
+            - ~
+            -  SiteBundle\Entity\MailTemplate
+            - SonataAdminBundle:CRUD
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.settings", label: "Шаблоны писем" }
+#redirects
+    site.admin.redirects:
+        class: SiteBundle\Admin\RedirectsAdmin
+        arguments:
+            - ~
+            - SiteBundle\Entity\Redirects
+            - SonataAdminBundle:CRUD
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.settings", label: "301 редирект" }
+#Texts
+    site.admin.sitetexts:
+        class: SiteBundle\Admin\SiteTextsAdmin
+        arguments:
+            - ~
+            - SiteBundle\Entity\SiteTexts
+            - SonataAdminBundle:CRUD
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.settings", label: "Тексты сайта" }
+#Stirngs
+    site.admin.sitestrings:
+        class: SiteBundle\Admin\SiteStringsAdmin
+        arguments:
+            - ~
+            - SiteBundle\Entity\SiteStrings
+            - SonataAdminBundle:CRUD
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.settings", label: "Строки сайта" }
+
+# DOCS
+    site.admin.page_docs:
+        class: SiteBundle\Admin\DocsAdmin
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Документы" }
+        arguments:
+          - ~
+          - SiteBundle\Entity\PageDocs
+          - 'PixSortableBehaviorBundle:SortableAdmin' # define the new controller via the third argument
+        public: true
+
+# PageBlocks
+    site.admin.page_blocks:
+        class: SiteBundle\Admin\PageBlocksAdmin
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Блоки страниц" }
+        arguments:
+          - ~
+          - SiteBundle\Entity\PageBlocks
+          - 'PixSortableBehaviorBundle:SortableAdmin' # define the new controller via the third argument
+        public: true
+
+# PageGallery
+    site.admin.page_gallery:
+        class: SiteBundle\Admin\PageGalleryAdmin
+        tags:
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Галлереи страниц" }
+        arguments:
+          - ~
+          - SiteBundle\Entity\PageGallery
+          - 'PixSortableBehaviorBundle:SortableAdmin' # define the new controller via the third argument
+        public: true
+
+# top menu
+    site.admin.top_menu:
+      class: SiteBundle\Admin\TopMenuAdmin
+      tags:
+        - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Верхнее меню" }
+      arguments:
+        - ~
+        - SiteBundle\Entity\TopMenu
+        - 'PixSortableBehaviorBundle:SortableAdmin' # define the new controller via the third argument
+      public: true
