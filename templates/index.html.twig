@@ -160,7 +160,7 @@
             </div>
           </div>
         </div>
-        <div class="slider-block__item-img"><img src="{{ asset('build/slider-block.png') }}" alt="slider-img"></div>
+        <div class="slider-block__item-img img"><img src="{{ asset('build/slider-block.png') }}" alt="slider-img"></div>
       </div>
       <div class="slider-block__item">
         <div class="container-outer">
@@ -182,7 +182,7 @@
             </div>
           </div>
         </div>
-        <div class="slider-block__item-img"><img src="{{ asset('build/slider-block.png') }}" alt="slider-img"></div>
+        <div class="slider-block__item-img img"><img src="{{ asset('build/slider-block.png') }}" alt="slider-img"></div>
       </div>
     </section>
     <div class="slider-block__arrow-box">
@@ -223,7 +223,7 @@
         <div class="reviews__slider" id="reviews-slider">
           <div class="reviews__slider-item-wrap">
             <div class="reviews__slider-item">
-              <div class="reviews__slider-img"><img src="{{ asset('build/review-img-1.png') }}" alt="euro dom"></div>
+              <div class="reviews__slider-img img"><img src="{{ asset('build/review-img-1.png') }}" alt="euro dom"></div>
               <div class="reviews__slider-info">
                 <div class="reviews__slider-position">Технический директор Euro Dom</div>
                 <div class="reviews__slider-name">Шлопак Михаил</div>
@@ -236,7 +236,7 @@
           </div>
           <div class="reviews__slider-item-wrap">
             <div class="reviews__slider-item">
-              <div class="reviews__slider-img"><img src="{{ asset('build/review-img-2.png') }}" alt="white an d black">
+              <div class="reviews__slider-img img"><img src="{{ asset('build/review-img-2.png') }}" alt="white an d black">
               </div>
               <div class="reviews__slider-info">
                 <div class="reviews__slider-position">Собственник и руководитель студии мебели «White & Black»</div>
@@ -282,8 +282,13 @@
         zoom: 17,
         disableDefaultUI: true,
       };
+      const image = window.location.origin + "/build/map_marker.png";
       var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-      const marker = new google.maps.Marker({map, position: office});
+      const marker = new google.maps.Marker({
+        map,
+        position: office,
+        icon: image,
+      });
     }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyaiFhTLH_eOQWq_Vyel3tm6akNacxuCs&language=ru&callback=myMap"></script>

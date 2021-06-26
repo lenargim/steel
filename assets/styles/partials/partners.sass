@@ -14,12 +14,28 @@
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       width: 100%
       grid-template-columns: 1fr repeat(3, 200px)
+    @media screen and (max-width: 1279px)
+      width: 100%
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: 30px 50px
+      grid-gap: 32px
+      span:nth-child(1)
+        grid-column: 1/3
+        grid-row: 1/2
+      span:nth-child(5)
+        grid-column: 1/3
+        grid-row: 2/3
     .partner
       text-transform: uppercase
       color: #6C6C6C
+      @media screen and (max-width: 1279px)
+        font-size: 20px
     .partner-label
       font: normal normal normal 16px/24px Inter
       color: #000
       width: 150px
+      @media screen and (max-width: 1279px)
+        width: 100%
+        font-size: 14px
     &:first-child
       color: #2F3A41

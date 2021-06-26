@@ -1,16 +1,26 @@
 .footer
   background-color: $colorSecond
+  @media screen and (max-width: 1279px)
+    padding: 28px 0 22px
   &__wrap
     display: flex
     align-items: center
     justify-content: space-between
     height: 80px
+    @media screen and (max-width: 1279px)
+      height: unset
+      flex-direction: column
+      justify-content: flex-start
   &__nav
     display: flex
     align-items: center
     justify-content: flex-start
+    @media screen and (max-width: 1279px)
+      flex-direction: column
     li
       list-style-type: none
+      @media screen and (max-width: 1279px)
+        margin-bottom: 32px
   &__link
     color: #fff
     white-space: nowrap
@@ -20,6 +30,9 @@
       margin-right: 45px
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       margin-right: 32px
+    @media screen and (max-width: 1279px)
+      text-align: center
+      margin-right: 0
   &__dev
     display: flex
     align-items: center

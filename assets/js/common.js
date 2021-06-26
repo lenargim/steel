@@ -57,6 +57,12 @@ $slider.slick({
     prevArrow: defaultPrevArrow,
     nextArrow: defaultNextArrow,
     draggable: false,
+    responsive: [
+        {
+          breakpoint: 1279,
+          settings: "unslick"
+        },
+      ]
 });
 
 let reviewsSlider = $('#reviews-slider');
@@ -112,8 +118,6 @@ interiorSlider.slick({
 });
 
 /* Interior detailed modal */
-
-
 
 $('.interior-detailed__img').on('click', function(){
     $('.overlay').addClass('active')

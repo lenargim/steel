@@ -24,6 +24,16 @@
       grid-template-columns: repeat(3, 292px)
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       grid-template-columns: repeat(3, 271px)
+    @media screen and (max-width: 1279px)
+      grid-template-columns: repeat(3, 239px)
+      overflow-x: auto
+      grid-gap: 22px
+      &::-webkit-scrollbar
+        width: 0
+        background: transparent
+        -ms-overflow-style: none
+        scrollbar-width: none
+        overflow: -moz-scrollbars-none
 
     &-item
       display: flex
@@ -47,6 +57,9 @@
       @media screen and (min-width: 1280px) and (max-width: 1365px)
         width: 271px
         height: 344px
+      @media screen and (max-width: 1279px)
+        width: 239px
+        height: 303px
     &-box
       padding: 32px
     &-title
@@ -107,7 +120,8 @@
     width: 633px
     height: 668px
     &:hover img
-      transform: scale(1.2)
+      @media screen and (min-width: 1280px)
+        transform: scale(1.2)
   &__text
     font: normal normal normal 16px/28px Inter
     color: #414141

@@ -11,8 +11,13 @@
       display: flex
       flex-direction: column
       position: relative
+      @media screen and (max-width: 1279px)
+        display: none
       &:nth-of-type(1)
         margin: 0 32px 32px 0
+        @media screen and (max-width: 1279px)
+          display: flex
+          margin: 0 auto
         .output__gallery-box
           position: absolute
           top: 100%
@@ -21,6 +26,8 @@
             max-width: 216px
           @media screen and (min-width: 1280px) and (max-width: 1365px)
             max-width: 202px
+          @media screen and (max-width: 1279px)
+            position: unset
       &:nth-of-type(2)
         flex-direction: row
         margin-bottom: 32px
