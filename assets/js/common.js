@@ -60,7 +60,9 @@ $slider.slick({
     responsive: [
         {
           breakpoint: 1279,
-          settings: "unslick"
+          settings: {
+          draggable: true,
+          }
         },
       ]
 });
@@ -120,7 +122,7 @@ interiorSlider.slick({
 /* Interior detailed modal */
 
 $('.interior-detailed__img').on('click', function(){
-    $('.overlay').addClass('active')
+    $('.overlay_interior').addClass('active')
     $('.modal-slider').addClass('active')
     let modalSlider = $('.modal-slider__wrap')
     let modalSliderCounter = $('.modal-slider__counter')
@@ -147,16 +149,21 @@ $('.interior-detailed__img').on('click', function(){
 })
 
 $('.modal__close').on('click', function(){
-    let modalSlider = $('.modal-slider__wrap')
-    modalSlider.slick('unslick')
     $('.overlay').removeClass('active')
-    $('.modal-slider').removeClass('active')
+    $('.modal').removeClass('active')
+    let modalSlider = $('.modal-slider__wrap')
+    modalSlider !== undefined ? modalSlider.slick('unslick') : false
 })
 
 
 
 
 $('.catalog-detailed__button').on('click', function(){
-    $('.overlay').addClass('active')
+    $('.overlay_price').addClass('active')
     $('.modal-callback').addClass('active')
+})
+
+$('.header__callback').on('click', function(){
+    $('.overlay_header').addClass('active')
+    $('.modal-header').addClass('active')
 })

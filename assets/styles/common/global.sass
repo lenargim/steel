@@ -168,6 +168,8 @@ svg path
     padding-bottom: 21px
 .block
   margin-bottom: 224px
+  @media screen and (min-width: 1280px) and (max-width: 1659px)
+    margin-bottom: 160px
   @media screen and (max-width: 1279px)
     margin-bottom: 88px
   &__wrap
@@ -213,6 +215,8 @@ svg path
   font-size: 13px
   font-weight: 600
   line-height: 16px
+  @media screen and (max-width: 1279px)
+    display: none
   &__link
     color: $colorGreen
     white-space: nowrap
@@ -243,9 +247,16 @@ svg path
       &:before, &:after
         content: unset
 .page-title
-  font: normal normal 600 62px/72px Montserrat
+  font: normal normal 600 62px/1.16 Montserrat
   padding-bottom: 64px
   color: #2F3A41
+  @media screen and (min-width: 1280px) and (max-width: 1659px)
+    padding-bottom: 45px
+    font-size: 56px
+  @media screen and (max-width: 1279px)
+    font-size: 32px
+    line-height: 36px
+    padding-bottom: 64px
   &_short
     max-width: 769px
 .button
@@ -257,6 +268,8 @@ svg path
   border-radius: 12px
   background-color: $colorGreen
   transition: background-color 0.3s ease-in-out
+  @media screen and (min-width: 1280px) and (max-width: 1659px)
+    padding: 14px 25px
   &:hover
     background-color: $colorDarkGreen
 .green

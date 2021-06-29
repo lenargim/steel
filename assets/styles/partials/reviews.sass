@@ -6,6 +6,7 @@
       width: 865px
     @media screen and (max-width: 1279px)
       width: 100%
+      margin: 0
     .slick-list
       overflow: unset
     &-item-wrap.slick-slide
@@ -14,8 +15,11 @@
       @media screen and (min-width: 1366px) and (max-width: 1659px)
         padding-right: 140px
       @media screen and (max-width: 1279px)
-        padding-right: 0
-        margin-right: 16px
+        width: 100%
+        padding: 0
+        margin-right: 20px
+        &:last-of-type
+          margin-right: 0
     &-item
       background-color: #fff
       padding: 44px 56px

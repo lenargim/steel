@@ -19,11 +19,13 @@
             цветов и текстур, позволяет воплотить практически любой замысел дизайнеров. Так же, в скором времени,
             планируем красить жидкими красками в т.ч. под золото, латунь, медь.
           </div>
-          <div class="portfolio-detailed__item img">
-            <img src="{{ asset('build/gallery-3.png') }}" alt="">
-          </div>
-          <div class="portfolio-detailed__item portfolio-detailed__item_big img">
-            <img src="{{ asset('build/slider-block.png') }}" alt="">
+          <div class="portfolio-detailed__item-wrap">
+            <div class="portfolio-detailed__item img">
+              <img src="{{ asset('build/gallery-3.png') }}" alt="">
+            </div>
+            <div class="portfolio-detailed__item portfolio-detailed__item_big img">
+              <img src="{{ asset('build/slider-block.png') }}" alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -32,7 +34,7 @@
       <div class="container-outer">
         <div class="container">
           <div class="portfolio-detailed__review-box">
-            <div class="reviews__slider-img"><img src="{{ asset('build/review-img-1.png') }}" alt="euro dom"></div>
+            <div class="reviews__slider-img img"><img src="{{ asset('build/review-img-1.png') }}" alt="euro dom"></div>
             <div class="reviews__slider-info">
               <div class="reviews__slider-position">Технический директор Euro Dom</div>
               <div class="reviews__slider-name">Шлопак Михаил</div>
@@ -47,12 +49,17 @@
         </div>
       </div>
     </div>
-    <div class="container-outer">
-      <div class="container">
-        <div class="portfolio-detailed__wrap">
-          <div class="portfolio-detailed__item img"><img src="{{ asset('build/gallery-1.png') }}" alt="portfolio img"></div>
-          <div class="portfolio-detailed__item img"><img src="{{ asset('build/gallery-2.png') }}" alt="portfolio img"></div>
-          <div class="portfolio-detailed__item img"><img src="{{ asset('build/gallery-3.png') }}" alt="portfolio img"></div>
+    <div class="portfolio-detailed__bottom">
+      <div class="container-outer">
+        <div class="container">
+          <div class="portfolio-detailed__wrap">
+            <div class="portfolio-detailed__item img"><img src="{{ asset('build/gallery-1.png') }}" alt="portfolio img">
+            </div>
+            <div class="portfolio-detailed__item img"><img src="{{ asset('build/gallery-2.png') }}" alt="portfolio img">
+            </div>
+            <div class="portfolio-detailed__item img"><img src="{{ asset('build/gallery-3.png') }}" alt="portfolio img">
+            </div>
+          </div>
         </div>
       </div>
     </div>

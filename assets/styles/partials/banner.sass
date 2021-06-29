@@ -86,12 +86,19 @@
       justify-content: flex-start
       @media screen and (min-width: 1280px) and (max-width: 1659px)
         width: 400px
+      @media screen and (max-width: 1279px)
+        width: 100%
     &-name
       color: $colorGreen
       font-size: 20px
       line-height: 24px
       width: 310px
       padding-right: 57px
+      @media screen and (max-width: 1279px)
+        padding-right: 46px
+        font-size: 16px
+        line-height: 19px
+        font-weight: 600
     &-price
       color: $colorSecond
       font-weight: 600
@@ -110,6 +117,8 @@
       top: 133px
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       top: 120px
+    @media screen and (max-width: 1279px)
+      top: 100px
     .arrow
       border: solid $colorGreen
       border-width: 0 3px 3px 0
@@ -120,6 +129,8 @@
         border-color: $colorDarkGreen
       @media screen and (min-width: 1280px) and (max-width: 1659px)
         padding: 13px
+      @media screen and (max-width: 1279px)
+        padding: 14px
     &.left
       transform: rotate(135deg)
       left: -100px

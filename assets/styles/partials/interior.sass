@@ -53,8 +53,13 @@
     font: normal normal normal 16px/28px Inter
     width: 234px
     max-height: 784px
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      width: 40%
+      max-height: unset
   &__year
     padding: 102px 0
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      padding: 70px 0
   &__img
     cursor: pointer
     &:hover img

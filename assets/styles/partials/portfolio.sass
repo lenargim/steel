@@ -47,7 +47,6 @@
           width: 100px
         img
           transform: scale(1.2)
-
     &-img
       width: 367px
       height: 446px
@@ -93,6 +92,11 @@
     justify-content: flex-start
     flex-wrap: wrap
     gap: 64px 32px
+    @media screen and (max-width: 1279px)
+      gap: 44px
+      .portfolio__gallery-img
+        width: 100%
+        max-width: 667px
   &__item
     &:hover
       .portfolio__gallery-title:before
@@ -102,10 +106,17 @@
     &_big
       .portfolio__gallery-img
         width: 667px
+        @media screen and (max-width: 1279px)
+          width: 100%
+          max-width: 667px
     &_left
       margin-left: auto
+      @media screen and (max-width: 1279px)
+        width: 80%
     &_right
       margin-right: auto
+      @media screen and (max-width: 1279px)
+        width: 80%
 .portfolio-detailed
   &__title
     max-width: 766px
@@ -116,9 +127,17 @@
     justify-content: flex-start
     flex-wrap: wrap
     gap: 32px
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      width: 100%
+    @media screen and (max-width: 1279px)
+      width: 100%
   &__img
     width: 633px
-    height: 668px
+    aspect-ratio: 633/668
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      width: 50%
+    @media screen and (max-width: 1279px)
+      width: 100%
     &:hover img
       @media screen and (min-width: 1280px)
         transform: scale(1.2)
@@ -127,11 +146,30 @@
     color: #414141
     margin-left: auto
     width: 367px
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      margin-left: unset
+      width: calc(50% - 32px)
+    @media screen and (max-width: 1279px)
+      width: 100%
   &__item
     width: 367px
     height: 466px
     &:hover img
       transform: scale(1.2)
+    &-wrap
+      display: flex
+      align-items: flex-start
+      justify-content: flex-start
+      gap: 32px
+      @media screen and (max-width: 1279px)
+        overflow-x: auto
+        gap: 22px
+        &::-webkit-scrollbar
+          width: 0
+          background: transparent
+          -ms-overflow-style: none
+          scrollbar-width: none
+          overflow: -moz-scrollbars-none
     @media screen and (min-width: 1366px) and (max-width: 1659px)
       width: 292px
       height: 371px
@@ -144,8 +182,28 @@
     background-color: #fff
     padding: 68px 0 36px
     margin: 88px 0
+    @media screen and (max-width: 1279px)
+      padding: 32px 17px 48px
     &-box
       display: flex
       align-items: flex-start
       justify-content: flex-start
       width: 850px
+      @media screen and (max-width: 1279px)
+        position: relative
+        max-width: 850px
+        width: calc(100% + 30px)
+        left: -15px
+        top: 0
+        .reviews__slider-img
+          min-width: 87px
+          height: 87px
+          position: absolute
+        .reviews__slider-position
+          padding: 0 20px 1em 105px
+        .reviews__slider-name
+          padding-left: 105px
+          padding-bottom: 2em
+  &__bottom
+    @media screen and (max-width: 1279px)
+      display: none
