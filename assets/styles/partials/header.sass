@@ -1,0 +1,41 @@
+.header
+  padding: 54px 0 104px
+  @media screen and (max-width: 1279px)
+    padding: 12px 0 48px
+  &__wrap
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &__logo
+    max-width: 198px
+    img
+      width: 100%
+    @media screen and (max-width: 1279px)
+      max-width: 132px
+      margin: 0 auto
+  &__contact
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    @media screen and (max-width: 1279px)
+      display: none
+  &__callback
+    cursor: pointer
+    color: $colorGreen
+    font-size: 16px
+    padding: 6.5px 20px
+    border: 2px solid $colorGreen
+    border-radius: 25px
+    white-space: nowrap
+    margin-right: 64px
+    @media screen and (min-width: 1366px) and (max-width: 1919px)
+      margin-right: 112px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      margin-right: 81px
+  &__phone
+    font-size: 24px
+    font-weight: 500
+    letter-spacing: 4.8px
+    color: #000
+    .grey
+      color: #606060

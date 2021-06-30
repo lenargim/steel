@@ -1,27 +1,12 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <section class="content-page">
-        <div class="container">
-            <div class="row">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
+    <div class="about block">
+        <div class="container-outer">
+            <div class="container">
+                <div class="about__wrap">
                     {{ page.text |  raw }}
-                    </div>
                 </div>
             </div>
         </div>
-    </section>
-{% endblock %}
-{% block seo %}
-    {% if page.discrString == 'Успех заказа' %}
-        <script>
-            document.addEventListener("load", function () {
-                setTimeout(function () {
-                    if (window.send_counter_event) {
-                        window.send_counter_event('success_buy');
-                    }
-                }, 1000);
-            });
-        </script>
-    {% endif %}
+    </div>
 {% endblock %}

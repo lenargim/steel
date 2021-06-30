@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="reviews-page block">
+        <div class="container-outer">
+            <div class="container">
+                {{ render(controller('App\\Controller\\PartController:breadcrumbs', {'page': page})) }}
+                <h1 class="page-title page-title_short">{{ page.h1 }}</h1>
+                {% if reviews | length > 0 %}
+                <div class="reviews-page__item reviews-page__item_full">
+                    <div class="reviews-page__item-img"><img src="{{ reviews[0].getWebPath('image') | thumb(130, 130) }}" alt="{{ reviews[0].post }}"></div>
+                    <div class="reviews-page__item-info">
+                        <div class="reviews-page__item-position">{{ reviews[0].post }}</div>
+                        <div class="reviews-page__item-name">{{ reviews[0].name }}</div>
+                        <div class="reviews-page__item-text">
+                            {{ reviews[0].text | raw }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <ul class="reviews-page__wrap">
+                    {% for key, item in reviews if key > 0 %}
+                        <li class="reviews-page__item">
+                            <div class="reviews-page__item-img"><img src="{{ item.getWebPath('image') | thumb(130, 130) }}" alt="{{ item.post }}"></div>
+                            <div class="reviews-page__item-info">
+                                <div class="reviews-page__item-position">{{ item.post }}</div>
+                                <div class="reviews-page__item-name">{{ item.name }}</div>
+                                <div class="reviews-page__item-text">
+                                    {{ item.text | raw }}
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

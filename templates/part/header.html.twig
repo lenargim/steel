@@ -1,76 +1,29 @@
-<header>
-    <div class="top-header">
+<header id="header" class="header">
+    <div class="container-outer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 wrapper">
-                    <div class="add">
-                        {{ city.address | raw }}
-                    </div>
-                    <div class="time">
-                        {{ render(controller('App\\Controller\\PartController:cities', {'request': request, 'type': 'city-list-mobile'})) }}
-                    </div>
-                    <div class="time">
-                        {{ city.workTime | raw }}
-                    </div>
-                    <div><a href="{{ 'header_contact-link' | getString('Шапка') }}">{{ 'header_kak-k-nam-proehat' | getString('Шапка') | raw }}</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-2">
-                <div class="logo-box">
-                    {% if page.discrString != 'Главная' %}
-                        <a href="{{ sitePath('zema_pages') }}">
-                            <img src="/img/logo.svg">
-                        </a>
-                    {% else %}
-                        <img src="/img/logo.svg">
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-lg-8 text-right">
-                <div class="hdr-box">
-                    <div class="phone-box">
-                        <a href="tel:{{ city.phone  | replace({" ": "", "-": "", "(": "", ")": ""})  }}">
-                            {{ city.phone | raw }}
-                        </a>
-                    </div>
-                     <div class="phone-box">
-                        <a href="tel:{{ city.phone2  | replace({" ": "", "-": "", "(": "", ")": ""})  }}">
-                            {{ city.phone2 | raw }}
-                        </a>
-                    </div>
-                    <!--<a data-reachgoal="message-button"
-                       data-type="message"
-                       href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'message', 'route': page.route, 'order_obj': 'Шапка сайта' }) }}"
-                       class="btn btn-border-red btn-email popup-with-form js-popup-open js-reachgoal">
-                        {{ 'header_button_write' | getString('Шапка') }}
-                    </a>-->
-                </div>
-                <div class="hdr-box">
-                   
-                    <a href="mailto:info@fire96.ru" class="email-hdr">info@fire96.ru</a> 
+            <div class="header__wrap">
+                {% if page.discrString != 'Главная' %}
+                    <a class="header__logo" href="{{ sitePath('zema_pages') }}">
+                        <img src="{{ asset('build/logo.svg') }}"/>
+                    </a>
+                {% else %}
+                    <img src="{{ asset('build/logo.svg') }}"/>
+                {% endif %}
+                <div class="header__contact">
                     <a data-reachgoal="callback-button"
                        data-type="callback"
                        href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'callback', 'route': page.route }) }}"
-                       class="btn btn-border-red btn-call popup-with-form js-popup-open js-reachgoal">
-                        {{ 'header_button_callback' | getString('Шапка') }}
+                       class="header__callback js-popup-open js-reachgoal">
+                        {{ 'Заказать звонок' | getString('Шапка') }}
+                    </a>
+                    <a href="{{ ('Код телефона' | getString('Шапка')) ~ ('Номер телефона' | getString('Шапка'))  | replace({" ": "", "-": "", "(": "", ")": ""})  }}"
+                       class="header__phone">
+                        <span class="grey">
+                            {{ 'Код телефона' | getString('Шапка') }}
+                        </span> {{ 'Номер телефона' | getString('Шапка') }}
                     </a>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="cart-box">
-                    <a href="{{ sitePath(cartPage.route) }}" class="cart">В корзине <span id="cart_counter">{{ cartCount }}</span></a>
-                </div>
-                <script>
-                    window.cartItems = {{ cartItems | json_encode | raw }};
-                    window.cartUpdateItemsPath = '{{ sitePath('app_main.update_cart') }}';
-                    window.showItemPath = '{{ sitePath('app_main.show_item') }}';
-                </script>
-            </div>
         </div>
     </div>
-    {{ render(controller('App\\Controller\\PartController:navigation', {'page': page})) }}
 </header>

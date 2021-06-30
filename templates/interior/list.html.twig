@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="interior block">
+        <div class="container-outer">
+            <div class="container">
+                {{ render(controller('App\\Controller\\PartController:breadcrumbs', {'page': page})) }}
+                <h1 class="page-title page-title_short">{{ page.h1 }}</h1>
+                <div class="interior__wrap">
+                    {% for item in page.getChildren([interiorItemClass]) %}
+                    <a href="{{ sitePath(item.route) }}" class="interior__item">
+                        <div class="interior__item-img img"><img src="{{ item.getWebPath('image1') | thumb(500, 357) }}" alt="{{ item.menutitle }}"></div>
+                        <div class="interior__item-box">
+                            <div class="interior__item-title">{{ item.menutitle }}</div>
+                            <p class="interior__item-text">{{ item.announce | raw }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ include('part/quality.html.twig') }}
+{% endblock %}

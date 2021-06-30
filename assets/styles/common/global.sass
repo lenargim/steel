@@ -1,0 +1,254 @@
+*
+  box-sizing: border-box
+  outline: none
+
+html
+  overflow-x: hidden
+
+body
+  font: normal normal 14px/1.2 "Montserrat", sans-serif
+  margin: 0
+  width: 100%
+  height: 100%
+  padding: 0
+  min-width: 100%
+  background-color: $colorMain
+
+main
+  min-height: 100vh
+
+header,
+footer,
+section
+  position: relative
+
+.container-outer
+  margin: 0 auto
+  position: relative
+  @media screen and (min-width: 1920px)
+    max-width: 1830px
+  @media screen and (min-width: 1660px) and (max-width: 1919px)
+    padding: 0 48px
+  @media screen and (min-width: 1280px) and (max-width: 1659px)
+    padding: 0 50px
+  @media screen and (max-width: 1279px)
+    width: 100%
+
+.container
+  margin-left: auto
+  @media screen and (min-width: 1920px)
+    width: 1430px
+  @media screen and (min-width: 1660px) and (max-width: 1919px)
+    width: 1298px
+  @media screen and (min-width: 1366px) and (max-width: 1659px)
+    width: 1040px
+  @media screen and (min-width: 1280px) and (max-width: 1365px)
+    width: 978px
+  @media screen and (max-width: 1279px)
+    width: 100%
+    padding: 0 16px
+    margin-left: unset
+
+ul, li, p, h1, h2, h3
+  padding: 0
+  margin: 0
+
+a
+  text-decoration: none
+
+input[type=search]::-ms-clear
+  display: none
+  width: 0
+  height: 0
+
+input[type=search]::-ms-reveal
+  display: none
+  width: 0
+  height: 0
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration
+  display: none
+
+input[type="number"]
+  -webkit-appearance: textfield
+  -moz-appearance: textfield
+  appearance: textfield
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+  -webkit-appearance: none
+
+textarea
+  resize: none
+  font-size: 16px
+
+main.main
+  overflow: hidden
+
+select
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+
+.img
+  overflow: hidden
+
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.hidden
+  display: none
+
+svg path
+  fill: #000
+
+.mobile
+  display: none
+  @media screen and (max-width: 1279px)
+    display: block
+
+.link
+  position: relative
+  font-size: 28px
+  line-height: 50px
+  color: #323F45
+  display: flex
+  align-items: center
+  justify-content: flex-start
+
+  .arrow
+    position: relative
+    width: 165px
+    height: 3px
+    margin-left: 24px
+    background-color: $colorGreen
+    transition: all 0.3s ease-in-out
+
+    &:before, &:after
+      content: ""
+      position: absolute
+      height: 3px
+      background-color: $colorGreen
+      width: 20px
+      right: 0
+      transition: all 0.3s ease-in-out
+      transform-origin: right center
+
+  &:hover
+    .arrow
+      width: 200px
+      border-radius: 1px
+
+      &:before
+        transform: rotate(45deg) translateY(1px)
+
+      &:after
+        transform: rotate(-45deg) translateY(-1px)
+.nowrap
+  white-space: nowrap
+.title
+  color: #2F3A41
+  font-size: 48px
+  line-height: 56px
+  padding-bottom: 37px
+  font-weight: 500
+.block
+  margin-bottom: 224px
+  &__wrap
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    padding-bottom: 80px
+  &__desc
+    max-width: 665px
+    padding-right: 163px
+    font: normal normal normal 16px/28px Inter
+    color: #414141
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      max-width: 540px
+      padding-right: 140px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      max-width: 505px
+      padding-right: 135px
+.default-arrow
+  cursor: pointer
+  width: 49px
+  height: 49px
+  &:hover
+    .a
+      fill: #182638
+    .b
+      stroke: #008066
+.section
+  padding-bottom: 224px
+
+.breadcrumbs
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  padding-bottom: 25px
+  font-size: 13px
+  font-weight: 600
+  line-height: 16px
+  &__link
+    color: $colorGreen
+    white-space: nowrap
+    display: block
+    margin-right: 56px
+    position: relative
+    &:before, &:after
+      content: ""
+      position: absolute
+      display: block
+    &:before
+      width: 24px
+      height: 1px
+      background-color: $colorGreen
+      left: calc(100% + 16px)
+      top: calc(50% - 0px)
+    &:after
+      border: solid #008066
+      border-width: 0 1px 1px 0
+      left: calc(100% + 33px)
+      top: calc(50% - 3px)
+      padding: 3px
+      transform: rotate(-45deg)
+
+    &:last-of-type
+      margin-right: 0
+      color: #434343
+      &:before, &:after
+        content: unset
+.page-title
+  font: normal normal 600 62px/72px Montserrat
+  padding-bottom: 64px
+  color: #2F3A41
+  &_short
+    max-width: 769px
+.button
+  display: inline-flex
+  cursor: pointer
+  font: normal normal medium 18px/20px Montserrat
+  padding: 20px 34px
+  color: #fff
+  border-radius: 12px
+  background-color: $colorGreen
+  transition: background-color 0.3s ease-in-out
+  &:hover
+    background-color: $colorDarkGreen
+.green
+  color: $colorGreen
+.img
+  display: flex
+  align-items: center
+  justify-content: center
+  overflow: hidden
+  img
+    object-fit: cover
+    transition: transform 0.3s ease-in-out

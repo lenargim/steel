@@ -1,62 +1,100 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <section class="product-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="wrap-prod">
-                        <div class="product-image">
-                            <a href="{% if (page.getWebPath('originalImage')) %}{{ page.getWebPath('originalImage') }}{% else %}{{ page.getWebPath('image') | thumb(440,330) }}{% endif %}" class="popup">
-                                <img src="{{ page.getWebPath('image') | thumb(440,330) }}" alt="{{ page.menutitle }}">
-                            </a>
-                        </div>
-                        {% set price = page | getPrice(app.request) %}
-                        {% if price %}
-                            <div class="prod-price">Цена:  <b>{{ price | number_format(0, ',', ' ')}}</b> ₽ <button  onclick="window.cart.addingItem({{ page.id }}, 1)" class="btn btn-red btn-cart">В корзину</button></div>
-                        {% else %}
-                            <div class="prod-price">Цена:  <b>Договорная</b></div>
-                        {% endif %}
-                    </div>
+    <div class="catalog-detailed block">
+        <div class="container-outer">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="/" class="breadcrumbs__link">Главная</a>
+                    <a href="/catalog" class="breadcrumbs__link">Каталог</a>
+                    <a href="/category" class="breadcrumbs__link">Мебель для баров, кафе и ресторанов</a>
+                    <a href="/catalog/catalog-detailed" class="breadcrumbs__link">Стул барный в стиле лофт</a>
                 </div>
-                <div class="col-lg-7">
-                    <div class="wrapper wrapper-prod">
-                        <div class="tabs">
-                            <span class="tab">{{ 'item_title1' | getString('Карточка товара') }}</span>
-                            {% if page.specification %}
-                            <span class="tab">{{ 'item_title2' | getString('Карточка товара') }}</span>
-                            {% endif %}
-                        </div>
-                        <div class="tab_content">
-                            <div class="tab_item container">
-                                {{ page.descriptionText | raw }}
-                            </div>
-                            {% if page.specification %}
-                            <div class="tab_item">
-                                <div class="description container">
-                                    {{ page.specification | raw }}
-                                </div>
-                            </div>
-                            {% endif %}
-                        </div>
+                <h1 class="page-title page-title_short">Стул барный в стиле лофт</h1>
+                <section class="catalog-detailed__info block">
+                    <div class="catalog-detailed__img img"><img src="{{ '/build/catalog-detailed.png' }}"
+                                                                alt="catalog-detailed-img">
                     </div>
+                    <div class="catalog-detailed__text">
+                        <p>Чтобы изделие служило как можно дольше и не теряло свой товарный вид, мы с должным вниманием и
+                            ответственностью подходим ко всем этапам обработки металла. Для покраски мы используем порошковую краску,
+                            по нашему мнению, наилучшего качества, международного концерна AkzoNobel. Широкая гамма цветов и текстур,
+                            позволяет воплотить практически любой замысел дизайнеров. Так же, в скором времени, планируем красить
+                            жидкими красками в т.ч. под золото, латунь, медь.</p>
+                        <div class="catalog-detailed__button button">Узнать стоимость</div>
+                    </div>
+                </section>
+                <div class="catalog-page__wrap">
+                    <a href="/catalog/catalog-detailed" class="catalog-page__item">
+                        <div class="catalog-page__img img">
+                            <img src="{{ asset('build/category-1.png') }}" alt="category-img">
+                        </div>
+                        <div class="portfolio__gallery-box">
+                            <span class="portfolio__gallery-title">Стол и стулья</span>
+                            <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+                        </div>
+                    </a>
+                    <a href="/catalog/catalog-detailed" class="catalog-page__item">
+                        <div class="catalog-page__img img">
+                            <img src="{{ asset('build/category-2.png') }}" alt="category-img">
+                        </div>
+                        <div class="portfolio__gallery-box">
+                            <span class="portfolio__gallery-title">Стол и стулья</span>
+                            <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+                        </div>
+                    </a>
+                    <a href="/catalog/catalog-detailed" class="catalog-page__item">
+                        <div class="catalog-page__img img">
+                            <img src="{{ asset('build/category-3.png') }}" alt="category-img">
+                        </div>
+                        <div class="portfolio__gallery-box">
+                            <span class="portfolio__gallery-title">Стол и стулья</span>
+                            <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+                        </div>
+                    </a>
+                    <a href="/catalog/catalog-detailed" class="catalog-page__item">
+                        <div class="catalog-page__img img">
+                            <img src="{{ asset('build/category-4.png') }}" alt="category-img">
+                        </div>
+                        <div class="portfolio__gallery-box">
+                            <span class="portfolio__gallery-title">Стол и стулья</span>
+                            <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+                        </div>
+                    </a>
+                    <a href="/catalog/catalog-detailed" class="catalog-page__item">
+                        <div class="catalog-page__img img">
+                            <img src="{{ asset('build/category-5.png') }}" alt="category-img">
+                        </div>
+                        <div class="portfolio__gallery-box">
+                            <span class="portfolio__gallery-title">Стол и стулья</span>
+                            <p class="portfolio__gallery-desc">Металлическая мебель для ресторана</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-    {% if favorites | length > 0 %}
-    <section class="other-goods">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-h2">Похожие товары</h2>
-                    <div class="row">
-                        {% for item in favorites %}
-                        {% include 'catalog/product-box.html.twig' %}
-                        {% endfor %}
+    </div>
+    <div class="overlay">
+        <div class="modal__close"></div>
+        <div class="modal modal-callback">
+            <div class="modal-callback__title">Узнайте стоимость вашей идеи</div>arrow
+            <div class="modal-callback__desc">Отправьте ваши контактные данные и мы свяжемся с вами</div>
+            <form action="" class="modal-callback__form">
+                <div class="modal-callback__row">
+                    <div class="modal-callback__field">
+                        <label for="callback-name" class="modal-callback__label">Ваше имя</label>
+                        <input type="text" id="callback-name" class="modal-callback__input">
+                    </div>
+                    <div class="modal-callback__field">
+                        <label for="callback-phone" class="modal-callback__label">Номер телефона</label>
+                        <input type="tel" id="callback-phone" class="modal-callback__input">
+                    </div>
+                    <div class="modal-callback__field">
+                        <label for="callback-email" class="modal-callback__label">Электронная почта</label>
+                        <input type="email" id="callback-email" class="modal-callback__input">
                     </div>
                 </div>
-            </div>
+                <input type="submit" class="modal-callback__submit button" value="Отправить">
+            </form>
         </div>
-    </section>
-    {% endif %}
+    </div>
 {% endblock %}

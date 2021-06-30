@@ -2,7 +2,7 @@
 
 namespace SiteBundle\Entity\Pages;
 
-use SiteBundle\Admin\Pages\CatalogArticlePageAdmin;
+use SiteBundle\Admin\Pages\CatalogArticleAdmin;
 use SiteBundle\Entity\Pages;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,7 +18,7 @@ class CatalogArticle extends Pages
      */
     public function getAdminClass(): string
     {
-        return CatalogArticlePageAdmin::class;
+        return CatalogArticleAdmin::class;
     }
 
     /**
@@ -28,50 +28,65 @@ class CatalogArticle extends Pages
     protected $image;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * картинка
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $mainTitle;
+    protected $image2;
+
 
     /**
-     * Популярные
+     * На главную
      * @ORM\Column(type="boolean", nullable=true, options={"default":0})
      */
-    protected $popular;
+    protected $onmain;
 
-
-    public function getImage(): ?string
+    /**
+     * @return mixed
+     */
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
     {
         $this->image = $image;
-
-        return $this;
     }
 
-    public function getMainTitle(): ?string
+    /**
+     * @return mixed
+     */
+    public function getImage2()
     {
-        return $this->mainTitle;
+        return $this->image2;
     }
 
-    public function setMainTitle(?string $mainTitle): self
+    /**
+     * @param mixed $image2
+     */
+    public function setImage2($image2): void
     {
-        $this->mainTitle = $mainTitle;
-
-        return $this;
+        $this->image2 = $image2;
     }
 
-    public function getPopular(): ?bool
+    /**
+     * @return mixed
+     */
+    public function getOnmain()
     {
-        return $this->popular;
+        return $this->onmain;
     }
 
-    public function setPopular(?bool $popular): self
+    /**
+     * @param mixed $onmain
+     */
+    public function setOnmain($onmain): void
     {
-        $this->popular = $popular;
-
-        return $this;
+        $this->onmain = $onmain;
     }
+
+
 }

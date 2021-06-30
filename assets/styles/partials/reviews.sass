@@ -1,0 +1,103 @@
+.reviews
+  position: relative
+  &__slider
+    width: 930px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      width: 865px
+    .slick-list
+      overflow: unset
+    &-item-wrap.slick-slide
+      display: flex
+      padding-right: 165px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        padding-right: 140px
+    &-item
+      background-color: #fff
+      padding: 44px 56px
+      display: flex
+      align-items: flex-start
+      justify-content: flex-start
+      height: 316px
+    &-img
+      border-radius: 50%
+      overflow: hidden
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 130px
+      min-width: 130px
+      height: 130px
+      margin-right: 32px
+      img
+        object-fit: cover
+    &-info
+      overflow: hidden
+    &-position
+      font-weight: 600
+      font-size: 13px
+      line-height: 16px
+      color: $colorGreen
+      padding-bottom: 8px
+    &-name
+      font-size: 28px
+      line-height: 32px
+      color: #2F3A41
+      padding-bottom: 18px
+    &-text
+      font: normal normal normal 14px/24px Inter
+      color: #000
+    &-arrow-box
+      position: relative
+      top: 88px
+      width: 190px
+      height: 49px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      color: #414141
+      font: normal normal normal 22px/28px Inter
+.reviews-page
+  &__wrap
+    max-width: 1032px
+    column-count: 2
+    list-style-type: none
+  &__item
+    background-color: #fff
+    padding: 44px 49px
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    height: auto
+    max-width: 500px
+    margin-bottom: 32px
+    overflow: hidden
+    page-break-inside: avoid
+    break-inside: avoid-column
+    &_full
+      max-width: 1032px
+    &-img
+      border-radius: 50%
+      overflow: hidden
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 130px
+      min-width: 130px
+      height: 130px
+      margin-right: 39px
+      img
+        object-fit: cover
+    &-position
+      font-weight: 600
+      font-size: 13px
+      line-height: 16px
+      color: $colorGreen
+      padding-bottom: 8px
+    &-name
+      font-size: 28px
+      line-height: 32px
+      color: #2F3A41
+      padding-bottom: 18px
+    &-text
+      font: normal normal normal 16px/28px Inter
+      color: #000

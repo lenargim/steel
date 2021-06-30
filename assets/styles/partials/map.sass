@@ -1,0 +1,43 @@
+.map
+  position: relative
+  height: 1080px
+  @media screen and (min-width: 1660px) and (max-width: 1919px)
+    height: 898px
+  @media screen and (min-width: 1366px) and (max-width: 1659px)
+    height: 768px
+  @media screen and (min-width: 1280px) and (max-width: 1365px)
+    height: 800px
+  &__wrap
+    width: 100%
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+  &__box
+    position: relative
+    top: 100px
+    left: 0
+    width: 431px
+    z-index: 1
+    background-color: $colorSecond
+    padding: 36px 32px
+    color: #fff
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      width: 342px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      width: 335px
+    &-title
+      color: #fff
+    a
+      color: #fff
+      margin-right: 21px
+      font: normal normal normal 18px/28px Inter
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        display: block
+        margin-bottom: 21px
+    address
+      margin-top: 32px
+      font: normal normal normal 18px/28px Inter
+      span
+        white-space: nowrap

@@ -8,11 +8,14 @@ use SiteBundle\Entity\Pages\CatalogArticle;
 use SiteBundle\Entity\Pages\CatalogItem;
 use SiteBundle\Entity\Pages\CatalogMain;
 use SiteBundle\Entity\Pages\ContactsPage;
+use SiteBundle\Entity\Pages\InteriorItemPage;
+use SiteBundle\Entity\Pages\InteriorListPage;
 use SiteBundle\Entity\Pages\MainPage;
 use SiteBundle\Entity\Pages\PolicyPage;
+use SiteBundle\Entity\Pages\ReviewsListPage;
 use SiteBundle\Entity\Pages\SearchPage;
-use SiteBundle\Entity\Pages\ServiceItem;
-use SiteBundle\Entity\Pages\ServiceListPage;
+use SiteBundle\Entity\Pages\PortfolioItemPage;
+use SiteBundle\Entity\Pages\PortfolioListPage;
 use SiteBundle\Entity\Pages\SuccessOrderPage;
 use SiteBundle\Entity\Traits\SeoPageFields;
 use SiteBundle\Helper\DataHandler;
@@ -34,16 +37,15 @@ use Gedmo\Timestampable\Traits\Timestampable;
  * @ORM\DiscriminatorMap({
  *     "text_page" = "Pages",
  *     "main_page" = "SiteBundle\Entity\Pages\MainPage",
- *     "cart_page" = "SiteBundle\Entity\Pages\CartPage",
+ *     "portfolio_list" = "SiteBundle\Entity\Pages\PortfolioListPage",
+ *     "portfolio_item" = "SiteBundle\Entity\Pages\PortfolioItemPage",
+ *     "interior_list" = "SiteBundle\Entity\Pages\InteriorListPage",
+ *     "interior_item" = "SiteBundle\Entity\Pages\InteriorItemPage",
+ *     "review_list" = "SiteBundle\Entity\Pages\ReviewsListPage",
  *     "policy_page" = "SiteBundle\Entity\Pages\PolicyPage",
- *     "search_page" = "SiteBundle\Entity\Pages\SearchPage",
  *     "catalog_item" = "SiteBundle\Entity\Pages\CatalogItem",
  *     "catalog_article" = "SiteBundle\Entity\Pages\CatalogArticle",
  *     "catalog_main" = "SiteBundle\Entity\Pages\CatalogMain",
- *     "contacts_page" = "SiteBundle\Entity\Pages\ContactsPage",
- *     "service_item" = "SiteBundle\Entity\Pages\ServiceItem",
- *     "service_list_page" = "SiteBundle\Entity\Pages\ServiceListPage",
- *     "success_order" = "SiteBundle\Entity\Pages\SuccessOrderPage"
  * })
  */
 class Pages implements PageAdminInterface, NodeInterface
@@ -149,16 +151,18 @@ class Pages implements PageAdminInterface, NodeInterface
      */
     protected $routerActive;
 
-    /**
-     * @ORM\Column(type="string", length=191, nullable=true)
-     */
-    protected $subtitle;
 
     /**
      *
      * @ORM\Column(type="json_array", nullable=true)
      */
     protected $arr1;
+
+    /**
+     *
+     * @ORM\Column(type="json_array", nullable=true)
+     */
+    protected $arr2;
 
     /**
      * @var array
@@ -184,13 +188,11 @@ class Pages implements PageAdminInterface, NodeInterface
     {
         return [
             "main_page",
-            "contacts_page",
-            "search_page",
             "policy_page",
-            "service_list_page",
-            "cart_page",
             "catalog_main",
-            "success_order",
+            "portfolio_list",
+            "interior_list",
+            "review_list",
         ];
     }
 
@@ -201,42 +203,39 @@ class Pages implements PageAdminInterface, NodeInterface
         "catalog_article" => "App\Controller\CatalogController::list",
         "catalog_item" => "App\Controller\CatalogController::index",
         "catalog_main" => "App\Controller\CatalogController::main",
-        "search_page" => "App\Controller\SearchController::index",
-        "contacts_page" => "App\Controller\ContactsController::index",
-        "service_list_page" => "App\Controller\ServiceController::list",
-        "service_item" => "App\Controller\TextController::index",
-        "cart_page" => "App\Controller\CartController::index",
-        "success_order" => "App\Controller\TextController::index",
+        "portfolio_list" => "App\Controller\PortfolioController::list",
+        "portfolio_item" => "App\Controller\PortfolioController::index",
+        "interior_list" => "App\Controller\InteriorController::list",
+        "interior_item" => "App\Controller\InteriorController::index",
+        "review_list" => "App\Controller\ReviewController::list",
     ];
 
     public static $discrClass = [
         "text_page" => Pages::class,
         "main_page" => MainPage::class,
         "policy_page" => PolicyPage::class,
-        "contacts_page" => ContactsPage::class,
         "catalog_article" => CatalogArticle::class,
         "catalog_item" => CatalogItem::class,
         "catalog_main" => CatalogMain::class,
-        "search_page" => SearchPage::class,
-        "service_list_page" => ServiceListPage::class,
-        "service_item" => ServiceItem::class,
-        "cart_page" => CartPage::class,
-        "success_order" => SuccessOrderPage::class,
+        "portfolio_list" => PortfolioListPage::class,
+        "portfolio_item" => PortfolioItemPage::class,
+        "interior_list" => InteriorListPage::class,
+        "interior_item" => InteriorItemPage::class,
+        "review_list" => ReviewsListPage::class,
     ];
 
     public static $types = [
         Pages::class => "Текстовая страница",
         MainPage::class => "Главная",
         PolicyPage::class => "Политика конфиденциальности",
-        ContactsPage::class => "Контакты",
         CatalogArticle::class => "Каталог раздел",
         CatalogItem::class => "Каталог карточка",
         CatalogMain::class => "Каталог главная",
-        SearchPage::class => "Страница поиска",
-        ServiceListPage::class => "Список услуг",
-        ServiceItem::class => "Страница услуги",
-        CartPage::class => "Корзина",
-        SuccessOrderPage::class => "Успех заказа",
+        PortfolioListPage::class => "Список портфолио",
+        PortfolioItemPage::class => "Страница портфолио",
+        InteriorListPage::class => "Список интерьерных решений",
+        InteriorItemPage::class => "Страница интерьерного решения",
+        ReviewsListPage::class => "Список отзывов",
     ];
 
 
@@ -677,6 +676,24 @@ class Pages implements PageAdminInterface, NodeInterface
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getArr2()
+    {
+        return $this->arr2;
+    }
+
+    /**
+     * @param mixed $arr2
+     */
+    public function setArr2($arr2): void
+    {
+        $this->arr2 = $arr2;
+    }
+
+
     /**
      * @return mixed
      */

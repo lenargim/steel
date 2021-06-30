@@ -1,0 +1,77 @@
+.interior
+  &__wrap
+    display: grid
+    grid-gap: 32px
+    grid-template-columns: repeat(2, 500px)
+  &__item
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: flex-start
+    &:hover
+      .interior__item-title:before
+        width: 100px
+      img
+        transform: scale(1.2)
+    &:first-of-type
+      grid-column: 1/3
+    &-img
+      width: 500px
+      height: 357px
+    &-box
+      padding: 32px
+      max-width: 431px
+    &-title
+      display: block
+      color: $colorGreen
+      padding-bottom: 8px
+      font-weight: 600
+      font-size: 20px
+      line-height: 24px
+      position: relative
+      white-space: nowrap
+      &:before
+        content: ""
+        position: absolute
+        height: 3px
+        width: 0
+        background-color: $colorGreen
+        transition: width 0.3s ease-in-out
+        left: 0
+        top: -10px
+    &-text
+      font: normal normal normal 16px/28px Inter
+      color: #414141
+.interior-detailed
+  &__item
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    gap: 32px
+    margin: 0 30px
+  &__text
+    font: normal normal normal 16px/28px Inter
+    width: 234px
+    max-height: 784px
+  &__year
+    padding: 102px 0
+  &__img
+    cursor: pointer
+    &:hover img
+      transform: scale(1.2)
+  &__slider-wrap
+    position: relative
+  &__arrow-box
+    position: absolute
+    bottom: 50px
+    left: 0
+    z-index: 3
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 186px
+    font: normal normal normal 22px/28px Inter
+    color: #414141
+  &__slider
+    margin: 0 -30px

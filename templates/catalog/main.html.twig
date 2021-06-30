@@ -1,4 +1,42 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    {% include 'catalog/catalog-box.html.twig' with {'catalog': page } %}
+    <div class="catalog-page block">
+        <div class="container-outer">
+            <div class="container">
+                {{ render(controller('App\\Controller\\PartController:breadcrumbs', {'page': page})) }}
+                <h1 class="page-title">{{ page.h1 }}</h1>
+                <div class="catalog-page__wrap">
+                    {% for key, item in page.getChildren([catalogArticleClass]) %}
+                        {% if key == 7 %}
+                            <div class="catalog-page__item">
+                                <div class="catalog-page__text">
+                                    {{ page.announce }}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if key > 6 %}
+                            {% set key = key +  1 %}
+                        {% endif %}
+                        {% if (key + 1)%10 == 1 or (key + 1)%10 == 7 %}
+                            {% set img = item.getWebPath('image') | thumb(600, 314) %}
+                            {% set class = ' catalog-page__item_big' %}
+                        {%  else %}
+                            {% set img = item.getWebPath('image2') | thumb(441, 314) %}
+                            {% set class = '' %}
+                        {% endif %}
+                        <a href="{{ sitePath(item.route) }}" class="catalog-page__item{{class }}">
+                            <div class="catalog-page__img img">
+                                <img src="{{ img }}" alt="{{ item.menutitle }}">
+                            </div>
+                            <div class="portfolio__gallery-box">
+                                <span class="portfolio__gallery-title">{{ item.menutitle }}</span>
+                                <p class="portfolio__gallery-desc">{{ item.announce }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ include('part/quality.html.twig') }}
 {% endblock %}

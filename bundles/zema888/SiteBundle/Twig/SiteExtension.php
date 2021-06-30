@@ -1,7 +1,6 @@
 <?php
 namespace SiteBundle\Twig;
 
-use App\Services\CityService;
 use Doctrine\ORM\EntityManagerInterface;
 use SiteBundle\Entity\Pages;
 use SiteBundle\Entity\Settings;
@@ -22,23 +21,19 @@ class SiteExtension extends AbstractExtension
     protected EntityManagerInterface $em;
     protected SiteStringsRepository $stringRepo;
     protected UrlGeneratorInterface $generator;
-    protected CityService $cityService;
 
     /**
      * SiteExtension constructor.
      * @param EntityManagerInterface $em
      * @param UrlGeneratorInterface $generator
-     * @param CityService $cityService
      */
     public function __construct(
         EntityManagerInterface $em,
-        UrlGeneratorInterface $generator,
-        CityService $cityService
+        UrlGeneratorInterface $generator
     )
     {
         $this->em = $em;
         $this->generator = $generator;
-        $this->cityService = $cityService;
         $this->stringRepo = $this->em->getRepository(SiteStrings::class);
     }
 
@@ -66,7 +61,6 @@ class SiteExtension extends AbstractExtension
             new TwigFilter('defaultTitle', array($this, 'defaultTitle')),
             new TwigFilter('defaultDescription', array($this, 'defaultDescription')),
             new TwigFilter('countProducts', array($this, 'countProducts')),
-            new TwigFilter('getPrice', array($this, 'getPrice')),
         );
     }
 
@@ -103,10 +97,6 @@ class SiteExtension extends AbstractExtension
         return $page;
     }
 
-    public function getPrice(Pages\CatalogItem $item, Request $request): string
-    {
-        return $this->cityService->getPrice($item, $request);
-    }
 
     /**
      * @param Pages $page
@@ -121,44 +111,21 @@ class SiteExtension extends AbstractExtension
     public function defaultTitle($page, Request $request)
     {
         if ($page->getTitle()) {
-            return $this->cityPlaceholder($page->getTitle(), $request);
+            return $page->getTitle();
         }
-        return $this->em->getRepository(Settings::class)->renderMetaTemplate('defaultTitle', $page, $this->cityPlaceholder($page->getTitle(), $request, true));
+        return $this->em->getRepository(Settings::class)->renderMetaTemplate('defaultTitle', $page, []);
 
     }
 
     public function defaultDescription($page, $request)
     {
         if ($page->getDescription()) {
-            return $this->cityPlaceholder($page->getDescription(), $request);
+            return $page->getDescription();
         }
-        return $this->em->getRepository(Settings::class)->renderMetaTemplate('defaultDescription', $page, $this->cityPlaceholder($page->getDescription(), $request, true));
+        return $this->em->getRepository(Settings::class)->renderMetaTemplate('defaultDescription', $page, []);
 
     }
 
-    public function cityPlaceholder($text, Request $request, $getArr = false)
-    {
-        $city = $this->cityService->getHostCity($request);
-        if ($city) {
-            if ($getArr) {
-                return [
-                    'CITY' => $city->getTitle(),
-                    'CITYGEN' => $city->getTitleGen(),
-                    'CITYACCU' => $city->getTitleAccu(),
-                    'CITYPREPOS' => $city->getTitlePrepos(),
-                    'PHONE' => $city->getPhone(),
-                ];
-            }
-            return $this->setVariables($text, [
-                'CITY' => $city->getTitle(),
-                'CITYGEN' => $city->getTitleGen(),
-                'CITYACCU' => $city->getTitleAccu(),
-                'CITYPREPOS' => $city->getTitlePrepos(),
-                'PHONE' => $city->getPhone(),
-            ]);
-        }
-        return $text;
-    }
 
     /**
      * Массив страниц по массиву ИД

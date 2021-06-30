@@ -1,0 +1,110 @@
+.banner
+  padding-bottom: 100px
+  &__wrap
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  &__info
+    max-width: 674px
+    @media screen and (min-width: 1660px) and (max-width: 1919px)
+      max-width: 641px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      max-width: 560px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      width: 505px
+  &__title
+    color: $colorBlack
+    font-size: 62px
+    line-height: 72px
+    margin-bottom: 50px
+
+  &__text
+    font-family: Inter, sans-serif
+    font-size: 16px
+    line-height: 28px
+    margin-bottom: 72px
+    color: #414141
+    max-width: 222px
+  &__slider
+    &-wrap
+      position: relative
+      max-width: 500px
+      margin-right: 100px
+      @media screen and (min-width: 1660px) and (max-width: 1919px)
+        max-width: 367px
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        max-width: 400px
+        margin-right: 60px
+        top: -40px
+    &-item
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
+      overflow: hidden
+    &-img
+      max-width: 500px
+      height: 528px
+      margin: 0 auto 64px
+      &:hover img
+        transform: scale(1.2)
+      @media screen and (min-width: 1660px) and (max-width: 1919px)
+        max-width: 367px
+        height: 388px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        max-width: 292px
+        height: 309px
+      @media screen and (min-width: 1280px) and (max-width: 1365px)
+        max-width: 271px
+        height: 287px
+    &-info
+      display: flex
+      align-items: flex-start
+      justify-content: flex-start
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        width: 400px
+    &-name
+      color: $colorGreen
+      font-size: 20px
+      line-height: 24px
+      width: 310px
+      padding-right: 57px
+    &-price
+      color: $colorSecond
+      font-weight: 600
+      font-size: 20px
+      line-height: 24px
+      white-space: nowrap
+
+  &__arrow
+    cursor: pointer
+    position: absolute
+    z-index: 1
+    top: 242px
+    @media screen and (min-width: 1660px) and (max-width: 1919px)
+      top: 170px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      top: 133px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      top: 120px
+    .arrow
+      border: solid $colorGreen
+      border-width: 0 3px 3px 0
+      padding: 20px
+      display: block
+      transition: border-color 0.3s ease
+      &:hover
+        border-color: $colorDarkGreen
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        padding: 13px
+    &.left
+      transform: rotate(135deg)
+      left: -100px
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        left: -40px
+    &.right
+      transform: rotate(-45deg)
+      right: -100px
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        right: -40px

@@ -1,0 +1,80 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="interior-detailed block">
+        <div class="container-outer">
+            <div class="container">
+                {{ render(controller('App\\Controller\\PartController:breadcrumbs', {'page': page})) }}
+                <h1 class="page-title">{{ page.h1 }}</h1>
+                <div class="interior-detailed__slider-wrap">
+                    <div class="interior-detailed__arrow-box">
+                        {{ source('svg/arrow_left.svg') }}
+                        <span class="interior-detailed__slider-counter"></span>
+                        {{ source('svg/arrow_right.svg') }}
+                    </div>
+                    <div class="interior-detailed__slider" id="interior-slider">
+                        <div class="interior-detailed__slide">
+                            <div class="interior-detailed__item">
+                                <div class="interior-detailed__text"><p>
+                                        Чтобы изделие служило как можно дольше и не теряло свой товарный вид,
+                                        мы с должным вниманием и ответственностью подходим ко всем этапам обработки металла. Для покраски мы
+                                        используем порошковую краску, по нашему мнению, наилучшего качества, международного концерна
+                                        AkzoNobel.
+                                    </p>
+                                    <div class="interior-detailed__year">2019</div>
+                                </div>
+                                <div class="interior-detailed__img img">
+                                    <img src="{{ asset('build/interior-detailed.png') }}" alt="interior detailed">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="interior-detailed__slide">
+                            <div class="interior-detailed__item">
+                                <div class="interior-detailed__text"><p>
+                                        Чтобы изделие служило как можно дольше и не теряло свой товарный вид,Чтобы изделие служило как можно
+                                        дольше и не теряло свой товарный вид,Чтобы изделие служило как можно дольше и не теряло свой
+                                        товарный вид,Чтобы изделие служило как можно дольше и не теряло свой товарный вид,
+                                        мы с должным вниманием и ответственностью подходим ко всем этапам обработки металла. Для покраски мы
+                                        используем порошковую краску, по нашему мнению, наилучшего качества, международного концерна
+                                        AkzoNobel.
+
+                                    </p>
+                                    <div class="interior-detailed__year">2019</div>
+                                </div>
+                                <div class="interior-detailed__img img">
+                                    <img src="{{ asset('build/interior-detailed.png') }}" alt="interior detailed">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ include('part/quality.html.twig') }}
+    <div class="overlay">
+        <div class="modal__close"></div>
+        <div class="modal modal-slider">
+            <div class="container-outer">
+                <div class="modal__arrow modal__arrow_left"><i class="arrow"></i></div>
+                <div class="modal__arrow modal__arrow_right"><i class="arrow"></i></div>
+                <div class="modal-slider__arrow-box">
+                    <span class="modal-slider__counter"></span>
+                </div>
+                <div class="modal-slider__wrap">
+                    <div class="modal-slider__item-wrap">
+                        <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+                    </div>
+                    <div class="modal-slider__item-wrap">
+                        <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+                    </div>
+                    <div class="modal-slider__item-wrap">
+                        <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+                    </div>
+                    <div class="modal-slider__item-wrap">
+                        <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,124 @@
+.overlay
+  position: fixed
+  top: 0
+  bottom: -5vh
+  left: 0
+  right: 0
+  z-index: 9
+  background-color: rgba(24, 38, 56, 0.9)
+  display: none
+  overflow-y: auto
+  &.active
+    display: block
+.modal
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+  display: none
+  &.active
+    display: block
+  &__close
+    position: absolute
+    right: 50px
+    top: 50px
+    cursor: pointer
+    background-color: rgba(24, 38, 56, 1)
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 49px
+    height: 49px
+    border-radius: 50%
+    overflow: hidden
+    z-index: 2
+    &:before, &:after
+      content: ""
+      background-color: #fff
+      display: block
+      width: 25px
+      height: 3px
+      transform-origin: center center
+      position: absolute
+    &:before
+      transform: rotate(45deg)
+    &:after
+      transform: rotate(-45deg)
+  &__arrow
+    cursor: pointer
+    position: absolute
+    z-index: 1
+    width: 43px
+    height: 43px
+    top: calc(50% - 20px)
+    &_left
+      transform: rotate(135deg)
+      left: 10%
+    &_right
+      transform: rotate(-45deg)
+      right: 10%
+    .arrow
+      border: solid #008066
+      border-width: 0 3px 3px 0
+      padding: 20px
+      display: block
+      transition: border-color 0.3s ease
+      &:hover
+        border-color: $colorDarkGreen
+  &-slider
+    &__item
+      max-width: 1043px
+      margin: auto
+    &__arrow-box
+      position: absolute
+      bottom: 22px
+      left: 50%
+      transform: translateX(-50%)
+      z-index: 3
+      color: #fff
+      font: normal normal normal 22px/28px Inter
+      text-align: center
+      padding: 6px 14px
+      letter-spacing: 2.2px
+      background-color: rgba(24, 38, 56, 1)
+      border-radius: 90px
+.modal-callback
+  background-color: $colorMain
+  padding: 56px 133px 66px
+  width: 100%
+  max-width: 1065px
+  &__title
+    color: rgba(47, 58, 65, 1)
+    font-size: 48px
+    line-height: 56px
+    padding-bottom: 37px
+    font-weight: 500
+  &__desc
+    max-width: 549px
+    font-size: 28px
+    line-height: 32px
+    font-weight: 500
+    padding-bottom: 59px
+  &__row
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 32px
+    padding-bottom: 88px
+  &__field
+    width: 100%
+  &__label
+    font: normal normal normal 14px/24px Inter
+    color: rgba(65, 65, 65, 1)
+    padding-bottom: 16px
+  &__input
+    border: 1px solid rgba(150, 150, 150, 1)
+    height: 48px
+    background-color: transparent
+    width: 100%
+    padding: 5px 10px
+  &__submit
+    padding: 20px 66px
+    display: block
+    margin-left: auto
+    border: none

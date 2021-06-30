@@ -113,16 +113,6 @@ class BaseAdmin extends AbstractAdmin implements SetConfigureFormFieldsInterface
                     'class' => 'ckeditor'
                 ]
             ]);
-        if (!$hideText) {
-            $formMapper
-            ->add('announce', CKEditorType::class, [
-                'label' => 'SEO текст (подробнее)',
-                'required' => false,
-                'attr' => [
-                    'class' => 'ckeditor'
-                ]
-            ]);
-        }
         $formMapper
             ->end()
             ->end();

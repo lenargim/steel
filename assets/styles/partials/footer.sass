@@ -1,0 +1,39 @@
+.footer
+  background-color: $colorSecond
+  &__wrap
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 80px
+  &__nav
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    li
+      list-style-type: none
+  &__link
+    color: #fff
+    white-space: nowrap
+    font: normal normal normal 14px/24px Inter
+    margin-right: 72px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      margin-right: 45px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      margin-right: 32px
+  &__dev
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    color: #ffffff
+    font: normal normal normal 12px/28px Inter
+    &-logo
+      border-radius: 50%
+      overflow: hidden
+      display: flex
+      align-items: center
+      justify-content: center
+      margin-right: 16px
+      width: 36px
+      height: 36px
+      img
+        object-fit: cover

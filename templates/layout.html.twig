@@ -1,56 +1,56 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ page.title }}{% endblock %}
+{% block title %}{{ page | defaultTitle(app.request) }}{% endblock %}
 {% block keywords %}{{ page.keywords  }}{% endblock %}
-{% block description %}{{ page.description  }}{% endblock %}
+{% block description %}{{ page | defaultDescription(app.request) }}{% endblock %}
 {% block headmetrika %}{{ 'headmetrika' | getSetting | raw }}{% endblock %}
 
 {% block body %}
     <body>
-    <div class="wrap-main">
-        {{ render(controller('App\\Controller\\PartController::header', {'request': app.request, 'page': page})) }}
-        {% block main_block %}
-            {{ render(controller('App\\Controller\\PartController:breadcrumbs', {'page': page})) }}
-            <section class="title-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            {% if page.discrString == 'Текстовая страница'  or page.discrString == 'Контакты' or page.discrString == 'Страница поиска' or page.discrString == 'Корзина' %}
-                                <h1 class="title">{{ page.h1  }}</h1>
-                            {%  else %}
-                                <div class="title">{{ page.seotitle  }}</div>
-                            {% endif %}
-                        </div>
-                    </div>
+    {{ render(controller('App\\Controller\\PartController::header', {'request': app.request, 'page': page})) }}
+    <main>
+        <div class="side-menu">
+            <div class="side-menu__burger"><span></span></div>
+            <div class="side-menu__copy"><span>&#169;</span> {{ 'Сталь в интерьерах, 2021' | getString('Шапка') }}</div>
+            <div class="side-menu__socials">
+                <a target="_blank" href="#" class="side-menu__social">
+                    {{ source('svg/vk.svg') }}
+                </a>
+                <a target="_blank" href="#" class="side-menu__social">
+                    {{ source('svg/fb.svg') }}
+                </a>
+                <a target="_blank" href="#" class="side-menu__social">
+                    {{ source('svg/inst.svg') }}
+                </a>
+            </div>
+            <div class="side-menu__list" style="background-image: url('{{ asset('/build/menu-bg.svg') }}')">
+                {{ render(controller('App\\Controller\\PartController:navigation', {'page': page})) }}
+                <a href="{{ ('Код телефона' | getString('Шапка')) ~ ('Номер телефона' | getString('Шапка'))  | replace({" ": "", "-": "", "(": "", ")": ""})  }}"
+                   class="side-menu__phone mobile">
+                    {{ ('Код телефона' | getString('Шапка')) ~ ('Номер телефона' | getString('Шапка')) }}
+                </a>
+                <a data-reachgoal="callback-button"
+                   data-type="callback"
+                   href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'callback', 'route': page.route }) }}"
+                   class="side-menu__callback mobile js-popup-open js-reachgoal">
+                    {{ 'Заказать звонок' | getString('Шапка') }}
+                </a>
+                <div class="side-menu__socials mobile">
+                    <a target="_blank" href="#" class="side-menu__social">
+                        {{ source('svg/vk.svg') }}
+                    </a>
+                    <a target="_blank" href="#" class="side-menu__social">
+                        {{ source('svg/fb.svg') }}
+                    </a>
+                    <a target="_blank" href="#" class="side-menu__social">
+                        {{ source('svg/inst.svg') }}
+                    </a>
                 </div>
-            </section>
-        {% endblock %}
-    </div>
-
-
-
-
-    {% block content %}{% endblock %}
-    {% block seo %}
-    {% include 'part/seo_block.html.twig' %}
-    {% endblock %}
-    {{ render(controller('App\\Controller\\PartController::footer', {'page': page})) }}
-    <div class="hidden">
-        {{ render(controller('App\\Controller\\PartController:navigationMobile', {'page': page})) }}
-        {{ render(controller('App\\Controller\\PartController::cities', {'request': app.request})) }}
-        {{ render(controller('App\\Controller\\PartController::askUserCity', {'request': app.request})) }}
-    </div>
-    {% include 'part/message_success.html.twig' %}
-    <div style="display: none;">{{ 'bodymetrika' | getSetting | raw }}</div>
-    {% block javascripts %}
-        <script src="https://unpkg.com/vue"></script>
-        <script src="{{ asset('libs/libs.min.js') }}"></script>
-        <script src="{{ asset('build/app.js') }}"></script>
-        <script src="{{ asset('libs/stacktable/stacktable.js') }}"></script>
-        <script type="text/javascript">
-            $(function() {
-                $('.table').stacktable();
-            });
-        </script> 
-    {% endblock %}
+            </div>
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    {{ render(controller('App\\Controller\\PartController::footer', {'request': app.request, 'page': page})) }}
     </body>
 {% endblock %}

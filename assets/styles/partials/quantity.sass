@@ -1,0 +1,36 @@
+.quality
+  &__wrap
+    display: flex
+    justify-content: flex-start
+  &__img
+    max-width: 234px
+    object-fit: cover
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      max-width: 184px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      max-width: 170px
+  &__info
+    margin-left: 165px
+    width: 766px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      width: 616px
+      margin-left: 140px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      width: 584px
+      margin-left: 133px
+  &__title
+    max-width: 584px
+  &__text
+    font: normal normal normal 16px/28px Inter
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    color: #414141
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      flex-wrap: wrap
+    p
+      width: calc(50% - 16px)
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        width: 100%
+        &:first-of-type
+          margin-bottom: 1em

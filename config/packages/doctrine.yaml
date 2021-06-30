@@ -28,12 +28,6 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
-            Import:
-                is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Import/Domain/Entity'
-                prefix: 'App\Import\Domain\Entity'
-                alias: Import
         dql:
             string_functions:
                 # Match agains should have the path to the MatchAgainst class created in the previous step

@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\City;
+use App\Entity\AutoPark;
+use App\Entity\IconNumTextWidth;
+use App\Entity\IconText;
+use App\Entity\IconTextWidth;
 use App\Form\CallbackMail;
 use App\Form\CallbackMailType;
-use App\Services\CityService;
 use Doctrine\ORM\EntityManagerInterface;
 use SiteBundle\Entity\BottomMenu;
 use SiteBundle\Entity\Pages;
@@ -18,41 +20,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PartController extends AbstractController
 {
-    protected EntityManagerInterface $em;
-    protected CityService $cityService;
+    /** @var  EntityManagerInterface */
+    protected $em;
 
     /**
      * PartController constructor.
      * @param EntityManagerInterface $em
-     * @param CityService $cityService
      */
-    public function __construct(EntityManagerInterface $em, CityService $cityService)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
-        $this->cityService = $cityService;
-    }
-
-
-    /**
-     * проверяем надо ли опрашивать пользователя про город
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function askUserCity(Request $request)
-    {
-        // есть ли get параметр что устанавливаем куку по домену
-        if ($request->get('selected_city', false)) {
-            $setCityCookieId = $this->cityService->getHostCity($request)->getId();
-        } else {
-            $setCityCookieId = null;
-        }
-        return $this->render('part/askSity.html.twig', array(
-            'askedCity' => $setCityCookieId ? null : $this->cityService->askedUserCity($request),
-            'setCityCookieId' => $setCityCookieId,
-            'uri' =>  $request->getRequestUri(),
-            'scheme' =>  $request->getScheme()
-        ));
     }
 
 
@@ -64,29 +41,11 @@ class PartController extends AbstractController
      */
     public function header(Request $request, Pages $page, SessionInterface $session)
     {
-        $cart = $session->get('cart', []);
-        $cartItems = [];
-        $cartCount = 0;
-        foreach ($cart as $id => $quantity) {
-            $cartItems[] = [
-                'id' => $id,
-                'quantity' => $quantity
-            ];
-            $cartCount += $quantity;
-        }
-        $cartPage = $this->em->getRepository(Pages\CartPage::class)->findOneBy(['active' => 1]);
-
-
-        $city = $this->cityService->getHostCity($request);
         return $this->render('part/header.html.twig', [
             'page' => $page,
             'request' => $request,
             'uri' =>  $request->getRequestUri(),
             'scheme' =>  $request->getScheme(),
-            'city' => $city,
-            'cartPage' => $cartPage,
-            'cartItems' => $cartItems,
-            'cartCount' => $cartCount,
         ]);
     }
 
@@ -98,38 +57,11 @@ class PartController extends AbstractController
      */
     public function navigation(Request $request, Pages $page)
     {
-        $topMenu = $this->em->getRepository(TopMenu::class)->findBy([], ['position' => 'ASC']);
-        $searchPage = $this->em->getRepository(Pages\SearchPage::class)->findOneBy(['active' => 1]);
+        $topRepo = $this->getDoctrine()->getManager()->getRepository(TopMenu::class);
         return $this->render('part/navigation.html.twig', [
-            'topMenu' => $topMenu,
-            'catalog' => $this->em->getRepository(Pages\CatalogMain::class)->findOneBy(['active' => 1]),
+            'topMenu' => $topRepo->findBy([], ['position' => 'ASC']),
             'page' => $page,
-            'searchPage' => $searchPage,
         ]);
-    }
-
-    /**
-     * @param Request $request
-     * @param string $type
-     * @return Response
-     */
-    public function cities(Request $request, $type = 'city-list')
-    {
-        $cities = $this->getDoctrine()->getManager()->getRepository(City::class)->findAll();
-        $city = $this->cityService->getHostCity($request);
-        if ($type == 'city-list-mobile') {
-            return $this->render('part/city-list-mobile.html.twig', [
-                'cities' => $cities,
-                'city' => $city,
-                'uri' => $request->getRequestUri()
-            ]);
-        } else {
-            return $this->render('part/city-list.html.twig', [
-                'cities' => $cities,
-                'city' => $city,
-                'uri' => $request->getRequestUri()
-            ]);
-        }
     }
 
     /**
@@ -139,57 +71,30 @@ class PartController extends AbstractController
      */
     public function catalog(Request $request, Pages $page)
     {
-        $topMenu = $this->em->getRepository(TopMenu::class)->findBy([], ['position' => 'ASC']);
-        $searchPage = $this->em->getRepository(Pages\SearchPage::class)->findOneBy(['active' => 1]);
-        return $this->render('part/navigation-mobile.html.twig', [
-            'topMenu' => $topMenu,
-            'catalog' => $this->em->getRepository(Pages\CatalogMain::class)->findOneBy(['active' => 1]),
+        return $this->render('part/catalog-menu.html.twig', [
+            'catalog' => $this->getDoctrine()->getManager()->getRepository(Pages\MainPage::class)->findOneBy(['active' => 1]),
             'page' => $page,
-            'searchPage' => $searchPage,
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @param Pages $page
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function navigationMobile(Request $request, Pages $page)
-    {
-        $topMenu = $this->em->getRepository(TopMenu::class)->findBy([], ['position' => 'ASC']);
-        $searchPage = $this->em->getRepository(Pages\SearchPage::class)->findOneBy(['active' => 1]);
-        return $this->render('part/navigation-mobile.html.twig', [
-            'topMenu' => $topMenu,
-            'catalog' => $this->em->getRepository(Pages\CatalogMain::class)->findOneBy(['active' => 1]),
-            'page' => $page,
-            'searchPage' => $searchPage,
-        ]);
-    }
 
     /**
+     * @deprecated
      * @param Request $request
      * @param Pages $page
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function footer(Request $request, Pages $page)
     {
-        $pageRepo = $this->em->getRepository(Pages::class);
-        $city = $this->cityService->getHostCity($request);
+        $bottomRepo = $this->getDoctrine()->getManager()->getRepository(BottomMenu::class);
+        $bottomMenu = $bottomRepo->findBy([], ['position' => 'ASC']);
         return $this->render('part/footer.html.twig', [
+            'bottomMenu' => $bottomMenu,
             'page' => $page,
-            'city' => $city,
+            'request' => $request,
         ]);
     }
 
-    public function metrika(Request $request, $type)
-    {
-        $city = $this->cityService->getHostCity($request);
-        return $this->render('part/metrika.html.twig', array(
-            'type' => $type,
-            'metrika' => $type == 'headmetrika' ? $city->getHeadmetrika() : $city->getYandexmetrika(),
-            'city' => $city,
-        ));
-    }
 
     /**
      * @deprecated
@@ -210,6 +115,7 @@ class PartController extends AbstractController
 
 
     /**
+     * @deprecated
      * @param Pages $page
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -232,7 +138,13 @@ class PartController extends AbstractController
         ));
     }
 
-
+    /**
+     * @param Pages $page
+     * @param $count
+     * @param $current
+     * @param array $getParams
+     * @return Response
+     */
     public function pagination(Pages $page, $count, $current, $getParams = [])
     {
         $items = [];

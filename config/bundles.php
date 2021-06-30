@@ -17,6 +17,7 @@ return [
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
     Sonata\AdminBundle\SonataAdminBundle::class => ['all' => true],
     Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle::class => ['all' => true],
+    Sonata\Form\Bridge\Symfony\SonataFormBundle::class => ['all' => true],
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
     SiteBundle\SiteBundle::class => ['all' => true],
     FOS\UserBundle\FOSUserBundle::class => ['all' => true],
@@ -41,4 +42,5 @@ return [
     Sonata\EasyExtendsBundle\SonataEasyExtendsBundle::class => ['all' => true],
     Sonata\CoreBundle\SonataCoreBundle::class => ['all' => true],
     FM\ElfinderBundle\FMElfinderBundle::class => ['all' => true],
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Review;
 use SiteBundle\Controller\BasePageController;
 use SiteBundle\Entity\Module;
 use SiteBundle\Entity\Pages;
@@ -17,20 +18,22 @@ class MainController extends BasePageController
         /** @var Pages $catalog */
         $catalog = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogMain::class)->findOneBy(['active' => 1]);
         /** @var Pages $catalog */
-        $service = $this->getDoctrine()->getManager()->getRepository(Pages\ServiceListPage::class)->findOneBy(['active' => 1]);
-        $slidersCatalog = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogItem::class)->findBy(['onmain' => 1], ['lft' => 'ASC']);
-        $slidersService = $this->getDoctrine()->getManager()->getRepository(Pages\ServiceItem::class)->findBy(['onmain' => 1], ['lft' => 'ASC']);
-        $articles = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogArticle::class)->findBy(['popular' => 1], ['lft' => 'ASC']);
-        $items = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogItem::class)->findBy(['popular' => 1], ['lft' => 'ASC']);
+        $portfolio = $this->getDoctrine()->getManager()->getRepository(Pages\PortfolioListPage::class)->findOneBy(['active' => 1]);
+        $articles = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogArticle::class)->findBy(['onmain' => 1], ['lft' => 'ASC']);
+        $reviews = $this->getDoctrine()->getManager()->getRepository(Review::class)->findBy([], ['position' => 'DESC'], 5);
+        $reviewListPage = $this->getDoctrine()->getManager()->getRepository(Pages\ReviewsListPage::class)->findOneBy(['active' => 1]);
+        $catalogMainPage = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogMain::class)->findOneBy(['active' => 1]);
+        $interios = $this->getDoctrine()->getManager()->getRepository(Pages\InteriorItemPage::class)->findBy([], ['year' => 'DESC'], 5);
 
         return $this->render('main/index.html.twig', [
             'page' => $this->page,
-            'city' => $this->city,
             'catalog' => $catalog,
-            'service' => $service,
+            'portfolio' => $portfolio,
             'articles' => $articles,
-            'items' => $items,
-            'sliders' => array_merge($slidersCatalog, $slidersService),
+            'reviews' => $reviews,
+            'reviewListPage' => $reviewListPage,
+            'interios' => $interios,
+            'catalogMainPage' => $catalogMainPage,
         ]);
     }
 }

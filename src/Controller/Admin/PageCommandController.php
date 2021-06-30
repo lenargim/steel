@@ -1,28 +1,16 @@
 <?php
 namespace App\Controller\Admin;
 
-use App\Import\Application\Services\ParseService;
-use App\Import\Application\Services\UpdateService;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use SiteBundle\Entity\Pages;
-use SiteBundle\Helper\DataHandler;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\File;
 
 
 class PageCommandController extends AbstractController
@@ -210,7 +198,6 @@ class PageCommandController extends AbstractController
         } catch (\Exception $e) {
             $content .= 'При очистке папки кеша произошла ошибка: ' . $e->getMessage() . PHP_EOL;
         }
-        die($content);
         return new Response($content);
     }
 
@@ -238,94 +225,6 @@ class PageCommandController extends AbstractController
         return new Response(implode('<br>', $content));
     }
 
-    /**
-     * Запускает импорт
-     *
-     * @Security("is_granted('ROLE_SONATA_ADMIN')")
-     * @Route("/pages-commands/run-import", name="app_main.pages_commands.run_import")
-     * @param KernelInterface $kernel
-     * @return Response
-     * @throws \Exception
-     */
-    public function runImport(KernelInterface $kernel)
-    {
-        $content = [];
-        $commands = [
-            'import:parse' => 'Импорт выполнен',
-        ];
-        foreach ($commands as $command => $text) {
-            $content[] = $this->run($kernel, $command);
-        }
-
-
-        return new Response(implode('<br>', $content));
-    }
-
-    /**
-     *
-     * импорт
-     *
-     * @Security("is_granted('ROLE_SONATA_ADMIN')")
-     * @Route("/pages-commands/import", name="app_main.pages_commands.import")
-     *
-     * @param Request $request
-     * @param EntityManagerInterface $em
-     * @param ParseService $parseService
-     * @param UpdateService $updateService
-     * @return Response
-     */
-    public function import(
-        Request $request,
-        EntityManagerInterface $em,
-        ParseService $parseService,
-        UpdateService $updateService,
-        KernelInterface $appKernel
-    )
-    {
-        $page = new Pages();
-        $page->setTitle('Страница импорта');
-        $page->setKeywords('Страница импорта');
-        $page->setDescription('Страница импорта');
-        $page->setRoute('app_main.pages_commands.import"');
-
-        $form = $this->createFormBuilder()
-            ->add('category', ChoiceType::class, [
-                'label' => 'Родительский раздел каталога',
-                'choices' => $em->getRepository(Pages\CatalogArticlePage::class)->getListByModule(),
-                'multiple' =>false,
-                'required' => true,
-            ])
-            ->add('file', FileType::class, [
-                'label' => 'Файл импорта',
-                'required' => true,
-            ])
-            ->add('save', SubmitType::class, ['label' => 'Начать импорт'])
-            ->getForm();
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $importData = $form->getData();
-            $importFilePath = $importData['file']->getPathName();
-            if ($importFilePath && $importData['category']) {
-
-                $dirPath = $appKernel->getCacheDir() .'/import/';
-                $fileName = 'import-' . $importData['category'] . '.csv';
-                if (!is_dir($dirPath)) {
-                    mkdir($dirPath, 0777, true);
-                }
-                $importData['file']->move(
-                    $dirPath,
-                    $fileName
-                );
-                return $this->render('admin/import-success.html.twig', [
-                    'page' => $page,
-                ]);
-            }
-        }
-        return $this->render('admin/import.html.twig', [
-            'page' => $page,
-            'form' => $form->createView(),
-        ]);
-    }
 
     /**
      * @Route("/robots.txt", name="robots.txt")

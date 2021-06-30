@@ -4,8 +4,10 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         catalogItemClass: 'SiteBundle\Entity\Pages\CatalogItem'
-        serviceItemClass: 'SiteBundle\Entity\Pages\ServiceItem'
         catalogArticleClass: 'SiteBundle\Entity\Pages\CatalogArticle'
+        portfolioItemClass: 'SiteBundle\Entity\Pages\PortfolioItemPage'
+        interiorItemClass: 'SiteBundle\Entity\Pages\InteriorItemPage'
     form_themes:
         - '@SonataFormatter/Form/formatter.html.twig'
+        - '@SonataForm/Form/datepicker.html.twig'
         - 'ZemaJsontableBundle:Form:jsontable_widget.html.twig'

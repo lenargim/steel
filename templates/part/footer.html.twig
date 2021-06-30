@@ -1,37 +1,38 @@
-<footer>
-    <div class="container">
-        <div class="row align-items-center">
-
-            <div class="col-lg-3 order-lg-4">
-                <div class="f-box soc-box">
-                    <p>{{ 'footer_social_title' | getString('Футер') }}:</p>
-                    <ul>
-                        {% if 'footer_fb' | getString('Футер') %}
-                        <li><a href="{{ 'footer_fb' | getString('Футер') }}"><i class="demo-icon icon-facebook"></i></a></li>
-                        {% endif %}
-                        {% if 'footer_vk' | getString('Футер') %}
-                        <li><a href="{{ 'footer_vk' | getString('Футер') }}"><i class="demo-icon icon-vkontakte"></i></a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 order-lg-8">
-                <div class="phone-box">
-                    <a href="tel:{{ city.phone  | replace({" ": "", "-": "", "(": "", ")": ""})  }}">
-                        {{ city.phone | raw }}
-                    </a>
-                </div>
-                <div class="phone-box">
-                    <a href="tel:{{ city.phone2  | replace({" ": "", "-": "", "(": "", ")": ""})  }}">
-                        {{ city.phone2 | raw }}
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 order-lg-1">
-                <div class="f-box copyright">{{ 'footer_copyright' | getString('Футер') }}</div>
-            </div>
-            <div class="col-lg-2 order-lg-9">
-                <div class="jazz">Разработка - <a href="http://jazzme.ru/">The Jazz</a></div>
+<footer id="footer" class="footer">
+    <div class="container-outer">
+        <div class="container">
+            <div class="footer__wrap">
+                <nav class="footer__nav">
+                    {% if bottomMenu | length > 0 %}
+                        {% for item in bottomMenu if  item.page or item.link %}
+                            {% if item.page %}
+                                {% if item.page.active %}
+                                    <li>
+                                        {% if item.page.id != page.id %}
+                                            <a class="footer__link" href="{{ sitePath(item.page.route) }}">{{ item.page.menutitle }}</a>
+                                        {% else %}
+                                            <span class="footer__link">{{ item.page.menutitle }}</span>
+                                        {% endif %}
+                                    </li>
+                                {% endif %}
+                            {% else %}
+                                <li>
+                                    {% if item.link %}
+                                        <a class="footer__link" href="{{ item.link }}">{{ item.title }}</a>
+                                    {% else %}
+                                        <span class="footer__link">{{ item.title }}</span>
+                                    {% endif %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </nav>
+                <a href="http://jazzme.ru/" class="footer__dev">
+                    <div class="footer__dev-logo">
+                        <img src="{{ asset('build/dev.png') }}" alt="developer logo">
+                    </div>
+                    <span>Разработка сайта</span>
+                </a>
             </div>
         </div>
     </div>

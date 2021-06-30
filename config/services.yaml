@@ -56,13 +56,12 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.orders", label: "Заказ товара" }
 
-  #City
-    app_main.admin.city:
-        class: App\Admin\CityAdmin
+  #Review
+    app_main.admin.review:
+        class: App\Admin\ReviewAdmin
         arguments:
             - ~
-            - App\Entity\City
-            - SonataAdminBundle:CRUD
-            - '@App\Services\UpdatePricesService'
+            - App\Entity\Review
+            - 'PixSortableBehaviorBundle:SortableAdmin' # define the new controller via the third argument
         tags:
-            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Города" }
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Отзывы" }

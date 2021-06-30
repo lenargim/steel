@@ -11,12 +11,12 @@ services:
 #pages tree
     site.admin.tree_pages:
         class: SiteBundle\Admin\TreePagesAdmin
-        arguments: [~, SiteBundle\Entity\Pages, SiteBundle:Admin\PagesAdmin, 'title', '@App\Import\Application\Services\ParseService', '@App\Import\Application\Services\UpdateService']
+        arguments: [~, SiteBundle\Entity\Pages, SiteBundle:Admin\PagesAdmin, 'title']
         tags:
             - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Страницы"}
         public: true
         calls:
-            - [setSubClasses, [{'тестовая': SiteBundle\Entity\Pages, 'карточка товара': SiteBundle\Entity\Pages\CatalogItem, 'раздел каталога': SiteBundle\Entity\Pages\CatalogArticle, 'карточка услуги': SiteBundle\Entity\Pages\ServiceItem}]]
+            - [setSubClasses, [{'текстовая': SiteBundle\Entity\Pages, 'Каталог раздел': SiteBundle\Entity\Pages\CatalogArticle, 'Каталог карточка': SiteBundle\Entity\Pages\CatalogItem, 'Портфолио карточка': SiteBundle\Entity\Pages\PortfolioItemPage, 'Интерьерное решение карточка': SiteBundle\Entity\Pages\InteriorItemPage}]]
 
 
 # SettingsAdmin
@@ -105,5 +105,15 @@ services:
       arguments:
         - ~
         - SiteBundle\Entity\TopMenu
+        - 'PixSortableBehaviorBundle:SortableAdmin' # define the new controller via the third argument
+      public: true
+# BottomMenu
+    site.admin.bottom_menu:
+      class: SiteBundle\Admin\BottomMenuAdmin
+      tags:
+        - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Нижнее меню" }
+      arguments:
+        - ~
+        - SiteBundle\Entity\BottomMenu
         - 'PixSortableBehaviorBundle:SortableAdmin' # define the new controller via the third argument
       public: true

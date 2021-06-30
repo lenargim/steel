@@ -1,0 +1,137 @@
+.portfolio
+  &__wrap
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    padding-bottom: 80px
+  &__desc
+    max-width: 665px
+    padding-right: 163px
+    font: normal normal normal 16px/28px Inter
+    color: #414141
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      max-width: 540px
+      padding-right: 140px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      max-width: 505px
+      padding-right: 135px
+
+  &__gallery
+    display: grid
+    grid-gap: 32px
+    grid-template-columns: repeat(3, 367px)
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      grid-template-columns: repeat(3, 292px)
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      grid-template-columns: repeat(3, 271px)
+
+    &-item
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+      &:nth-child(2n)
+        flex-direction: column-reverse
+      &:hover
+        .portfolio__gallery-title:before
+          width: 100px
+        img
+          transform: scale(1.2)
+
+    &-img
+      width: 367px
+      height: 446px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        width: 292px
+        height: 371px
+      @media screen and (min-width: 1280px) and (max-width: 1365px)
+        width: 271px
+        height: 344px
+    &-box
+      padding: 32px
+    &-title
+      display: block
+      color: $colorGreen
+      padding-bottom: 8px
+      font-weight: 600
+      font-size: 20px
+      line-height: 24px
+      position: relative
+      white-space: nowrap
+      &:before
+        content: ""
+        position: absolute
+        height: 3px
+        width: 0
+        background-color: $colorGreen
+        transition: width 0.3s ease-in-out
+        left: 0
+        top: -10px
+    &-desc
+      font: normal normal normal 14px/16px Inter
+      max-width: 200px
+      color: #000
+
+.portfolio-page
+  &__wrap
+    max-width: 1190px
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    flex-wrap: wrap
+    gap: 64px 32px
+  &__item
+    &:hover
+      .portfolio__gallery-title:before
+        width: 100px
+      img
+        transform: scale(1.2)
+    &_big
+      .portfolio__gallery-img
+        width: 667px
+    &_left
+      margin-left: auto
+    &_right
+      margin-right: auto
+.portfolio-detailed
+  &__title
+    max-width: 766px
+  &__wrap
+    width: 1165px
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    flex-wrap: wrap
+    gap: 32px
+  &__img
+    width: 633px
+    height: 668px
+    &:hover img
+      transform: scale(1.2)
+  &__text
+    font: normal normal normal 16px/28px Inter
+    color: #414141
+    margin-left: auto
+    width: 367px
+  &__item
+    width: 367px
+    height: 466px
+    &:hover img
+      transform: scale(1.2)
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      width: 292px
+      height: 371px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      width: 271px
+      height: 344px
+    &_big
+      width: 633px
+  &__review
+    background-color: #fff
+    padding: 68px 0 36px
+    margin: 88px 0
+    &-box
+      display: flex
+      align-items: flex-start
+      justify-content: flex-start
+      width: 850px

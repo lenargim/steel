@@ -80,7 +80,7 @@ sonata_admin:
             app_main.admin.group.settings:
                 label: "Настройки"
                 items:
-                    - app_main.admin.city
+                    - app_main.admin.review
                     - site.admin.settings
                     - site.admin.sitestrings
                     - site.admin.mail_template

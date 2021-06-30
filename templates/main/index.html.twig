@@ -1,172 +1,219 @@
 {% extends 'layout.html.twig' %}
-{% block main_block %}
-    <section class="slider-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="slider">
-                        {% for item in sliders %}
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="slide-image">
-                                        <img src="{{item.getWebPath('mainImage') | thumb(501,445)}}" alt="{{ item.menutitle }}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <h3>{{ item.menutitle }}</h3>
-                                    <p>{{ item.mainTitle }}</p>
-                                    {% if item.discr == catalogItemClass %}
-                                    <p><button  onclick="window.cart.addingItem({{ item.id }}, 1)" class="btn btn-red btn-more popup-with-form">В корзину</button></p>
-                                    {% else %}
-                                    <p>
-                                        <a data-reachgoal="message-button"
-                                           data-type="message"
-                                           href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'message', 'route': page.route, 'order_obj': 'Услуга ' ~  item.mainTitle  }) }}"
-                                           class="btn btn-red btn-more popup-with-form js-popup-open js-reachgoal">
-                                            Заказать
-                                        </a>
-                                    </p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-{% endblock %}
 {% block content %}
-    <section class="catalog">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-shield">{{ page.getBlock('catalog').string1 }}</h2>
-                    <div class="row">
-                        <div class="col-lg-12"> 
-                            <div class="catalog-wrapper">
-                            {% for key, item in catalog.getChildren([catalogArticleClass]) if key < 8 %}
-                                <div class="cat-box">
-                                    <div class="cat-image">
-                                        <a href="{{ sitePath(item.route) }}">
-                                            <img src="{{ item.getWebPath('image') | thumb(320,190) }}" alt="{{ item.menutitle }}">
-                                        </a>
-                                    </div>
-                                    <h3>{{ item.menutitle }}</h3>
-                                    <div class="wrap">
-                                        <ul>
-                                            {% for subitem in item.getChildren([catalogArticleClass]) %}
-                                                <li>
-                                                    <a href="{{ sitePath(subitem.route) }}">{{ subitem.menutitle }}</a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                            </div>
-                        </div>
-                        <div class="col-lg-12 text-center">
-                            <a href="{{ sitePath(catalog.route) }}" class="btn btn-red btn-all">{{ page.getBlock('catalog').string2 }}</a>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="wrapper">
-                        <h2>{{ page.getBlock('banner').string1 | raw }}</h2>
-                        <p>{{ page.getBlock('banner').string2 | raw }}с</p>
-                        <a data-reachgoal="message-button"
-                           data-type="message"
-                           href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'message', 'route': page.route, 'order_obj': 'Баннер на главной' }) }}"
-                           class="btn btn-red btn-order js-popup-open js-reachgoal">
-                            {{ page.getBlock('banner').string3 }}
+        <div class="container-outer">
+            <div class="container">
+                <div class="banner__wrap">
+                    <div class="banner__info">
+                        <h1 class="banner__title">Дизайнерская мебель из металла <span class="nowrap">на заказ</span></h1>
+                        <p class="banner__text">Производство любых видов мебели премиум-класса по вашим эскизам</p>
+                        <a href="/about" class="link">
+                            <span>О нас</span>
+                            <span class="arrow"></span>
                         </a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="popular-product">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h2>{{ page.getBlock('popular_product').string1 }}</h2>
-                    <div class="wrapper">
-                        <div class="tabs">
-                            {% for item in articles %}
-                            <span class="tab">{{item.menutitle}}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="tab_content">
-                            {% for item in articles %}
-                                <div class="tab_item">
-                                    <div class="left">
-                                        <div class="image-wrap">
-                                            <img src="{{ item.getWebPath('image') | thumb(320,190) }}" alt="{{ item.menutitle }}">
-                                        </div>
-                                        <a data-reachgoal="message-button"
-                                           data-type="message"
-                                           href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'message', 'route': page.route, 'order_obj': 'Популярные товар ' ~ item.menutitle }) }}"
-                                           class="btn btn-red btn-mor js-popup-open js-reachgoal">
-                                            Оставить заявку
-                                        </a>
+                    <div class="banner__slider-wrap">
+                        <div class="banner__slider slider" id="banner-slider">
+                            <div class="banner__slider-item-wrap">
+                                <div class="banner__slider-item">
+                                    <div class="banner__slider-img img">
+                                        <img src="{{ asset('build/chair.png') }}" alt="кресло">
                                     </div>
-                                    <div class="right">
-                                        <ul>
-                                            {% for subitem in items if subitem.isParent(item.id) %}
-                                                <li><a href="{{ sitePath(subitem.route) }}">{{ subitem.menutitle }}</a></li>
-                                            {% endfor %}
-                                        </ul>
-                                        <p class="text-center"><a href="{{ sitePath(item.route) }}">Показать все товары категории</a></p>
+                                    <div class="banner__slider-info">
+                                        <div class="banner__slider-name">Кресло Chair Domaine Eichholtz style</div>
+                                        <div class="banner__slider-price">57 400 ₽</div>
                                     </div>
                                 </div>
-                            {% endfor %}
+                            </div>
+                            <div class="banner__slider-item-wrap">
+                                <div class="banner__slider-item">
+                                    <div class="banner__slider-img img">
+                                        <img src="{{ asset('build/sample-banner.png') }}" alt="кресло">
+                                    </div>
+                                    <div class="banner__slider-info">
+                                        <div class="banner__slider-name">2 Кресло Chair Domaine Eichholtz style</div>
+                                        <div class="banner__slider-price">57 400 ₽</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="service">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-shield">{{ page.getBlock('service').string1 }}</h2>
-                    <div class="row">
-                        {% for key, item in service.getChildren([serviceItemClass]) if key < 4 %}
-                            {% include 'catalog/article-box.html.twig' %}
-                        {% endfor %}
-                        <div class="col-lg-12 text-center">
-                            <a href="{{ sitePath(service.route) }}" class="btn btn-red btn-all">{{ page.getBlock('service').string2 }}</a>
+    {% if portfolio and portfolio.getChildren([portfolioItemClass]) | length > 0 %}
+    <section class="block portfolio">
+        <div class="container-outer">
+            <div class="container">
+                <h2 class="title">{{ 'Портфолио' | getString('Главная') }}</h2>
+                <div class="block__wrap">
+                    <p class="block__desc">
+                        {{ 'Портфолио текст на главной' | getText('Главная') | raw }}</p>
+                    <a href="{{ sitePath(portfolio.route) }}" class="block__link link">
+                        <span>{{ 'Все работы' | getString('Главная') }}</span>
+                        <span class="arrow"></span>
+                    </a>
+                </div>
+                <div class="portfolio__gallery">
+                    {% for item in portfolio.getChildren([portfolioItemClass]) if item.onmain%}
+                    <a href="{{ sitePath(item.route) }}" class="portfolio__gallery-item">
+                        <div class="portfolio__gallery-img img"><img src="{{ item.getWebPath('image2') | thumb(441, 535) }}" alt="gallery-img">
                         </div>
-                    </div>
+                        <div class="portfolio__gallery-box">
+                            <span class="portfolio__gallery-title">{{ item.menutitle }}</span>
+                            <p class="portfolio__gallery-desc">{{ item.announce }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </section>
-    <section class="advantage">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-shield">{{ page.getBlock('advantage').string1 }}</h2>
-                    <div class="wrapper">
-                        {% for item in page.getBlock('advantage').arr1 %}
-                        <div class="advant-box">
-                            <span><i class="demo-icon {{ item.icon }}"></i></span>
-                            <div class="title">{{ item.title }}</div>
-                            <p>{{ item.text }}</p>
+    {% endif %}
+    <section class="block output">
+        <div class="container-outer">
+            <div class="container">
+                <h2 class="title">{{ 'Готовая продукция' | getString('Главная') }}</h2>
+                <div class="block__wrap">
+                    <p class="block__desc">{{ 'Продукция текст на главной' | getText('Главная') | raw }}</p>
+                    <a href="{{ sitePath(catalogMainPage.route) }}" class="block__link link">
+                        <span>{{ 'Вся продукция' | getString('Главная') }}</span>
+                        <span class="arrow"></span>
+                    </a>
+                </div>
+                <div class="output__gallery">
+                    {% for key, item in catalogMainPage.getChildren([catalogArticleClass]) if item.onmain%}
+                        {% if (key + 1)%4 == 1 or (key + 1)%4 == 0 %}
+                            {% set img = item.getWebPath('image') | thumb(600, 314) %}
+                            {% set class = ' output__gallery-img_big' %}
+                        {%  else %}
+                            {% set img = item.getWebPath('image2') | thumb(441, 314) %}
+                            {% set class = '' %}
+                        {% endif %}
+                    <a href="{{ sitePath(item.route) }}" class="output__gallery-item">
+                        <div class="output__gallery-img{{class }} img">
+                            <img src="{{ img }}" alt="{{ item.menutitle }}">
                         </div>
-                        {% endfor %}
-                    </div>
+                        <div class="output__gallery-box">
+                            <div class="output__gallery-title">{{ item.menutitle }}</div>
+                            <div class="output__gallery-desc">{{ item.announce }}</div>
+                        </div>
+                    </a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </section>
+    <div class="block slider-block__wrap">
+        <section class="slider-block" id="slider">
+            {% for item in interios %}
+            <div class="slider-block__item">
+                <div class="container-outer">
+                    <div class="container">
+                        <div class="slider-block__item-info">
+                            <h3 class="slider-block__item-title title">{{ item.menutitle }}</h3>
+                            <div class="slider-block__item-greentext">{{ item.company }}</div>
+                            <div class="slider-block__item-text">
+                                {{ item.announce | raw }}
+                            </div>
+                            <a href="{{ sitePath(item.route) }}" class="slider-block__item-link link">
+                                <span>Подробнее</span>
+                                <div class="arrow"></div>
+                            </a>
+                            <div class="slider-block__item-year">{{ item.year | date("Y") }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-block__item-img"><img src="{{ item.getWebPath('image') | thumb(1210, 1080) }}" alt="slider-img"></div>
+            </div>
+            {% endfor %}
+        </section>
+        <div class="slider-block__arrow-box">
+            {{ source('svg/arrow_left.svg') }}
+            <span class="slider-block__counter"></span>
+            {{ source('svg/arrow_right.svg') }}
+        </div>
+    </div>
+    {{ include('part/quality.html.twig') }}
+    <section class="block partners">
+        <div class="container-outer">
+            <div class="container">
+                <div class="partners__wrap">
+                    <span>Нам доверяют</span>
+                    <span class="partner">EURODOM</span>
+                    <span class="partner">WHITE&BLACK</span>
+                    <span class="partner">МОДЭ</span>
+                    <span class="partner-label">Наши клиенты и партнёры</span>
+                    <span class="partner">Alexander Tischler</span>
+                    <span class="partner">Architector</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if reviewListPage %}
+    <section class="block reviews">
+        <div class="container-outer">
+            <div class="container">
+                <h2 class="title">{{ 'Отзывы наших клиентов' | getString('Главная') }}</h2>
+                <div class="block__wrap">
+                    <p class="block__desc">{{ 'Отзывы текст на главной' | getText('Главная') | raw }}</p>
+                    <a href="{{ sitePath(reviewListPage.route) }}" class="block__link link">
+                        <span>{{ 'Все отзывы' | getString('Главная') }}</span>
+                        <span class="arrow"></span>
+                    </a>
+                </div>
+                <div class="reviews__slider" id="reviews-slider">
+                    {% for item in reviews %}
+                    <div class="reviews__slider-item-wrap">
+                        <div class="reviews__slider-item">
+                            <div class="reviews__slider-img"><img src="{{ item.getWebPath('image') | thumb(130, 130) }}" alt="{{ item.post }}"></div>
+                            <div class="reviews__slider-info">
+                                <div class="reviews__slider-position">{{ item.post }}</div>
+                                <div class="reviews__slider-name">{{ item.name }}</div>
+                                <div class="reviews__slider-text">
+                                    {{ item.text | raw }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="reviews__slider-arrow-box">
+                    {{ source('svg/arrow_left.svg') }}
+                    <span class="reviews__slider-counter"></span>
+                    {{ source('svg/arrow_right.svg') }}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <div class="map">
+        <div class="container-outer">
+            <div class="container">
+                <div class="map__box">
+                    <div class="map__box-title title">Контакты</div>
+                    <div>
+                        <a href="tel:73433055012">+7 (343) 305-50-12</a>
+                        <a href="mailto:steelii@mail.ru">steelii@mail.ru</a>
+                        <address>Екатеринбург,<br> Фронтовых Бригад, 18, <span>корпус 3</span></address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="googleMap" class="map__wrap"></div>
+    </div>
+    <script>
+        function myMap() {
+            const office = {lat: 56.88280065740292, lng: 60.63786188076285};
+            var mapProp = {
+                center: new google.maps.LatLng(56.883639, 60.635223),
+                zoom: 17,
+                disableDefaultUI: true,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            const marker = new google.maps.Marker({map, position: office});
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyaiFhTLH_eOQWq_Vyel3tm6akNacxuCs&language=ru&callback=myMap"></script>
 {% endblock %}

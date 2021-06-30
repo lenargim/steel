@@ -1,77 +1,23 @@
-<div class="container">
-    <div class="wrapper-blue-panel">
-        <div class="row align-items-center">
-            {% if catalog %}
-                <div class="col-lg-2">
-                    <div class="catalog-box">
-                        <div class="title" id="btn-catalog">
-                            {{ catalog.menutitle }}
-                        </div>
-                        <div class="cat-menu">
-                            <ul>
-                                {% for subitem in  catalog.getChildren([catalogArticleClass]) %}
-                                <li>
-                                    {% if subitem.id == page.id %}
-                                            <span>{{ subitem.menutitle }}</span>
-                                    {% else %}
-                                            <a href="{{ sitePath(subitem.route) }}">{{ subitem.menutitle }}</a>
-                                    {% endif %}
-                                    <ul>
-                                        {% for subsubitem in subitem.getChildren([catalogArticleClass]) %}
-                                        <li>
-                                            {% if subsubitem.id == page.id %}
-                                                    <span>{{ subsubitem.menutitle }}</span>
-                                            {% else %}
-                                                    <a href="{{ sitePath(subsubitem.route) }}">{{ subsubitem.menutitle }}</a>
-                                            {% endif %}
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-            <div class="col-lg-5">
-                <nav>
-                    <ul>
-                        {% for key, item in topMenu %}
-                            {% if item.page %}
-                                {% if item.page.active %}
-                                    <li>
-                                        {% if item.page.id != page.id %}
-                                            <a href="{{ sitePath(item.page.route) }}">{{ item.page.menutitle }}</a>
-                                        {% else %}
-                                            <span>{{ item.page.menutitle }}</span>
-                                        {% endif %}
-                                    </li>
-                                {% endif %}
-                            {% else %}
-                                <li>
-                                    {% if item.link %}
-                                        <a href="{{ item.link }}">{{ item.title }}</a>
-                                    {% else %}
-                                        <span>{{ item.title }}</span>
-                                    {% endif %}
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-lg-5">
-                <div class="search-box">
-                    <a href="#menu" class="mobile-btn"><i class="demo-icon icon-menu"></i></a>
-                    {% if searchPage %}
-                        <form action="{{ sitePath(searchPage.route) }}" method="get">
-                            <input type="text" name="search" placeholder="{{ 'header_search_placeholder' | getString('Шапка') }}">
-                            <button type="submit" class="btn-search"><i class="demo-icon icon-search"></i></button>
-                        </form>
+<nav>
+    {% for key, item in topMenu %}
+        {% if item.page %}
+            {% if item.page.active %}
+                <li class="side-menu__item">
+                    {% if item.page.id != page.id %}
+                        <a class="side-menu__link" href="{{ sitePath(item.page.route) }}">{{ item.page.menutitle }}</a>
+                    {% else %}
+                        <span class="side-menu__link">{{ item.page.menutitle }}</span>
                     {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </li>
+            {% endif %}
+        {% else %}
+            <li class="side-menu__item">
+                {% if item.link %}
+                    <a class="side-menu__link" href="{{ item.link }}">{{ item.title }}</a>
+                {% else %}
+                    <span class="side-menu__link">{{ item.title }}</span>
+                {% endif %}
+            </li>
+        {% endif %}
+    {% endfor %}
+</nav>

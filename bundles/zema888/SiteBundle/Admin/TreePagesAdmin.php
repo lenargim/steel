@@ -2,10 +2,7 @@
 
 namespace SiteBundle\Admin;
 
-use App\Import\Application\Services\ParseService;
-use App\Import\Application\Services\UpdateService;
 use SiteBundle\Admin\Pages\BaseAdmin;
-use SiteBundle\Admin\Pages\TextAdmin;
 use SiteBundle\Entity\Pages;
 use Sonata\AdminBundle\Route\RouteCollection;
 use ZemaTreeBundle\Admin\AbstractTreeAdmin;
@@ -17,8 +14,6 @@ use Sonata\DoctrineORMAdminBundle\Filter\ChoiceFilter;
 class TreePagesAdmin extends AbstractTreeAdmin
 {
     protected $classnameLabel = 'Страницы сайта';
-    public ParseService $parseService;
-    public UpdateService $updateService;
 
     /**
      * TreePagesAdmin constructor.
@@ -26,39 +21,17 @@ class TreePagesAdmin extends AbstractTreeAdmin
      * @param $class
      * @param $baseControllerName
      * @param $treeTextField
-     * @param ParseService $parseService
-     * @param UpdateService $updateService
      */
     public function __construct(
         $code,
         $class,
         $baseControllerName,
-        $treeTextField,
-        ParseService $parseService,
-        UpdateService $updateService
+        $treeTextField
     )
     {
         parent::__construct($code, $class, $baseControllerName, $treeTextField);
-        $this->parseService = $parseService;
-        $this->updateService = $updateService;
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getTemplate($name)
-    {
-        $object = $this->getSubject();
-        if ($object) {
-            $adminClass = $object->getAdminClass();
-            $currentAdminTemplate = $adminClass::currentAdminTemplate($name, $object);
-            if ($currentAdminTemplate) {
-                return $currentAdminTemplate;
-            }
-        }
-
-        return $this->getTemplateRegistry()->getTemplate($name);
-    }
 
     protected function configureDatagridFilters(DatagridMapper $datagrid)
     {
@@ -153,7 +126,5 @@ class TreePagesAdmin extends AbstractTreeAdmin
 
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->add('exportArticle', $this->getRouterIdParameter().'/export-article');
-        $collection->add('importArticle', $this->getRouterIdParameter().'/import-article');
     }
 }
