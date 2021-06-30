@@ -15,7 +15,6 @@ class TextController extends BasePageController
         $this->setPage($request);
         return $this->render('text/index.html.twig', [
             'page' => $this->page,
-            'city' => $this->city,
         ]);
     }
 }

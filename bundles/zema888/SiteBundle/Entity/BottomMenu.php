@@ -36,10 +36,6 @@ class BottomMenu
      */
     protected $link;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $pillar;
 
     /**
      * @Gedmo\SortablePosition
@@ -133,20 +129,5 @@ class BottomMenu
         $this->position = $position;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPillar()
-    {
-        return $this->pillar;
-    }
-
-    /**
-     * @param mixed $pillar
-     */
-    public function setPillar($pillar): void
-    {
-        $this->pillar = $pillar;
-    }
 
 }

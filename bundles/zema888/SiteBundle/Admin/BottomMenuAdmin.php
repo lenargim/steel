@@ -57,7 +57,6 @@ class BottomMenuAdmin extends AbstractAdmin
             ->add('title', null, [
                 'label' => 'Наименование'
             ])
-            ->add('pillar', null, ['label' => 'Колонка'])
             ->add('link', null, [
                 'label' => 'Ссылка',
             ])
@@ -91,11 +90,6 @@ class BottomMenuAdmin extends AbstractAdmin
                 'label' => 'Наименование',
                 'help' => 'Для случая когда привязка не к странице, при привязке к странице не используется',
                 'required' => false
-            ])
-            ->add('pillar', null, [
-                'label' => 'Колонка',
-                'help' => 'Целое число порядковый номер колонки',
-                'required' => true
             ])
             ->add('link', null, [
                 'label' => 'Ссылка',

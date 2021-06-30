@@ -3,6 +3,8 @@
     <div class="about block">
         <div class="container-outer">
             <div class="container">
+                {{ render(controller('App\\Controller\\PartController:breadcrumbs', {'page': page})) }}
+                <h1 class="page-title page-title_short">{{ page.h1 }}</h1>
                 <div class="about__wrap">
                     {{ page.text |  raw }}
                 </div>

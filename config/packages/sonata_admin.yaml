@@ -76,6 +76,7 @@ sonata_admin:
                     - site.admin.tree_pages
                     - site.admin.page_blocks
                     - site.admin.top_menu
+                    - site.admin.bottom_menu
                 roles: [ ROLE_SUPER_ADMIN, ROLE_ADMIN ]
             app_main.admin.group.settings:
                 label: "Настройки"
