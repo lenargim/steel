@@ -4,10 +4,12 @@
             <div class="header__wrap">
                 {% if page.discrString != 'Главная' %}
                     <a class="header__logo" href="{{ sitePath('zema_pages') }}">
-                        <img src="{{ asset('build/logo.svg') }}"/>
+                      {{ source('svg/logo.svg') }}
                     </a>
                 {% else %}
-                    <img src="{{ asset('build/logo.svg') }}"/>
+                    <div class="header__logo">
+                      {{ source('svg/logo.svg') }}
+                    </div>
                 {% endif %}
                 <div class="header__contact">
                     <a data-reachgoal="callback-button"

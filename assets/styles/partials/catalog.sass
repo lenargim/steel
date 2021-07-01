@@ -35,12 +35,18 @@
     display: flex
     align-items: flex-start
     justify-content: flex-start
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      gap: 32px
   &__img
     width: 633px
     height: 500px
     margin-right: 165px
     &:hover img
       transform: scale(1.2)
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      width: 50%
+      margin-right: 0
+      height: auto
   &__text
     width: 367px
     min-height: 500px
@@ -48,6 +54,10 @@
     font: normal normal normal 16px/28px Inter
     color: #414141
     position: relative
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      width: auto
+      max-width: 50%
+      min-height: unset
   &__button
     position: absolute
     bottom: 0
