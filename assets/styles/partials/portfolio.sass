@@ -1,20 +1,10 @@
 .portfolio
   &__wrap
-    display: flex
-    align-items: flex-start
-    justify-content: flex-start
-    padding-bottom: 80px
+    @media screen and (max-width: 1279px)
+      padding-bottom: 56px
   &__desc
-    max-width: 665px
-    padding-right: 163px
-    font: normal normal normal 16px/28px Inter
-    color: #414141
-    @media screen and (min-width: 1366px) and (max-width: 1659px)
-      max-width: 540px
-      padding-right: 140px
-    @media screen and (min-width: 1280px) and (max-width: 1365px)
-      max-width: 505px
-      padding-right: 135px
+    @media screen and (max-width: 1279px)
+      max-width: 236px
 
   &__gallery
     display: grid
@@ -30,6 +20,7 @@
       grid-gap: 22px
       &::-webkit-scrollbar
         width: 0
+        height: 0
         background: transparent
         -ms-overflow-style: none
         scrollbar-width: none
@@ -138,6 +129,7 @@
       width: 50%
     @media screen and (max-width: 1279px)
       width: 100%
+      aspect-ratio: 326/257
     &:hover img
       @media screen and (min-width: 1280px)
         transform: scale(1.2)
@@ -156,6 +148,10 @@
     height: 466px
     &:hover img
       transform: scale(1.2)
+    @media screen and (max-width: 1279px)
+      min-width: 239px
+      height: unset
+      aspect-ratio: 239/193
     &-wrap
       display: flex
       align-items: flex-start
@@ -166,6 +162,7 @@
         gap: 22px
         &::-webkit-scrollbar
           width: 0
+          height: 0
           background: transparent
           -ms-overflow-style: none
           scrollbar-width: none
@@ -184,11 +181,15 @@
     margin: 88px 0
     @media screen and (max-width: 1279px)
       padding: 32px 17px 48px
+    &-wrap
+      max-width: 1032px
     &-box
       display: flex
       align-items: flex-start
       justify-content: flex-start
-      width: 850px
+      width: 100%
+      max-width: 859px
+      margin-left: auto
       @media screen and (max-width: 1279px)
         position: relative
         max-width: 850px
@@ -198,12 +199,11 @@
         .reviews__slider-img
           min-width: 87px
           height: 87px
-          position: absolute
+        .reviews__slider-text
+          width: calc(100% + 103px)
+          left: -103px
         .reviews__slider-position
-          padding: 0 20px 1em 105px
-        .reviews__slider-name
-          padding-left: 105px
-          padding-bottom: 2em
+          min-height: 3em
   &__bottom
     @media screen and (max-width: 1279px)
       display: none

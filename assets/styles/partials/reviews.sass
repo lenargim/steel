@@ -1,21 +1,29 @@
 .reviews
   position: relative
+  &__title
+    @media screen and (max-width: 1279px)
+      max-width: 300px
+  &__wrap
+    @media screen and (max-width: 1279px)
+      padding-bottom: 56px
   &__slider
     width: 930px
     @media screen and (min-width: 1366px) and (max-width: 1659px)
       width: 865px
     @media screen and (max-width: 1279px)
       width: 100%
-      margin: 0
+      overflow: hidden
     .slick-list
       overflow: unset
+      @media screen and (max-width: 1279px)
+        overflow: hidden
+        margin: 0 -20px
     &-item-wrap.slick-slide
       display: flex
       padding-right: 165px
       @media screen and (min-width: 1366px) and (max-width: 1659px)
         padding-right: 140px
       @media screen and (max-width: 1279px)
-        width: 100%
         padding: 0
         margin-right: 20px
         &:last-of-type
@@ -27,8 +35,9 @@
       align-items: flex-start
       justify-content: flex-start
       height: 316px
+      position: relative
       @media screen and (max-width: 1279px)
-        padding: 50px 32px 17px
+        padding: 58px 50px 17px
         height: unset
     &-img
       border-radius: 50%
@@ -49,6 +58,8 @@
         object-fit: cover
     &-info
       overflow: hidden
+      @media screen and (max-width: 1279px)
+        overflow: unset
     &-position
       font-weight: 600
       font-size: 13px
@@ -69,6 +80,10 @@
     &-text
       font: normal normal normal 14px/24px Inter
       color: #000
+      @media screen and (max-width: 1279px)
+        position: relative
+        left: -81px
+        width: calc(100% + 81px)
     &-arrow-box
       position: relative
       top: 88px

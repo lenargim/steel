@@ -116,7 +116,16 @@ interiorSlider.slick({
     prevArrow: interiorPrevArrow,
     nextArrow: interiorNextArrow,
     draggable: false,
-    infinite: true
+    infinite: true,
+    responsive: [
+            {
+              breakpoint: 1279,
+              settings: {
+              draggable: true,
+              arrows: false
+              }
+            },
+    ]
 });
 
 /* Interior detailed modal */

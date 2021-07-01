@@ -1,35 +1,35 @@
 .partners
   &__wrap
-    display: grid
-    grid-gap: 116px 37px
-    grid-template-columns: 1fr repeat(3, 229px)
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
     font-size: 28px
     line-height: 32px
     font-weight: 500
+    width: 100%
     @media screen and (min-width: 1660px)
       width: 1160px
-    @media screen and (min-width: 1366px) and (max-width: 1659px)
-      grid-template-columns: 1fr repeat(3, 210px)
-      width: 100%
-    @media screen and (min-width: 1280px) and (max-width: 1365px)
-      width: 100%
-      grid-template-columns: 1fr repeat(3, 200px)
     @media screen and (max-width: 1279px)
-      width: 100%
-      grid-template-columns: 1fr 1fr
-      grid-template-rows: 30px 50px
-      grid-gap: 32px
-      span:nth-child(1)
-        grid-column: 1/3
-        grid-row: 1/2
-      span:nth-child(5)
-        grid-column: 1/3
-        grid-row: 2/3
-    .partner
-      text-transform: uppercase
-      color: #6C6C6C
-      @media screen and (max-width: 1279px)
-        font-size: 20px
+      flex-direction: column
+  &__left
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    gap: 116px
+    margin-right: 165px
+    width: 100%
+    max-width: 234px
+    color: #2F3A41
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      margin-right: 90px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      max-width: 170px
+      margin-right: 154px
+    @media screen and (max-width: 1279px)
+      gap: 10px
+      margin: 0 0 56px
+      max-width: unset
     .partner-label
       font: normal normal normal 16px/24px Inter
       color: #000
@@ -37,5 +37,15 @@
       @media screen and (max-width: 1279px)
         width: 100%
         font-size: 14px
-    &:first-child
-      color: #2F3A41
+  &__info
+    display: grid
+    grid-gap: 116px 37px
+    grid-template-columns: repeat(3, 1fr)
+    @media screen and (max-width: 1279px)
+      grid-template-columns: 1fr 1fr
+      grid-gap: 32px 41px
+    .partner
+      text-transform: uppercase
+      color: #6C6C6C
+      @media screen and (max-width: 1279px)
+        font-size: 20px
