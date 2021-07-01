@@ -3,8 +3,12 @@
   color: #fff
   &__wrap
     position: relative
+    @media screen and (max-width: 1279px)
+      margin: 0 -15px 88px
   &__item
     position: relative
+    @media screen and (max-width: 1279px)
+      padding: 0 15px
     &-img
       position: absolute
       right: 0
@@ -17,8 +21,11 @@
         width: 1210px
       @media screen and (min-width: 1660px) and (max-width: 1919px)
         width: 1080px
-      @media screen and (min-width: 1366px) and (max-width: 1659px)
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
         width: 775px
+      @media screen and (max-width: 1279px)
+        position: unset
+        width: 100%
       img
         object-fit: cover
     &-info
@@ -30,14 +37,20 @@
         height: 1080px
       @media screen and (min-width: 1660px) and (max-width: 1919px)
         height: 900px
-      @media screen and (min-width: 1366px) and (max-width: 1659px)
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
         height: 768px
       @media screen and (min-width: 1280px) and (max-width: 1365px)
         height: 800px
+      @media screen and (max-width: 1279px)
+        padding: 21px 0 18px
+        height: 231px
     &-title
       padding-right: 100px
       max-width: 584px
       color: #fff
+      @media screen and (max-width: 1279px)
+        font-size: 24px
+        padding-bottom: 21px
     &-greentext
       font-size: 20px
       line-height: 24px
@@ -49,6 +62,10 @@
       @media screen and (min-width: 1280px) and (max-width: 1919px)
         font-size: 13px
         padding-bottom: 18px
+      @media screen and (max-width: 1279px)
+        font-size: 13px
+        line-height: 16px
+        padding-bottom: 18px
     &-text
       font: normal normal normal 16px/28px Inter
       padding: 0 100px 62px 0
@@ -56,6 +73,8 @@
         padding-right: 150px
       @media screen and (min-width: 1280px) and (max-width: 1659px)
         padding-bottom: 40px
+      @media screen and (max-width: 1279px)
+        display: none
     &-link
       color: #fff
     &-year
@@ -65,6 +84,10 @@
       bottom: 63px
       @media screen and (min-width: 1280px) and (max-width: 1659px)
         bottom: 54px
+      @media screen and (max-width: 1279px)
+        bottom: 18px
+        font-size: 14px
+        line-height: 16px
   &__arrow-box
     width: 186px
     height: 49px
@@ -80,9 +103,11 @@
     @media screen and (min-width: 1660px) and (max-width: 1919px)
       right: 181px
       bottom: 39px
-    @media screen and (min-width: 1366px) and (max-width: 1659px)
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
       right: 159px
       bottom: 40px
+    @media screen and (max-width: 1279px)
+      display: none
   &__counter
     font: normal normal normal 22px/28px Inter
     letter-spacing: 2.2px

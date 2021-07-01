@@ -11,11 +11,12 @@
   left: 48px
   @media screen and (max-width: 1279px)
     left: 16px
-    top: 32px
+    top: 18px
   &__burger
     cursor: pointer
     width: 42px
     height: 25px
+    min-height: 25px
     position: relative
     z-index: 3
     transition: height 0.3s ease-in-out
@@ -45,7 +46,6 @@
       transform-origin: 5px 100%
     &:hover
       height: 28px
-
   &__copy
     writing-mode: tb-rl
     color: #414141
@@ -60,11 +60,20 @@
       transform: rotate(90deg)
   &__socials
     display: flex
-    flex-direction: column
-    justify-content: flex-start
-    align-items: center
-    @media screen and (max-width: 1279px)
-      display: none
+    &_desktop
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+      @media screen and (max-width: 1279px)
+        display: none
+    &_mobile
+      flex-direction: row
+      align-items: center
+      justify-content: space-between
+      position: absolute
+      bottom: 5%
+      left: 23.3%
+      right: 23.3%
   &__social
     display: flex
     align-items: center
@@ -92,7 +101,7 @@
       background-size: 170px 337px
     @media screen and (max-width: 1279px)
       width: 100vw
-      left: -100vw
+      left: -101vw
       padding: 20vh 30vw
   &__item
     margin-bottom: 50px
@@ -101,6 +110,7 @@
       margin-bottom: 0
     @media screen and (min-width: 1280px) and (max-width: 1659px)
       max-width: 209px
+      margin-bottom: 40px
     @media screen and (max-width: 1279px)
       margin-bottom: 32px
   &__link
@@ -126,8 +136,8 @@
         background-color: #fff
     .side-menu__phone
       position: absolute
-      right: 20px
-      top: 32px
+      right: 40px
+      top: 20px
       color: #fff
       font-size: 16px
       line-height: 19px
@@ -135,17 +145,7 @@
       color: $colorDarkGreen
       font-size: 18px
       margin-top: 50px
-    .side-menu__socials
-      display: none
-      @media screen and (max-width: 1279px)
-        display: flex
-        flex-direction: row
-        align-items: center
-        justify-content: space-between
-        position: absolute
-        bottom: 5%
-        left: 23.3%
-        right: 23.3%
+      white-space: nowrap
     .side-menu__social
       margin: 0
       svg path
