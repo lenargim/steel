@@ -8,7 +8,7 @@ use SiteBundle\Entity\Pages;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class CatalogItemAdmin extends ListAdmin
+class CatalogItemAdmin extends BaseAdmin
 {
     /**
      * @param FormMapper $formMapper
@@ -16,7 +16,7 @@ class CatalogItemAdmin extends ListAdmin
      */
     public static function setConfigureFormFields(FormMapper $formMapper, $subject, ?EntityManagerInterface $em = null)
     {
-        self::setSeoTexts($formMapper, false);
+        self::setSeoTexts($formMapper, true);
         $formMapper
             ->tab("Картинки")
             ->with('Картинки')

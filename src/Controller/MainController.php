@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\MainItem;
 use App\Entity\Review;
 use SiteBundle\Controller\BasePageController;
 use SiteBundle\Entity\Module;
@@ -24,6 +25,7 @@ class MainController extends BasePageController
         $reviewListPage = $this->getDoctrine()->getManager()->getRepository(Pages\ReviewsListPage::class)->findOneBy(['active' => 1]);
         $catalogMainPage = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogMain::class)->findOneBy(['active' => 1]);
         $interios = $this->getDoctrine()->getManager()->getRepository(Pages\InteriorItemPage::class)->findBy([], ['year' => 'DESC'], 5);
+        $mainItems = $this->getDoctrine()->getManager()->getRepository(MainItem::class)->findBy([], ['position' => 'ASC']);
 
         return $this->render('main/index.html.twig', [
             'page' => $this->page,
@@ -34,6 +36,7 @@ class MainController extends BasePageController
             'reviewListPage' => $reviewListPage,
             'interios' => $interios,
             'catalogMainPage' => $catalogMainPage,
+            'mainItems' => $mainItems,
         ]);
     }
 }

@@ -74,14 +74,14 @@ sonata_admin:
                 label: "Содержимое"
                 items:
                     - site.admin.tree_pages
-                    - site.admin.page_blocks
+                    - app_main.admin.review
+                    - app_main.admin.main_item
                     - site.admin.top_menu
                     - site.admin.bottom_menu
                 roles: [ ROLE_SUPER_ADMIN, ROLE_ADMIN ]
             app_main.admin.group.settings:
                 label: "Настройки"
                 items:
-                    - app_main.admin.review
                     - site.admin.settings
                     - site.admin.sitestrings
                     - site.admin.mail_template

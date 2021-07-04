@@ -5,37 +5,35 @@
             <div class="container">
                 <div class="banner__wrap">
                     <div class="banner__info">
-                        <h1 class="banner__title">Дизайнерская мебель из металла <span class="nowrap">на заказ</span></h1>
-                        <p class="banner__text">Производство любых видов мебели премиум-класса по вашим эскизам</p>
-                        <a href="/about" class="link">
-                            <span>О нас</span>
+                        <h1 class="banner__title">{{ page.h1 | raw }}</h1>
+                        <p class="banner__text">{{ page.subTitle }}</p>
+                        {% if page.link and page.linkTitle %}
+                        <a href="{{ page.link }}" class="link">
+                            <span>{{ page.linkTitle }}</span>
                             <span class="arrow"></span>
                         </a>
+                        {% endif %}
                     </div>
                     <div class="banner__slider-wrap">
                         <div class="banner__slider slider" id="banner-slider">
+                            {% for item in mainItems %}
                             <div class="banner__slider-item-wrap">
                                 <div class="banner__slider-item">
                                     <div class="banner__slider-img img">
-                                        <img src="{{ asset('build/chair.png') }}" alt="кресло">
+                                        <img src="{{ item.getWebPath('image') | thumb(500, 528) }}"
+                                             alt="{{ item.name }}">
                                     </div>
                                     <div class="banner__slider-info">
-                                        <div class="banner__slider-name">Кресло Chair Domaine Eichholtz style</div>
-                                        <div class="banner__slider-price">57 400 ₽</div>
+                                        {% if item.link %}
+                                        <a class="banner__slider-name" href="{{ item.link }}">{{ item.name }}</a>
+                                        {% else %}
+                                            <div class="banner__slider-name">{{ item.name }}</div>
+                                        {% endif %}
+                                        <div class="banner__slider-price">{{ item.price }}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="banner__slider-item-wrap">
-                                <div class="banner__slider-item">
-                                    <div class="banner__slider-img img">
-                                        <img src="{{ asset('build/sample-banner.png') }}" alt="кресло">
-                                    </div>
-                                    <div class="banner__slider-info">
-                                        <div class="banner__slider-name">2 Кресло Chair Domaine Eichholtz style</div>
-                                        <div class="banner__slider-price">57 400 ₽</div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -140,7 +138,7 @@
         <div class="container-outer">
             <div class="container">
                 <div class="partners__wrap">
-                    <span>Нам доверяют</span>
+                    <span>{{ 'Нам доверяют' | getString('Главная') }}</span>
                     <span class="partner">EURODOM</span>
                     <span class="partner">WHITE&BLACK</span>
                     <span class="partner">МОДЭ</span>
@@ -215,5 +213,5 @@
             const marker = new google.maps.Marker({map, position: office});
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyaiFhTLH_eOQWq_Vyel3tm6akNacxuCs&language=ru&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjDZkE9rCbnaD8ex1459O9HhOav7ROVfA&language=ru&callback=myMap"></script>
 {% endblock %}

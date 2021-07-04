@@ -16,8 +16,26 @@ class MainPageAdmin extends ListAdmin
      */
     public static function setConfigureFormFields(FormMapper $formMapper, $subject, ?EntityManagerInterface $em = null)
     {
-        self::setSeoTexts($formMapper, false);
 
+        self::setSeoTexts($formMapper, false);
+        $formMapper
+            ->tab('Тексты')
+            ->with('')
+            ->add('subTitle', null, [
+                'label' => 'Подзаголовок',
+                'required' => false,
+            ])
+            ->add('linkTitle', null, [
+                'label' => 'Подпись ссылки',
+                'required' => false,
+            ])
+            ->add('link', null, [
+                'label' => 'Ссылка',
+                'required' => false,
+            ])
+            ->end()
+            ->end()
+        ;
         parent::setConfigureFormFields($formMapper, $subject, $em);
     }
     /**
