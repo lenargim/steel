@@ -11,7 +11,7 @@
         <div class="side-menu">
             <div class="side-menu__burger"><span></span></div>
             <div class="side-menu__copy"><span>&#169;</span> {{ 'Сталь в интерьерах, 2021' | getString('Шапка') }}</div>
-            <div class="side-menu__socials">
+            <div class="side-menu__socials side-menu__socials_desktop">
                 <a target="_blank" href="#" class="side-menu__social">
                     {{ source('svg/vk.svg') }}
                 </a>
@@ -34,7 +34,7 @@
                    class="side-menu__callback mobile js-popup-open js-reachgoal">
                     {{ 'Заказать звонок' | getString('Шапка') }}
                 </a>
-                <div class="side-menu__socials mobile">
+                <div class="side-menu__socials side-menu__socials_mobile">
                     <a target="_blank" href="#" class="side-menu__social">
                         {{ source('svg/vk.svg') }}
                     </a>
@@ -52,5 +52,25 @@
         </div>
     </main>
     {{ render(controller('App\\Controller\\PartController::footer', {'request': app.request, 'page': page})) }}
+    <div class="overlay overlay_header">
+        <div class="modal__close"></div>
+        <div class="modal modal-header">
+            <div class="modal-callback__title">Заказать звонок</div>
+            <div class="modal-callback__desc">Отправьте ваши контактные данные и мы свяжемся с вами</div>
+            <form action="" class="modal-callback__form">
+                <div class="modal-callback__row">
+                    <div class="modal-callback__field">
+                        <label for="callback-name" class="modal-callback__label">Ваше имя</label>
+                        <input type="text" id="callback-name" class="modal-callback__input">
+                    </div>
+                    <div class="modal-callback__field">
+                        <label for="callback-phone" class="modal-callback__label">Номер телефона</label>
+                        <input type="tel" id="callback-phone" class="modal-callback__input">
+                    </div>
+                </div>
+                <input type="submit" class="modal-callback__submit button" value="Отправить">
+            </form>
+        </div>
+    </div>
     </body>
 {% endblock %}

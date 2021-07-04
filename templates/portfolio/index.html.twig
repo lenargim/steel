@@ -12,11 +12,13 @@
                     <div class="portfolio-detailed__text">
                         {{ page.text | raw }}
                     </div>
-                    <div class="portfolio-detailed__item img">
-                        <img src="{{  page.getWebPath('image2') | thumb(441, 535) }}" alt="">
-                    </div>
-                    <div class="portfolio-detailed__item portfolio-detailed__item_big img">
+                    <div class="portfolio-detailed__item-wrap">
+                        <div class="portfolio-detailed__item img">
+                            <img src="{{  page.getWebPath('image2') | thumb(441, 535) }}" alt="">
+                        </div>
+                        <div class="portfolio-detailed__item portfolio-detailed__item_big img">
                         <img src="{{ page.getWebPath('image3') | thumb(800, 535) }}" alt="">
+                    </div>
                     </div>
                 </div>
             </div>
@@ -25,13 +27,15 @@
         <div class="portfolio-detailed__review">
             <div class="container-outer">
                 <div class="container">
-                    <div class="portfolio-detailed__review-box">
-                        <div class="reviews__slider-img"><img src="{{ review.getWebPath('image') | thumb(130, 130) }}" alt="euro dom"></div>
-                        <div class="reviews__slider-info">
-                            <div class="reviews__slider-position">{{ review.post }}</div>
-                            <div class="reviews__slider-name">{{ review.name }}</div>
-                            <div class="reviews__slider-text">
-                                {{ review.text | raw }}
+                    <div class="portfolio-detailed__review-wrap">
+                        <div class="portfolio-detailed__review-box">
+                            <div class="reviews__slider-img img"><img src="{{ review.getWebPath('image') | thumb(130, 130) }}" alt="euro dom"></div>
+                            <div class="reviews__slider-info">
+                                <div class="reviews__slider-position">{{ review.post }}</div>
+                                <div class="reviews__slider-name">{{ review.name }}</div>
+                                <div class="reviews__slider-text">
+                                    {{ review.text | raw }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -39,12 +43,14 @@
             </div>
         </div>
         {% endif %}
-        <div class="container-outer">
-            <div class="container">
-                <div class="portfolio-detailed__wrap">
-                    {% for item in page.arr1 %}
-                    <div class="portfolio-detailed__item img"><img src="{{ page.getGalleryPath(item)  | thumb(441, 800)}}" alt="portfolio img"></div>
-                    {% endfor %}
+        <div class="portfolio-detailed__bottom">
+            <div class="container-outer">
+                <div class="container">
+                    <div class="portfolio-detailed__wrap">
+                        {% for item in page.arr1 %}
+                        <div class="portfolio-detailed__item img"><img src="{{ page.getGalleryPath(item)  | thumb(441, 800)}}" alt="portfolio img"></div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

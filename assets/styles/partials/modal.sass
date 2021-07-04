@@ -54,9 +54,15 @@
     &_left
       transform: rotate(135deg)
       left: 10%
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        left: 50%
+        transform: translateX(-42vw) rotate(135deg)
     &_right
       transform: rotate(-45deg)
       right: 10%
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        right: 50%
+        transform: translateX(42vw) rotate(-45deg)
     .arrow
       border: solid #008066
       border-width: 0 3px 3px 0
@@ -69,6 +75,9 @@
     &__item
       max-width: 1043px
       margin: auto
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        //aspect-ratio: 1043/827
+        max-height: 90vh
     &__arrow-box
       position: absolute
       bottom: 22px
@@ -76,17 +85,23 @@
       transform: translateX(-50%)
       z-index: 3
       color: #fff
-      font: normal normal normal 22px/28px Inter
+      font: normal normal normal 22px/1.4 Inter
       text-align: center
       padding: 6px 14px
       letter-spacing: 2.2px
       background-color: rgba(24, 38, 56, 1)
       border-radius: 90px
-.modal-callback
+      @media screen and (min-width: 1280px) and (max-width: 1659px)
+        padding: 5px 10px
+        font-size: 18px
+.modal-callback, .modal-header
   background-color: $colorMain
   padding: 56px 133px 66px
   width: 100%
   max-width: 1065px
+  @media screen and (min-width: 1280px) and (max-width: 1659px)
+    padding: 40px 100px 50px
+    max-width: 80vw
   &__title
     color: rgba(47, 58, 65, 1)
     font-size: 48px
@@ -105,6 +120,8 @@
     justify-content: space-between
     gap: 32px
     padding-bottom: 88px
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      padding-bottom: 40px
   &__field
     width: 100%
   &__label

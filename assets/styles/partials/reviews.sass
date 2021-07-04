@@ -1,16 +1,33 @@
 .reviews
   position: relative
+  &__title
+    @media screen and (max-width: 1279px)
+      max-width: 300px
+  &__wrap
+    @media screen and (max-width: 1279px)
+      padding-bottom: 56px
   &__slider
     width: 930px
     @media screen and (min-width: 1366px) and (max-width: 1659px)
       width: 865px
+    @media screen and (max-width: 1279px)
+      width: 100%
+      overflow: hidden
     .slick-list
       overflow: unset
+      @media screen and (max-width: 1279px)
+        overflow: hidden
+        margin: 0 -20px
     &-item-wrap.slick-slide
       display: flex
       padding-right: 165px
       @media screen and (min-width: 1366px) and (max-width: 1659px)
         padding-right: 140px
+      @media screen and (max-width: 1279px)
+        padding: 0
+        margin-right: 20px
+        &:last-of-type
+          margin-right: 0
     &-item
       background-color: #fff
       padding: 44px 56px
@@ -18,6 +35,10 @@
       align-items: flex-start
       justify-content: flex-start
       height: 316px
+      position: relative
+      @media screen and (max-width: 1279px)
+        padding: 58px 50px 17px
+        height: unset
     &-img
       border-radius: 50%
       overflow: hidden
@@ -28,10 +49,17 @@
       min-width: 130px
       height: 130px
       margin-right: 32px
+      @media screen and (max-width: 1279px)
+        width: 65px
+        min-width: 65px
+        height: 65px
+        margin-right: 16px
       img
         object-fit: cover
     &-info
       overflow: hidden
+      @media screen and (max-width: 1279px)
+        overflow: unset
     &-position
       font-weight: 600
       font-size: 13px
@@ -43,9 +71,19 @@
       line-height: 32px
       color: #2F3A41
       padding-bottom: 18px
+      @media screen and (max-width: 1279px)
+        font-size: 20px
+        line-height: 24px
+        padding-bottom: 33px
+        font-weight: 600
+        white-space: nowrap
     &-text
       font: normal normal normal 14px/24px Inter
       color: #000
+      @media screen and (max-width: 1279px)
+        position: relative
+        left: -81px
+        width: calc(100% + 81px)
     &-arrow-box
       position: relative
       top: 88px
@@ -56,6 +94,8 @@
       justify-content: space-between
       color: #414141
       font: normal normal normal 22px/28px Inter
+      @media screen and (max-width: 1279px)
+        display: none
 .reviews-page
   &__wrap
     max-width: 1032px

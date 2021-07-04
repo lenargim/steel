@@ -1,18 +1,40 @@
 .output
+  &__wrap
+    @media screen and (max-width: 1279px)
+      padding-bottom: 56px
   &__gallery
     display: flex
     align-items: flex-start
     justify-content: flex-start
     flex-wrap: wrap
+    @media screen and (max-width: 1279px)
+      overflow-x: auto
+      flex-wrap: nowrap
+      gap: 34px
+      &::-webkit-scrollbar
+        width: 0
+        height: 0
+        background: transparent
+        -ms-overflow-style: none
+        scrollbar-width: none
+        overflow: -moz-scrollbars-none
     &-box
       padding: 32px
       max-width: 264px
+      @media screen and (max-width: 1279px)
+        position: unset
+        padding: 32px 32px 0
     &-item
       display: flex
       flex-direction: column
       position: relative
+      @media screen and (max-width: 1279px)
+        position: unset
+        min-width: 100%
       &:nth-of-type(1)
         margin: 0 32px 32px 0
+        @media screen and (max-width: 1279px)
+          margin: 0
         .output__gallery-box
           position: absolute
           top: 100%
@@ -21,15 +43,22 @@
             max-width: 216px
           @media screen and (min-width: 1280px) and (max-width: 1365px)
             max-width: 202px
+          @media screen and (max-width: 1279px)
+            position: unset
       &:nth-of-type(2)
         flex-direction: row
         margin-bottom: 32px
+        @media screen and (max-width: 1279px)
+          margin: 0
+          flex-direction: column
       &:nth-of-type(3)
         margin: 0 30px 0 264px
         @media screen and (min-width: 1366px) and (max-width: 1659px)
           margin-left: 216px
         @media screen and (min-width: 1280px) and (max-width: 1365px)
           margin-left: 202px
+        @media screen and (max-width: 1279px)
+          margin: 0
       &:hover
         .output__gallery-title:before
           width: 100px
@@ -66,6 +95,9 @@
       @media screen and (min-width: 1280px) and (max-width: 1365px)
         height: 195px
         max-width: 271px
+      @media screen and (max-width: 1279px)
+        min-width: 100%
+        height: unset
       &_big
         max-width: 500px
         @media screen and (min-width: 1366px) and (max-width: 1659px)

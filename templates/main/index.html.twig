@@ -45,8 +45,8 @@
         <div class="container-outer">
             <div class="container">
                 <h2 class="title">{{ 'Портфолио' | getString('Главная') }}</h2>
-                <div class="block__wrap">
-                    <p class="block__desc">
+                <div class="block__wrap portfolio__wrap">
+                    <p class="block__desc portfolio__desc">
                         {{ 'Портфолио текст на главной' | getText('Главная') | raw }}</p>
                     <a href="{{ sitePath(portfolio.route) }}" class="block__link link">
                         <span>{{ 'Все работы' | getString('Главная') }}</span>
@@ -73,7 +73,7 @@
         <div class="container-outer">
             <div class="container">
                 <h2 class="title">{{ 'Готовая продукция' | getString('Главная') }}</h2>
-                <div class="block__wrap">
+                <div class="block__wrap output__wrap">
                     <p class="block__desc">{{ 'Продукция текст на главной' | getText('Главная') | raw }}</p>
                     <a href="{{ sitePath(catalogMainPage.route) }}" class="block__link link">
                         <span>{{ 'Вся продукция' | getString('Главная') }}</span>
@@ -123,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slider-block__item-img"><img src="{{ item.getWebPath('image') | thumb(1210, 1080) }}" alt="slider-img"></div>
+                <div class="slider-block__item-img img"><img src="{{ item.getWebPath('image') | thumb(1210, 1080) }}" alt="slider-img"></div>
             </div>
             {% endfor %}
         </section>
@@ -138,13 +138,17 @@
         <div class="container-outer">
             <div class="container">
                 <div class="partners__wrap">
-                    <span>{{ 'Нам доверяют' | getString('Главная') }}</span>
-                    <span class="partner">EURODOM</span>
-                    <span class="partner">WHITE&BLACK</span>
-                    <span class="partner">МОДЭ</span>
-                    <span class="partner-label">Наши клиенты и партнёры</span>
-                    <span class="partner">Alexander Tischler</span>
-                    <span class="partner">Architector</span>
+                    <div class="partners__left">
+                        <span>{{ 'Нам доверяют' | getString('Главная') }}</span>
+                        <span class="partner-label">Наши клиенты <span style="white-space: nowrap">и партнёры</span></span>
+                    </div>
+                    <div class="partners__info">
+                        <span class="partner">EURODOM</span>
+                        <span class="partner">WHITE&BLACK</span>
+                        <span class="partner">МОДЭ</span>
+                        <span class="partner">Alexander Tischler</span>
+                        <span class="partner">Architector</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,8 +157,8 @@
     <section class="block reviews">
         <div class="container-outer">
             <div class="container">
-                <h2 class="title">{{ 'Отзывы наших клиентов' | getString('Главная') }}</h2>
-                <div class="block__wrap">
+                <h2 class="title reviews__title">{{ 'Отзывы наших клиентов' | getString('Главная') }}</h2>
+                <div class="block__wrap reviews__wrap">
                     <p class="block__desc">{{ 'Отзывы текст на главной' | getText('Главная') | raw }}</p>
                     <a href="{{ sitePath(reviewListPage.route) }}" class="block__link link">
                         <span>{{ 'Все отзывы' | getString('Главная') }}</span>
@@ -165,7 +169,7 @@
                     {% for item in reviews %}
                     <div class="reviews__slider-item-wrap">
                         <div class="reviews__slider-item">
-                            <div class="reviews__slider-img"><img src="{{ item.getWebPath('image') | thumb(130, 130) }}" alt="{{ item.post }}"></div>
+                            <div class="reviews__slider-img img"><img src="{{ item.getWebPath('image') | thumb(130, 130) }}" alt="{{ item.post }}"></div>
                             <div class="reviews__slider-info">
                                 <div class="reviews__slider-position">{{ item.post }}</div>
                                 <div class="reviews__slider-name">{{ item.name }}</div>
