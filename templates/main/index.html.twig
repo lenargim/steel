@@ -134,25 +134,25 @@
         </div>
     </div>
     {{ include('part/quality.html.twig') }}
+    {% if page.arr1 | length %}
     <section class="block partners">
         <div class="container-outer">
             <div class="container">
                 <div class="partners__wrap">
                     <div class="partners__left">
                         <span>{{ 'Нам доверяют' | getString('Главная') }}</span>
-                        <span class="partner-label">Наши клиенты <span style="white-space: nowrap">и партнёры</span></span>
+                        <span class="partner-label">{{ 'Наши клиенты и партнёры' | getString('Главная') | raw }}</span>
                     </div>
                     <div class="partners__info">
-                        <span class="partner">EURODOM</span>
-                        <span class="partner">WHITE&BLACK</span>
-                        <span class="partner">МОДЭ</span>
-                        <span class="partner">Alexander Tischler</span>
-                        <span class="partner">Architector</span>
+                        {% for item in page.arr1 %}
+                        <span class="partner">{{ item.title }}</span>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    {% endif %}
     {% if reviewListPage %}
     <section class="block reviews">
         <div class="container-outer">

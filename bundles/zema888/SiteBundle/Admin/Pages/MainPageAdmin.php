@@ -5,6 +5,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use SiteBundle\Entity\Pages;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
+use Zema\Bundle\JsontableBundle\Form\Type\JsontableType;
 
 
 class MainPageAdmin extends ListAdmin
@@ -32,6 +33,11 @@ class MainPageAdmin extends ListAdmin
             ->add('link', null, [
                 'label' => 'Ссылка',
                 'required' => false,
+            ])
+            ->add('arr1', JsontableType::class, [
+                'label' => 'Партнеры',
+                'keys' => ['title'],
+                'labeles' => ['Название'],
             ])
             ->end()
             ->end()

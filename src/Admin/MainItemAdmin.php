@@ -11,6 +11,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Zema\Bundle\JsontableBundle\Form\Type\JsontableType;
 
 
 class MainItemAdmin extends AbstractAdmin
