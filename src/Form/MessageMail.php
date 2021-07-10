@@ -29,6 +29,7 @@ class MessageMail
     protected $phone;
 
     /**
+     * @Assert\NotBlank()
      * @Assert\Email(
      *     message= "Адрес почты указан неверно"
      * )

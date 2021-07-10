@@ -57,7 +57,7 @@ class AjaxController extends AbstractController implements ServiceSubscriberInte
         if ($type == 'callback') {
             CallbackMailType::$formName = 'callback_mail';
             $obj = new CallbackMail();
-            $obj->setTypeform('Обратная связь');
+            $obj->setTypeform('Заказать звонок');
             if ($route) {
                 $obj->setUrl($request->getSchemeAndHttpHost() . $this->get('router')->generate($route));
             }
@@ -71,8 +71,7 @@ class AjaxController extends AbstractController implements ServiceSubscriberInte
 
         if ($type == 'message') {
             $obj = new MessageMail();
-            $obj->setTypeform('Сделать заказ');
-            $obj->setOrderObj($request->get('order_obj', ''));
+            $obj->setTypeform('Узнать стоимость');
             if ($route) {
                 $obj->setUrl($request->getSchemeAndHttpHost() . $this->get('router')->generate($route));
             }
@@ -105,8 +104,7 @@ class AjaxController extends AbstractController implements ServiceSubscriberInte
                 'send_mail' => true,
                 'variables' => [
                     'name' => 'getName',
-                    'company' => 'getCompany',
-                    'orderObj' => 'getOrderObj',
+                    'email' => 'getEmail',
                     'phone' => 'getPhone',
                     'text' => 'getText',
                     'page' => 'getUrl',
@@ -166,54 +164,5 @@ class AjaxController extends AbstractController implements ServiceSubscriberInte
         }
 
         return new JsonResponse([]);
-    }
-
-
-    /**
-     * @Route("/ajax/show_item/{id}", name="app_main.show_item")
-     */
-    public function showItem(Request $request, SessionInterface $session, $id = 0)
-    {
-        $pageRepo = $this->getDoctrine()->getManager()->getRepository(Pages::class);
-        $product = $pageRepo->find($id);
-        $cart = $session->get('cart', []);
-        $product->setCartCount($cart[$product->getId()] ?? 0);
-        $cartPage = $this->getDoctrine()->getManager()->getRepository(Pages\CartPage::class)->findOneBy(['active' => 1]);
-        $cartPages = $pageRepo->findBy(['id' => array_keys($cart)]);
-
-        $amount = 0;
-        $quantity = 0;
-        /** @var Pages $item */
-        foreach ($cartPages as $item) {
-            $item->setCartCount($cart[$item->getId()] ?? 0);
-            if ($item->getId() != $id) {
-                $amount += $item->getCartCount() * $item->getPrice();
-                $quantity += $item->getCartCount();
-            }
-        }
-
-        return $this->render('ajax/cart-product.html.twig', [
-            'product' => $product,
-            'cartPage' => $cartPage,
-            'cart' => $cart,
-            'cartPages' => $cartPages,
-            'amount' => $amount,
-            'quantity' => $quantity,
-        ]);
-    }
-
-    /**
-     * @Route("/ajax/update_cart/{id}/{quantity}", name="app_main.update_cart")
-     */
-    public function cartUpdateItems(Request $request, SessionInterface $session, $id = 0, $quantity = 1)
-    {
-        $quantity = (int)$quantity;
-        $cart = $session->get('cart', []);
-        $cart[$id] = $quantity;
-        if ($quantity <= 0) {
-            unset($cart[$id]);
-        }
-        $session->set('cart', $cart);
-        return new JsonResponse(['ok' => true]);
     }
 }

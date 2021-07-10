@@ -180,22 +180,4 @@ class PartController extends AbstractController
             'getParams' => $getParams,
         ]);
     }
-
-
-
-    /**
-     * @param Request $request
-     * @param Pages $page
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function feedback(Request $request, Pages $page)
-    {
-        CallbackMailType::$formName = 'feedback_mail';$obj = new CallbackMail();
-        $obj->setTypeform('Узнать стоимость');
-        $obj->setUrl($request->getSchemeAndHttpHost() . $this->get('router')->generate($page->getRoute()));
-        $form = $this->createForm(CallbackMailType::class, $obj)->createView();
-        return $this->render('part/feedback.html.twig', [
-            'form' => $form
-        ]);
-    }
 }

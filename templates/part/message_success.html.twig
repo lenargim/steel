@@ -1,8 +1,7 @@
-<div class="hidden">
-    <div class="form popup-form js-popup-message-success" id="success">
-        <h3>{{ 'popup_message_succes_title' | getString('Успешная отправка формы') | raw }}</h3>
-        <div class="wrapper">
-            <p>{{ 'popup_message_succes_text' | getText('Успешная отправка формы') | raw }}</p>
-        </div>
+<div class="overlay overlay_header js-popup-message-success active">
+    <div class="modal__close js-modal__close"></div>
+    <div class="modal modal-header active">
+        <div class="modal-callback__title">{{ 'popup_message_succes_title' | getString('Успешная отправка формы') | raw }}</div>
+        <div class="modal-callback__desc"><p>{{ 'popup_message_succes_text' | getText('Успешная отправка формы') | raw }}</p></div>
     </div>
 </div>

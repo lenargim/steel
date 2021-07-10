@@ -1,27 +1,27 @@
-<div class="overlay overlay_price js-overlay_price">
-    <div class="modal__close"></div>
-    <div class="modal modal-callback js-modal-callback-price">
+<div class="overlay overlay_price active">
+    <div class="modal__close js-modal__close"></div>
+    <div class="modal modal-callback active">
         <div class="modal-callback__title">{{ 'Узнайте стоимость вашей идеи' | getString('Узнать стоимость') }}</div>
         <div class="modal-callback__desc">{{ 'Отправьте ваши контактные данные и мы свяжемся с вами' | getString('Узнать стоимость') }}</div>
-        {{ form_start(form, {'attr': { 'class': 'modal-callback__form', 'data-ajax_valid_path': path('app_main.ajax_ajax_validform', { 'type' : 'message'}) } }) }}
+        {{ form_start(form.form, {'attr': { 'class': 'modal-callback__form', 'data-ajax_valid_path': path('app_main.ajax_ajax_validform', { 'type' : 'message'}) } }) }}
         <div class="modal-callback__row">
             <div class="modal-callback__field js_wrap_input">
                 <label class="modal-callback__label">{{ 'Ваше имя' | getString('Обратный звонок') }}</label>
-                {{ form_widget(form.name, {'attr' : {'class': 'modal-callback__input' }}) }}
-                <div class="error">{{ 'Введите Ваше имя' | getString('Обратный звонок') }}</div>
+                {{ form_widget(form.form.name, {'attr' : {'class': 'modal-callback__input' }}) }}
+                <div class="error-msg">{{ 'Введите Ваше имя' | getString('Обратный звонок') }}</div>
             </div>
             <div class="modal-callback__field js_wrap_input">
                 <label class="modal-callback__label">{{ 'Номер телефона' | getString('Обратный звонок') }}</label>
-                {{ form_widget(form.phone, {'attr' : {'class': 'modal-callback__input' }}) }}
-                <div class="error">{{ 'Введите Ваш номер телефона' | getString('Обратный звонок') }}</div>
+                {{ form_widget(form.form.phone, {'attr' : {'class': 'modal-callback__input tel-input' }}) }}
+                <div class="error-msg">{{ 'Введите Ваш номер телефона' | getString('Обратный звонок') }}</div>
             </div>
             <div class="modal-callback__field js_wrap_input">
                 <label class="modal-callback__label">{{ 'Электронная почта' | getString('Обратный звонок') }}</label>
-                {{ form_widget(form.email, {'attr' : {'class': 'modal-callback__input' }}) }}
-                <div class="error">{{ 'Введите Ваш email' | getString('Обратный звонок') }}</div>
+                {{ form_widget(form.form.email, {'attr' : {'class': 'modal-callback__input' }}) }}
+                <div class="error-msg">{{ 'Введите Ваш email' | getString('Обратный звонок') }}</div>
             </div>
             <div class="modal-callback__field js_wrap_input">
-                {{  form_widget(form.policy, {'attr': {'class': 'js_policy_chekbox checkbox'} })  }}
+                {{  form_widget(form.form.policy, {'attr': {'class': 'js_policy_chekbox checkbox'} })  }}
                 <label for="callback_mail_policy">
                     {% set policy = 'policy_page' | pageByDiscr %}
                     {% if policy %}
@@ -32,9 +32,10 @@
                         {{ 'forms_label_policy' | getString('Обратный звонок') }}
                     {% endif %}
                 </label>
+                <span class="error-msg">{{ 'forms_error_policy' | getString('Обратный звонок') }}</span>
             </div>
         </div>
         <input type="submit" class="modal-callback__submit button" value="{{ 'Отправить' | getString('Обратный звонок') }}">
-        {{ form_end(form) }}
+        {{ form_end(form.form) }}
     </div>
 </div>

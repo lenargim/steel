@@ -12,7 +12,10 @@
                     </div>
                     <div class="catalog-detailed__text">
                         {{ page.text | raw }}
-                        <div class="catalog-detailed__button button js-catalog-detailed__button">{{ 'Узнать стоимость' | getString('Узнать стоимость') }}</div>
+                        <a data-reachgoal="message"
+                           data-type="message"
+                           href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'message', 'route': page.route }) }}"
+                           class="catalog-detailed__button button  js-popup-open js-reachgoal">{{ 'Узнать стоимость' | getString('Узнать стоимость') }}</a>
                     </div>
                 </section>
                 <div class="catalog-page__wrap">
