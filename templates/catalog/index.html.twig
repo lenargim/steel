@@ -12,7 +12,7 @@
                     </div>
                     <div class="catalog-detailed__text">
                         {{ page.text | raw }}
-                        <div class="catalog-detailed__button button">Узнать стоимость</div>
+                        <div class="catalog-detailed__button button js-catalog-detailed__button">{{ 'Узнать стоимость' | getString('Узнать стоимость') }}</div>
                     </div>
                 </section>
                 <div class="catalog-page__wrap">
@@ -29,30 +29,6 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="overlay overlay_price">
-        <div class="modal__close"></div>
-        <div class="modal modal-callback">
-            <div class="modal-callback__title">Узнайте стоимость вашей идеи</div>
-            <div class="modal-callback__desc">Отправьте ваши контактные данные и мы свяжемся с вами</div>
-            <form action="" class="modal-callback__form">
-                <div class="modal-callback__row">
-                    <div class="modal-callback__field">
-                        <label for="callback-name" class="modal-callback__label">Ваше имя</label>
-                        <input type="text" id="callback-name" class="modal-callback__input">
-                    </div>
-                    <div class="modal-callback__field">
-                        <label for="callback-phone" class="modal-callback__label">Номер телефона</label>
-                        <input type="tel" id="callback-phone" class="modal-callback__input">
-                    </div>
-                    <div class="modal-callback__field">
-                        <label for="callback-email" class="modal-callback__label">Электронная почта</label>
-                        <input type="email" id="callback-email" class="modal-callback__input">
-                    </div>
-                </div>
-                <input type="submit" class="modal-callback__submit button" value="Отправить">
-            </form>
         </div>
     </div>
 {% endblock %}

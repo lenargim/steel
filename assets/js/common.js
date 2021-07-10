@@ -167,9 +167,9 @@ $('.modal__close').on('click', function(){
 
 
 
-$('.catalog-detailed__button').on('click', function(){
-    $('.overlay_price').addClass('active')
-    $('.modal-callback').addClass('active')
+$('.js-catalog-detailed__button').on('click', function(){
+    $('.js-overlay_price').addClass('active')
+    $('.js-modal-callback-price').addClass('active')
 })
 
 $('.header__callback').on('click', function(){

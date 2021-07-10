@@ -92,7 +92,6 @@ sonata_admin:
                 label: "Заявки"
                 items:
                     - app_main.admin.letter
-                    - app_main.admin.order
                 roles: [ ROLE_SUPER_ADMIN, ROLE_ADMIN ]
             app_main.admin.group.users:
                 label: "Пользователи"

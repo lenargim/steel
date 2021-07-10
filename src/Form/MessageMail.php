@@ -28,11 +28,12 @@ class MessageMail
      */
     protected $phone;
 
-    protected $company;
-
-    protected $orderObj;
-
-    protected $text;
+    /**
+     * @Assert\Email(
+     *     message= "Адрес почты указан неверно"
+     * )
+     */
+    protected string $email;
 
 
     /**
@@ -83,21 +84,6 @@ class MessageMail
 
 
 
-    /**
-     * @return mixed
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * @param mixed $text
-     */
-    public function setText($text)
-    {
-        $this->text = $text;
-    }
 
     /**
      * @return mixed
@@ -180,37 +166,20 @@ class MessageMail
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getCompany()
+    public function getEmail(): string
     {
-        return $this->company;
+        return $this->email;
     }
 
     /**
-     * @param mixed $company
+     * @param string $email
      */
-    public function setCompany($company): void
+    public function setEmail(string $email): void
     {
-        $this->company = $company;
+        $this->email = $email;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getOrderObj()
-    {
-        return $this->orderObj;
-    }
-
-    /**
-     * @param mixed $orderObj
-     */
-    public function setOrderObj($orderObj): void
-    {
-        $this->orderObj = $orderObj;
-    }
-
 
 
 }

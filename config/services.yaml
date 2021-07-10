@@ -47,15 +47,6 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.orders", label: "Письма с заявками" }
 
-    app_main.admin.order:
-        class: App\Admin\OrderAdmin
-        arguments:
-            - ~
-            - App\Entity\Order
-            - SonataAdminBundle:CRUD
-        tags:
-            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.orders", label: "Заказ товара" }
-
   #Review
     app_main.admin.review:
         class: App\Admin\ReviewAdmin

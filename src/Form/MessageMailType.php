@@ -30,10 +30,6 @@ class MessageMailType extends AbstractType
                 'label' => 'Страница',
                 'required' => false
             ])
-            ->add('orderObj', HiddenType::class, [
-                'label' => 'Заказываемый объект',
-                'required' => false
-            ])
             ->add('phone', TextType::class, [
                 'label' => 'Телефон',
                 'required' => false,
@@ -41,13 +37,12 @@ class MessageMailType extends AbstractType
                     'class' => 'mask'
                 ],
             ])
-            ->add('company', TextType::class, [
-                'label' => 'Компания',
-                'required' => false
-            ])
-            ->add('text', TextareaType::class, [
-                'label' => 'Комментарий',
-                'required' => false
+            ->add('email', TextType::class, [
+                'label' => 'Телефон',
+                'required' => false,
+                'attr' => [
+                    'class' => 'mask'
+                ],
             ])
             ->add('policy', CheckboxType::class, [
                 'label' => 'С политикой конфиденциальности компании ознакомлен(на)',
