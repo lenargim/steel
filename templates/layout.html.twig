@@ -12,15 +12,21 @@
             <div class="side-menu__burger"><span></span></div>
             <div class="side-menu__copy"><span>&#169;</span> {{ 'Сталь в интерьерах, 2021' | getString('Шапка') }}</div>
             <div class="side-menu__socials side-menu__socials_desktop">
-                <a target="_blank" href="#" class="side-menu__social">
+                {% if 'vk ссылка' | getString('Шапка') %}
+                <a target="_blank" href="{{ 'vk ссылка' | getString('Шапка') }}" class="side-menu__social">
                     {{ source('svg/vk.svg') }}
                 </a>
-                <a target="_blank" href="#" class="side-menu__social">
+                {% endif %}
+                {% if 'fb ссылка' | getString('Шапка') %}
+                <a target="_blank" href="{{ 'fb ссылка' | getString('Шапка') }}" class="side-menu__social">
                     {{ source('svg/fb.svg') }}
                 </a>
-                <a target="_blank" href="#" class="side-menu__social">
+                {% endif %}
+                {% if 'inst ссылка' | getString('Шапка') %}
+                <a target="_blank" href="{{ 'inst ссылка' | getString('Шапка') }}" class="side-menu__social">
                     {{ source('svg/inst.svg') }}
                 </a>
+                {% endif %}
             </div>
             <div class="side-menu__list" style="background-image: url('{{ asset('/build/menu-bg.svg') }}')">
                 {{ render(controller('App\\Controller\\PartController:navigation', {'page': page})) }}

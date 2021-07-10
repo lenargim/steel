@@ -23,7 +23,7 @@ class PageGallery
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    protected $page_id;
+    protected $pageId;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -79,7 +79,7 @@ class PageGallery
      */
     public function setPageId($pageId)
     {
-        $this->page_id = $pageId;
+        $this->pageId = $pageId;
 
         return $this;
     }
@@ -91,7 +91,7 @@ class PageGallery
      */
     public function getPageId()
     {
-        return $this->page_id;
+        return $this->pageId;
     }
 
     public function getText(): ?string

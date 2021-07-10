@@ -12,39 +12,19 @@
                         {{ source('svg/arrow_right.svg') }}
                     </div>
                     <div class="interior-detailed__slider" id="interior-slider">
+                        {% for item in page.pageGalleries %}
                         <div class="interior-detailed__slide">
                             <div class="interior-detailed__item">
-                                <div class="interior-detailed__text"><p>
-                                        Чтобы изделие служило как можно дольше и не теряло свой товарный вид,
-                                        мы с должным вниманием и ответственностью подходим ко всем этапам обработки металла. Для покраски мы
-                                        используем порошковую краску, по нашему мнению, наилучшего качества, международного концерна
-                                        AkzoNobel.
-                                    </p>
-                                    <div class="interior-detailed__year">2019</div>
+                                <div class="interior-detailed__text">
+                                    {{ item.text | raw }}
+                                    <div class="interior-detailed__year">{{ item.title }}</div>
                                 </div>
                                 <div class="interior-detailed__img img">
-                                    <img src="{{ asset('build/interior-detailed.png') }}" alt="interior detailed">
+                                    <img src="{{ item.getWebPath('image') | thumb(1032, 784) }}" alt="interior detailed">
                                 </div>
                             </div>
                         </div>
-                        <div class="interior-detailed__slide">
-                            <div class="interior-detailed__item">
-                                <div class="interior-detailed__text"><p>
-                                        Чтобы изделие служило как можно дольше и не теряло свой товарный вид,Чтобы изделие служило как можно
-                                        дольше и не теряло свой товарный вид,Чтобы изделие служило как можно дольше и не теряло свой
-                                        товарный вид,Чтобы изделие служило как можно дольше и не теряло свой товарный вид,
-                                        мы с должным вниманием и ответственностью подходим ко всем этапам обработки металла. Для покраски мы
-                                        используем порошковую краску, по нашему мнению, наилучшего качества, международного концерна
-                                        AkzoNobel.
-
-                                    </p>
-                                    <div class="interior-detailed__year">2019</div>
-                                </div>
-                                <div class="interior-detailed__img img">
-                                    <img src="{{ asset('build/interior-detailed.png') }}" alt="interior detailed">
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -61,18 +41,11 @@
                     <span class="modal-slider__counter"></span>
                 </div>
                 <div class="modal-slider__wrap">
+                    {% for item in page.pageGalleries %}
                     <div class="modal-slider__item-wrap">
-                        <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
+                        <div class="modal-slider__item img"><img src="{{ item.getWebPath('originalImage') }}" alt="{{ item.title }}"></div>
                     </div>
-                    <div class="modal-slider__item-wrap">
-                        <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
-                    </div>
-                    <div class="modal-slider__item-wrap">
-                        <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
-                    </div>
-                    <div class="modal-slider__item-wrap">
-                        <div class="modal-slider__item img"><img src="{{ asset('build/modal-slider.png') }}" alt="modal img"></div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

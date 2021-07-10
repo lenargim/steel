@@ -90,7 +90,7 @@ services:
     site.admin.page_gallery:
         class: SiteBundle\Admin\PageGalleryAdmin
         tags:
-            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Галлереи страниц" }
+            - {name: sonata.admin, manager_type: orm , group: "app_main.admin.group.pages", label: "Галереи интерьерных решений" }
         arguments:
           - ~
           - SiteBundle\Entity\PageGallery

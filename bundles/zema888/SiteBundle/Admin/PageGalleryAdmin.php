@@ -2,20 +2,16 @@
 
 namespace SiteBundle\Admin;
 
-use Comur\ImageBundle\Form\Type\CroppableGalleryType;
 use Comur\ImageBundle\Form\Type\CroppableImageType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Pix\SortableBehaviorBundle\Services\PositionHandler;
+use SiteBundle\Entity\Pages;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
-use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Form\Type\ModelListType;
+use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Zema\Bundle\JsontableBundle\Form\Type\JsontableType;
 
 class PageGalleryAdmin extends AbstractAdmin
 {
@@ -71,38 +67,37 @@ class PageGalleryAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $em = $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager');
         $subject = $this->getSubject();
         $formMapper
             ->tab("Настройки")
             ->with('Тексты, страница')
-            ->add('page', ModelListType::class, [
+            ->add('pageId', ChoiceType::class, [
                 'label' => 'Страница',
-                'required' => true
+                'required' => false,
+                'choices' => $em->getRepository(Pages\InteriorItemPage::class)->getListByModule(),
             ])
             ->add('title', TextType::class, [
-                'label' => 'Заголовок',
-                'required' => true
-            ])
-            ->add('text', TextareaType::class, [
-                'label' => 'Текст',
+                'label' => 'Год',
                 'required' => false
             ])
-            ->add('button', TextType::class, [
-                'label' => 'Подпись кнопки',
-                'help' => 'Чтобы отображалась кнопка нужно указать и подпись и ссылку',
-                'required' => false
-            ])
-            ->add('link', TextType::class, [
-                'label' => 'Ссылка кнопки',
-                'help' => 'Чтобы отображалась кнопка нужно указать и подпись и ссылку',
-                'required' => false
-            ])
+            ->add(
+                'text',
+                CKEditorType::class,
+                [
+                    'label' => 'Текст',
+                    'required' => false,
+                    'attr' => [
+                        'class' => 'ckeditor'
+                    ]
+                ]
+            )
             ->end()
             ->end()
             ->tab("Картинки")
             ->with('Слайд')
             ->add('image', CroppableImageType::class, [
-                'label' => 'Слайд (отображаться будет оригинал)',
+                'label' => 'Слайд (1032Х784)',
                 'required' => false,
                 'uploadConfig' => [
                     'uploadRoute' => 'comur_api_upload',        //optional
@@ -116,8 +111,8 @@ class PageGalleryAdmin extends AbstractAdmin
                     'generateFilename' => true          //optional
                 ],
                 'cropConfig' => [
-                    'minWidth' => 100,
-                    'minHeight' => 100,
+                    'minWidth' => 1032,
+                    'minHeight' => 784,
                     'aspectRatio' => true,              //optional
                     'cropRoute' => 'comur_api_crop',    //optional
                     'forceResize' => false,             //optional
@@ -126,6 +121,10 @@ class PageGalleryAdmin extends AbstractAdmin
                             'maxWidth' => 100,
                             'maxHeight' => 100,
                             'useAsFieldImage' => true  //optional
+                        ],
+                        [
+                            'maxWidth' => 1032,
+                            'maxHeight' => 784,
                         ]
                     ]
                 ]

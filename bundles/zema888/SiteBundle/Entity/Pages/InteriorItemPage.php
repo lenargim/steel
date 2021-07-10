@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SiteBundle\Repository\Pages\InteriorItemRepository")
  */
 class InteriorItemPage extends Pages
 {
