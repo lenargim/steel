@@ -53,7 +53,7 @@
                         <span class="arrow"></span>
                     </a>
                 </div>
-                <div class="portfolio__gallery">
+                <div class="portfolio__gallery mobile-swipe">
                     {% for item in portfolio.getChildren([portfolioItemClass]) if item.onmain%}
                     <a href="{{ sitePath(item.route) }}" class="portfolio__gallery-item">
                         <div class="portfolio__gallery-img img"><img src="{{ item.getWebPath('image2') | thumb(441, 535) }}" alt="gallery-img">
@@ -80,7 +80,7 @@
                         <span class="arrow"></span>
                     </a>
                 </div>
-                <div class="output__gallery">
+                <div class="output__gallery mobile-swipe">
                     {% for key, item in catalogMainPage.getChildren([catalogArticleClass]) if item.onmain%}
                         {% if (key + 1)%4 == 1 or (key + 1)%4 == 0 %}
                             {% set img = item.getWebPath('image') | thumb(600, 314) %}
@@ -104,7 +104,7 @@
         </div>
     </section>
     <div class="block slider-block__wrap">
-        <section class="slider-block" id="slider">
+        <section class="slider-block mobile-swipe" id="slider">
             {% for item in interios %}
             <div class="slider-block__item">
                 <div class="container-outer">
@@ -165,7 +165,7 @@
                         <span class="arrow"></span>
                     </a>
                 </div>
-                <div class="reviews__slider" id="reviews-slider">
+                <div class="reviews__slider mobile-swipe" id="reviews-slider">
                     {% for item in reviews %}
                     <div class="reviews__slider-item-wrap">
                         <div class="reviews__slider-item">
@@ -195,7 +195,7 @@
             <div class="container">
                 <div class="map__box">
                     <div class="map__box-title title">{{ 'Контакты' | getString('Главная') }}</div>
-                    <div>
+                    <div class="map__box-container">
                         <a href="tel:{{ page.mapPhone   | replace({" ": "", "-": "", "(": "", ")": ""})  }}">{{ page.mapPhone }}</a>
                         <a href="mailto:{{ page.mapEmail }}">{{ page.mapEmail }}</a>
                         <address>{{ page.mapAddress | raw }}</address>

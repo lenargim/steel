@@ -9,9 +9,12 @@
   bottom: 50px
   top: 68px
   left: 48px
-  @media screen and (max-width: 1279px)
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+    left: 40px
+    top: 32px
+  @media screen and (max-width: 767px)
     left: 16px
-    top: 18px
+    top: 26px
   &__burger
     cursor: pointer
     width: 42px
@@ -20,8 +23,9 @@
     position: relative
     z-index: 3
     transition: height 0.3s ease-in-out
-    @media screen and (max-width: 1279px)
+    @media screen and (max-width: 767px)
       transform: scale(0.76)
+      transform-origin: left
     span
       position: absolute
       top: calc(50% - 2px)

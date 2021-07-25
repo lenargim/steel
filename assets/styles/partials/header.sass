@@ -1,27 +1,28 @@
 .header
   padding: 54px 0 104px
-  @media screen and (max-width: 1279px)
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+    padding: 19px 0 75px
+  @media screen and (max-width: 767px)
     padding: 12px 0 48px
   &__wrap
     display: flex
     align-items: center
     justify-content: space-between
   &__logo
-    max-width: 198px
     .logo
-      width: 198px
-      height: 51px
-    @media screen and (max-width: 1279px)
+      width: 199px
+    @media screen and (min-width: 768px) and (max-width: 1279px)
+      margin-left: 120px
+    @media screen and (max-width: 767px)
       max-width: 132px
       margin: 0 auto
       .logo
         width: 132px
-        height: 34px
   &__contact
     display: flex
     align-items: center
     justify-content: flex-end
-    @media screen and (max-width: 1279px)
+    @media screen and (max-width: 767px)
       display: none
   &__callback
     cursor: pointer
@@ -36,6 +37,8 @@
       margin-right: 112px
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       margin-right: 81px
+    @media screen and (max-width: 1279px)
+      display: none
   &__phone
     font-size: 24px
     font-weight: 500

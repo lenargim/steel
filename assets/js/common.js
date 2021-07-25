@@ -90,7 +90,22 @@ reviewsSlider.slick({
     prevArrow: reviewsPrevArrow,
     nextArrow: reviewsNextArrow,
     draggable: false,
-    infinite: false
+    infinite: false,
+    responsive: [
+                {
+                  breakpoint: 1279,
+                  settings: {
+                  variableWidth: true,
+                  }
+                },
+                {
+                  breakpoint: 767,
+                  settings: {
+                  variableWidth: false,
+                  draggable: true,
+                  }
+                },
+        ]
 });
 
 /* Interior detailed Page */
@@ -163,3 +178,9 @@ $('.modal__close').on('click', function(){
     let modalSlider = $('.modal-slider__wrap')
     modalSlider !== undefined ? modalSlider.slick('unslick') : false
 })
+
+$('.mobile-swipe').on('touchstart click', swipeFunction );
+function swipeFunction(event) {
+    $(event.target).removeClass('mobile-swipe');
+}
+

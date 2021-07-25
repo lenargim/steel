@@ -1,10 +1,14 @@
 .reviews
   position: relative
   &__title
-    @media screen and (max-width: 1279px)
+    @media screen and (min-width: 1280px)
+      max-width: 500px
+    @media screen and (max-width: 767px)
       max-width: 300px
   &__wrap
-    @media screen and (max-width: 1279px)
+    @media screen and (min-width: 768px) and (max-width: 1279px)
+      padding-bottom: 62px
+    @media screen and (max-width: 767px)
       padding-bottom: 56px
   &__slider
     width: 930px
@@ -12,10 +16,13 @@
       width: 865px
     @media screen and (max-width: 1279px)
       width: 100%
+    @media screen and (max-width: 767px)
       overflow: hidden
+      &::after
+        top: 134px
     .slick-list
       overflow: unset
-      @media screen and (max-width: 1279px)
+      @media screen and (max-width: 767px)
         overflow: hidden
         margin: 0 -20px
     &-item-wrap.slick-slide
@@ -23,7 +30,11 @@
       padding-right: 165px
       @media screen and (min-width: 1366px) and (max-width: 1659px)
         padding-right: 140px
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        padding: 0
+        margin-right: 32px
+        width: 568px
+      @media screen and (max-width: 767px)
         padding: 0
         margin-right: 20px
         &:last-of-type
@@ -36,7 +47,10 @@
       justify-content: flex-start
       height: 316px
       position: relative
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        height: auto
+        padding: 44px 56px 80px
+      @media screen and (max-width: 767px)
         padding: 58px 50px 17px
         height: unset
     &-img
@@ -49,7 +63,7 @@
       min-width: 130px
       height: 130px
       margin-right: 32px
-      @media screen and (max-width: 1279px)
+      @media screen and (max-width: 767px)
         width: 65px
         min-width: 65px
         height: 65px
@@ -58,7 +72,7 @@
         object-fit: cover
     &-info
       overflow: hidden
-      @media screen and (max-width: 1279px)
+      @media screen and (max-width: 767px)
         overflow: unset
     &-position
       font-weight: 600
@@ -71,7 +85,7 @@
       line-height: 32px
       color: #2F3A41
       padding-bottom: 18px
-      @media screen and (max-width: 1279px)
+      @media screen and (max-width: 767px)
         font-size: 20px
         line-height: 24px
         padding-bottom: 33px
@@ -80,7 +94,7 @@
     &-text
       font: normal normal normal 14px/24px Inter
       color: #000
-      @media screen and (max-width: 1279px)
+      @media screen and (max-width: 767px)
         position: relative
         left: -81px
         width: calc(100% + 81px)
@@ -94,7 +108,10 @@
       justify-content: space-between
       color: #414141
       font: normal normal normal 22px/28px Inter
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        top: 62px
+        padding-bottom: 62px
+      @media screen and (max-width: 767px)
         display: none
 .reviews-page
   &__wrap

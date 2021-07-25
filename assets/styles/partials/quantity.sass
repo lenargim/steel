@@ -1,4 +1,6 @@
 .quality
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+    margin-bottom: 116px
   &__wrap
     display: flex
     justify-content: flex-start
@@ -8,16 +10,28 @@
   &__img
     max-width: 234px
     object-fit: cover
+    position: relative
     @media screen and (min-width: 1366px) and (max-width: 1659px)
       max-width: 184px
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       max-width: 170px
-    @media screen and (max-width: 1279px)
+    @media screen and (min-width: 768px) and (max-width: 1279px)
+      max-width: 100%
+      width: 100%
+      height: 257px
+      margin: 0 0 32px
+      img
+        position: absolute
+        width: 100%
+        height: auto
+        left: 0
+        right: 0
+        bottom: -50%
+    @media screen and (max-width: 767px)
       max-width: 326px
       width: 100%
       margin: 0 0 32px
       height: 170px
-      position: relative
       img
         position: absolute
         width: 100%
@@ -34,6 +48,9 @@
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       width: 584px
       margin-left: 133px
+    @media screen and (min-width: 768px) and (max-width: 1279px)
+      width: 568px
+      margin: 0
     @media screen and (max-width: 1279px)
       width: 100%
       margin: 0
