@@ -2,14 +2,14 @@
      viewBox="0 0 201.919 68">
     <defs>
         <style>
-            .logo-a{fill:url(#a);}.logo-b{fill:#fff;fill-rule:evenodd;}.logo-c{stroke:rgba(0,0,0,0);fill:url(#d);}.logo-d{filter:url(#b);}
+            .logo-a{fill:url(#logo-a);}.logo-b{fill:#fff;fill-rule:evenodd;}.logo-c{stroke:rgba(0,0,0,0);fill:url(#d);}.logo-d{filter:url(#logo-b);}
         </style>
-        <linearGradient id="a" x1="0.16" y1="-0.093" x2="0.84" y2="1.093" gradientUnits="objectBoundingBox">
+        <linearGradient id="logo-a" x1="0.16" y1="-0.093" x2="0.84" y2="1.093" gradientUnits="objectBoundingBox">
             <stop offset="0" stop-color="#dcc780"/>
             <stop offset="1" stop-color="#b68136"/>
         </linearGradient>
-        <filter id="b" x="0" y="0" width="68.98" height="68" filterUnits="userSpaceOnUse">
-            <feOffset dx="7" dy="1" input="SourceAlpha"/>
+        <filter id="logo-b" x="0" y="0" width="68.98" height="68" filterUnits="userSpaceOnUse">
+            <feOffset dx="7" dy="1"/>
             <feGaussianBlur stdDeviation="3" result="c"/>
             <feFlood flood-color="#2a1a4a" flood-opacity="0.502"/>
             <feComposite operator="in" in2="c"/>

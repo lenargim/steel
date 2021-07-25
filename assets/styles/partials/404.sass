@@ -3,16 +3,50 @@
     display: flex
     align-items: center
     justify-content: space-between
-    max-width: 1245px
+    @media screen and (min-width: 1660px)
+      gap: 94px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      gap: 113px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      gap: 104px
   &__info
-    max-width: 488px
+    @media screen and (min-width: 1660px)
+      max-width: 488px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      max-width: 400px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      max-width: 372px
   &__title
     font-weight: 800
-    font-size: 210px
-    line-height: 256px
-    padding-bottom: 31px
     color: #2F3A41
+    @media screen and (min-width: 1660px)
+      font-size: 210px
+      line-height: 256px
+      padding-bottom: 31px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      font-size: 170px
+      line-height: 208px
+      padding-bottom: 41px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      font-size: 160px
+      line-height: 195px
+      padding-bottom: 44px
+    @media screen and (max-width: 1270px)
+      font-size: 130px
+      line-height: 159px
+      padding-bottom: 72px
   &__text
     font: normal normal normal 16px/28px Inter
     color: #414141
     padding-bottom: 54px
+    @media screen and (max-width: 1270px)
+      font-size: 14px
+  &__img
+    img
+      width: 100%
+    @media screen and (min-width: 1660px)
+      max-width: 663px
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      max-width: 603px
+    @media screen and (max-width: 1270px)
+      display: none

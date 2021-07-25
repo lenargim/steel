@@ -117,31 +117,60 @@
   &__wrap
     max-width: 1032px
     column-count: 2
+    column-gap: 32px
     list-style-type: none
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      max-width: 831px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      max-width: 766px
+    @media screen and (max-width: 1279px)
+      column-count: 1
   &__item
     background-color: #fff
-    padding: 44px 49px
-    display: flex
-    align-items: flex-start
-    justify-content: flex-start
+    display: grid
     height: auto
-    max-width: 500px
     margin-bottom: 32px
     overflow: hidden
     page-break-inside: avoid
     break-inside: avoid-column
+    @media screen and (min-width: 1660px)
+      padding: 44px 49px
+      grid-template-columns: 130px 1fr
+      grid-gap: 32px
+    @media screen and (min-width: 1366px) and (max-width: 1659px)
+      padding: 35px 35px 38px
+      grid-template-columns: 105px 1fr
+      grid-gap: 51px 32px
+    @media screen and (min-width: 1280px) and (max-width: 1365px)
+      padding: 33px 33px 38px
+      grid-template-columns: 97px 1fr
+      grid-gap: 51px 32px
+    @media screen and (max-width: 1279px)
+      padding: 29px 29px 34px
+      margin-bottom: 28px
+      grid-template-columns: 84px 1fr
+      grid-gap: 51px 32px
     &_full
       max-width: 1032px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        max-width: 831px
+      @media screen and (min-width: 1280px) and (max-width: 1365px)
+        max-width: 766px
+      @media screen and (max-width: 1279px)
+        .reviews-page__item-text
+          position: relative
+          top: 51px
+          left: -116px
+          width: calc(100% + 116px)
+          padding-bottom: 51px
     &-img
       border-radius: 50%
       overflow: hidden
       display: flex
       align-items: center
       justify-content: center
-      width: 130px
-      min-width: 130px
-      height: 130px
-      margin-right: 39px
+      width: 100%
+      aspect-ratio: 1/1
       img
         object-fit: cover
     &-position
@@ -150,11 +179,21 @@
       line-height: 16px
       color: $colorGreen
       padding-bottom: 8px
+      @media screen and (max-width: 1279px)
+        font-size: 10px
+        line-height: 13px
+        padding-bottom: 24px
     &-name
       font-size: 28px
       line-height: 32px
       color: #2F3A41
-      padding-bottom: 18px
+      @media screen and (max-width: 1279px)
+        font-size: 20px
+        line-height: 24px
     &-text
       font: normal normal normal 16px/28px Inter
       color: #000
+      grid-column: 1/3
+      grid-row: 2/3
+      @media screen and (max-width: 1279px)
+        font-size: 14px
