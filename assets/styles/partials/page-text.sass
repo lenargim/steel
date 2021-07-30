@@ -1,0 +1,57 @@
+.page-text
+  h2
+    padding-bottom: 37px
+  h3
+    padding-bottom: 18px
+  h4
+    padding-bottom: 18px
+  table
+    width: 100%
+    border-spacing: 32px 0
+    position: relative
+    left: -159px
+    margin-bottom: 88px
+    @media screen and (max-width: 1279px)
+      position: unset
+      margin-bottom: 44px
+    th, td
+      padding: 32px 16px 23px
+      color: #414141
+    th
+      font-weight: 600
+      font-size: 20px
+      line-height: 28px
+      text-align: left
+      border-bottom: 2px solid $colorDarkGreen
+      @media screen and (max-width: 1279px)
+        line-height: 24px
+    td
+      border-bottom: 1px solid rgba(0, 128, 102, 0.6)
+      font: normal normal normal 16px/28px Inter
+  .table-wrap
+    @media screen and (max-width: 1279px)
+      overflow-x: auto
+    &::-webkit-scrollbar
+      width: 0
+      height: 0
+      background: transparent
+      -ms-overflow-style: none
+      scrollbar-width: none
+      overflow: -moz-scrollbars-none
+  ul, ol
+    color: #414141
+    font: normal normal normal 16px/28px Inter
+    list-style-position: outside
+    @media screen and (max-width: 1279px)
+      list-style-position: inside
+      font: normal normal normal 14px/24px Inter
+  li
+    padding-bottom: 1em
+    &::marker
+      color: $colorGreen
+      font-size: 16px
+      line-height: 28px
+  p
+    padding-bottom: 1em
+    &:last-of-type
+      padding-bottom: 0

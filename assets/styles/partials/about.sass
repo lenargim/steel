@@ -9,17 +9,16 @@
     position: relative
     padding-bottom: 88px
     flex-wrap: wrap
-    @media screen and (min-width: 1280px) and (max-width: 1659px)
+    @media screen and (max-width: 1659px)
       width: 100%
       padding-bottom: 60px
+    @media screen and (max-width: 1279px)
+      justify-content: flex-start
+      flex-direction: column
   &__block
     width: 766px
     font: normal normal normal 16px/28px Inter
     color: #414141
-    p
-      padding-bottom: 1em
-      &:last-of-type
-        padding-bottom: 0
   &__aside
     width: 200px
     margin-left: auto
@@ -53,22 +52,6 @@
     font-weight: 500
     color: #2F3A41
     padding-bottom: 18px
-  &__table
-    width: 100%
-    border-spacing: 32px 0
-    position: relative
-    left: -159px
-    th, td
-      padding: 32px 16px 23px
-      color: #414141
-    th
-      font-weight: 600
-      font-size: 20px
-      line-height: 28px
-      border-bottom: 2px solid $colorDarkGreen
-    td
-      border-bottom: 1px solid rgba(0, 128, 102, 0.6)
-      font: normal normal normal 16px/28px Inter
   &__list-title
     font-size: 20px
     line-height: 32px
@@ -77,16 +60,3 @@
   &__longtext
     p
       padding-bottom: 1.5em
-  &__ul
-    color: #414141
-    font: normal normal normal 16px/28px Inter
-    li
-      padding: 0 0 1.5em 32px
-      &::marker
-        color: $colorGreen
-        font-size: 16px
-        line-height: 28px
-    &_number
-      list-style-type: decimal
-    &_dot
-      list-style-type: disc
