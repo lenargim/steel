@@ -46,6 +46,7 @@ use Gedmo\Timestampable\Traits\Timestampable;
  *     "catalog_item" = "SiteBundle\Entity\Pages\CatalogItem",
  *     "catalog_article" = "SiteBundle\Entity\Pages\CatalogArticle",
  *     "catalog_main" = "SiteBundle\Entity\Pages\CatalogMain",
+ *     "contacts" = "SiteBundle\Entity\Pages\ContactsPage",
  * })
  */
 class Pages implements PageAdminInterface, NodeInterface
@@ -193,6 +194,7 @@ class Pages implements PageAdminInterface, NodeInterface
             "portfolio_list",
             "interior_list",
             "review_list",
+            "contacts",
         ];
     }
 
@@ -208,6 +210,7 @@ class Pages implements PageAdminInterface, NodeInterface
         "interior_list" => "App\Controller\InteriorController::list",
         "interior_item" => "App\Controller\InteriorController::index",
         "review_list" => "App\Controller\ReviewController::list",
+        "contacts" => "App\Controller\ContactsController::index",
     ];
 
     public static $discrClass = [
@@ -222,6 +225,7 @@ class Pages implements PageAdminInterface, NodeInterface
         "interior_list" => InteriorListPage::class,
         "interior_item" => InteriorItemPage::class,
         "review_list" => ReviewsListPage::class,
+        "contacts" => ContactsPage::class,
     ];
 
     public static $types = [
@@ -236,6 +240,7 @@ class Pages implements PageAdminInterface, NodeInterface
         InteriorListPage::class => "Список интерьерных решений",
         InteriorItemPage::class => "Страница интерьерного решения",
         ReviewsListPage::class => "Список отзывов",
+        ContactsPage::class => "Страница контактов",
     ];
 
 

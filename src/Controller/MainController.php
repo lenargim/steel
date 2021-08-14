@@ -18,6 +18,7 @@ class MainController extends BasePageController
         $this->setPage($request);
         /** @var Pages $catalog */
         $catalog = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogMain::class)->findOneBy(['active' => 1]);
+        $contacts = $this->getDoctrine()->getManager()->getRepository(Pages\ContactsPage::class)->findOneBy(['active' => 1]);
         /** @var Pages $catalog */
         $portfolio = $this->getDoctrine()->getManager()->getRepository(Pages\PortfolioListPage::class)->findOneBy(['active' => 1]);
         $articles = $this->getDoctrine()->getManager()->getRepository(Pages\CatalogArticle::class)->findBy(['onmain' => 1], ['lft' => 'ASC']);
@@ -30,6 +31,7 @@ class MainController extends BasePageController
         return $this->render('main/index.html.twig', [
             'page' => $this->page,
             'catalog' => $catalog,
+            'contacts' => $contacts,
             'portfolio' => $portfolio,
             'articles' => $articles,
             'reviews' => $reviews,

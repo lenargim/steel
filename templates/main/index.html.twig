@@ -196,9 +196,9 @@
                 <div class="map__box">
                     <div class="map__box-title title">{{ 'Контакты' | getString('Главная') }}</div>
                     <div>
-                        <a href="tel:{{ page.mapPhone   | replace({" ": "", "-": "", "(": "", ")": ""})  }}">{{ page.mapPhone }}</a>
-                        <a href="mailto:{{ page.mapEmail }}">{{ page.mapEmail }}</a>
-                        <address>{{ page.mapAddress | raw }}</address>
+                        <a href="tel:{{ contacts.mapPhone   | replace({" ": "", "-": "", "(": "", ")": ""})  }}">{{ contacts.mapPhone }}</a>
+                        <a href="mailto:{{ contacts.mapEmail }}">{{ contacts.mapEmail }}</a>
+                        <address>{{ contacts.mapAddress | raw }}</address>
                     </div>
                 </div>
             </div>
@@ -207,9 +207,9 @@
     </div>
     <script>
         function myMap() {
-            const office = {lat: {{ page.mapLat }}, lng: {{ page.mapLng }} };
+            const office = {lat: {{ contacts.mapLat }}, lng: {{ contacts.mapLng }} };
             var mapProp = {
-                center: new google.maps.LatLng({{ page.mapLat }}, {{ page.mapLng }} ),
+                center: new google.maps.LatLng({{ contacts.mapLat }}, {{ contacts.mapLng }} ),
                 zoom: 17,
                 disableDefaultUI: true,
             };
@@ -217,5 +217,5 @@
             const marker = new google.maps.Marker({map, position: office});
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ page.mapKey }}&language=ru&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ contacts.mapKey }}&language=ru&callback=myMap"></script>
 {% endblock %}
