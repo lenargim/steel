@@ -197,7 +197,7 @@
                     <div class="map__box-title title">{{ 'Контакты' | getString('Главная') }}</div>
                     <div class="map__box-container">
                         <a href="tel:{{ contacts.mapPhone   | replace({" ": "", "-": "", "(": "", ")": ""})  }}">{{ contacts.mapPhone }}</a>
-                        <a href="mailto:{{ page.mapEmail }}">{{ contacts.mapEmail }}</a>
+                        <a href="mailto:{{ contacts.mapEmail }}">{{ contacts.mapEmail }}</a>
                         <address>{{ contacts.mapAddress | raw }}</address>
                     </div>
                 </div>
