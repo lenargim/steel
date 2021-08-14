@@ -34,7 +34,6 @@ section
     width: 100%
 
 .container
-  margin-left: auto
   @media screen and (min-width: 1920px)
     width: 1430px
   @media screen and (min-width: 1660px) and (max-width: 1919px)
@@ -43,14 +42,47 @@ section
     width: 1040px
   @media screen and (min-width: 1280px) and (max-width: 1365px)
     width: 978px
-  @media screen and (max-width: 1279px)
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+    width: 100%
+    padding: 0 40px
+  @media screen and (max-width: 767px)
     width: 100%
     padding: 0 16px
-    margin-left: unset
+  @media screen and (min-width: 1280px)
+    margin-left: auto
 
-ul, li, p, h1, h2, h3
+ol, ul, li, p, h1, h2, h3, h4
   padding: 0
   margin: 0
+
+h1
+  font-size: 62px
+  line-height: 72px
+  color: $colorBlack
+  @media screen and (max-width: 1279px)
+    font-size: 32px
+    line-height: 36px
+h2
+  font-size: 48px
+  line-height: 56px
+  color: $colorBlack
+  @media screen and (max-width: 1279px)
+    font-size: 24px
+    line-height: 28px
+h3
+  font-size: 28px
+  line-height: 32px
+  color: $colorBlack
+  @media screen and (max-width: 1279px)
+    font-size: 20px
+    line-height: 24px
+h4
+  font-size: 20px
+  line-height: 24px
+  color: $colorBlack
+  @media screen and (max-width: 1279px)
+    font-size: 16px
+    line-height: 19px
 
 a
   text-decoration: none
@@ -117,7 +149,8 @@ select
   display: flex
   align-items: center
   justify-content: flex-start
-  @media screen and (max-width: 1279px)
+  white-space: nowrap
+  @media screen and (max-width: 767px)
     font-size: 20px
     font-weight: 600
 
@@ -128,7 +161,7 @@ select
     margin-left: 24px
     background-color: $colorGreen
     transition: all 0.3s ease-in-out
-    @media screen and (max-width: 1279px)
+    @media screen and (max-width: 767px)
       width: 70px
 
     &:before, &:after
@@ -159,14 +192,12 @@ select
   line-height: 1.17
   padding-bottom: 37px
   font-weight: 500
-  @media screen and (max-width: 1279px)
+  @media screen and (max-width: 767px)
     font-size: 24px
     font-weight: 600
     padding-bottom: 21px
 .block
   margin-bottom: 224px
-  @media screen and (min-width: 1280px) and (max-width: 1659px)
-    margin-bottom: 160px
   @media screen and (max-width: 1279px)
     margin-bottom: 88px
   &__wrap
@@ -187,6 +218,8 @@ select
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       max-width: 505px
       padding-right: 135px
+    @media screen and (min-width: 768px) and (max-width: 1279px)
+      max-width: 568px
     @media screen and (max-width: 1279px)
       font-size: 14px
       line-height: 24px
@@ -279,3 +312,15 @@ select
   img
     object-fit: cover
     transition: transform 0.3s ease-in-out
+.mobile-swipe
+  @media screen and (max-width: 767px)
+    position: relative
+    &::after
+      content: ""
+      width: 100px
+      height: 100px
+      background: url("/public/build/swype.svg") no-repeat
+      position: absolute
+      left: 50vw
+      top: 78px
+      transform: translateX(-50%)

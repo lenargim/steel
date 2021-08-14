@@ -1,9 +1,9 @@
 .portfolio
   &__wrap
     @media screen and (max-width: 1279px)
-      padding-bottom: 56px
+      padding-bottom: 62px
   &__desc
-    @media screen and (max-width: 1279px)
+    @media screen and (max-width: 767px)
       max-width: 236px
 
   &__gallery
@@ -14,8 +14,10 @@
       grid-template-columns: repeat(3, 292px)
     @media screen and (min-width: 1280px) and (max-width: 1365px)
       grid-template-columns: repeat(3, 271px)
-    @media screen and (max-width: 1279px)
-      grid-template-columns: repeat(3, 239px)
+    @media screen and (min-width: 768px) and (max-width: 1279px)
+      grid-template-columns: repeat(3, 208px)
+    @media screen and (max-width: 767px)
+      grid-template-columns: repeat(99, 239px)
       overflow-x: auto
       grid-gap: 22px
       &::-webkit-scrollbar
@@ -47,7 +49,10 @@
       @media screen and (min-width: 1280px) and (max-width: 1365px)
         width: 271px
         height: 344px
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        width: 208px
+        height: 264px
+      @media screen and (max-width: 767px)
         width: 239px
         height: 303px
     &-box

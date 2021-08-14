@@ -1,6 +1,9 @@
 .slider-block
   background-color: $colorSecond
   color: #fff
+  @media screen and (max-width: 767px)
+    &::after
+      top: 400px
   &__wrap
     position: relative
     @media screen and (max-width: 1279px)
@@ -23,7 +26,11 @@
         width: 1080px
       @media screen and (min-width: 1280px) and (max-width: 1659px)
         width: 775px
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        position: unset
+        width: 100%
+        max-height: 588px
+      @media screen and (max-width: 767px)
         position: unset
         width: 100%
       img
@@ -41,14 +48,21 @@
         height: 768px
       @media screen and (min-width: 1280px) and (max-width: 1365px)
         height: 800px
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        height: auto
+        max-width: 568px
+        padding: 42px 0 70px
+      @media screen and (max-width: 767px)
         padding: 21px 0 18px
         height: 231px
     &-title
       padding-right: 100px
       max-width: 584px
       color: #fff
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        max-width: initial
+        padding-right: 0
+      @media screen and (max-width: 767px)
         font-size: 24px
         padding-bottom: 21px
     &-greentext
@@ -71,9 +85,9 @@
       padding: 0 100px 62px 0
       @media screen and (min-width: 1660px) and (max-width: 1919px)
         padding-right: 150px
-      @media screen and (min-width: 1280px) and (max-width: 1659px)
-        padding-bottom: 40px
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1659px)
+        padding: 0 0 40px
+      @media screen and (max-width: 767px)
         display: none
     &-link
       color: #fff
@@ -84,7 +98,11 @@
       bottom: 63px
       @media screen and (min-width: 1280px) and (max-width: 1659px)
         bottom: 54px
-      @media screen and (max-width: 1279px)
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        bottom: 84px
+        right: 0
+        left: unset
+      @media screen and (max-width: 767px)
         bottom: 18px
         font-size: 14px
         line-height: 16px
@@ -106,7 +124,10 @@
     @media screen and (min-width: 1280px) and (max-width: 1659px)
       right: 159px
       bottom: 40px
-    @media screen and (max-width: 1279px)
+    @media screen and (min-width: 768px) and (max-width: 1279px)
+      bottom: 30px
+      right: 60px
+    @media screen and (max-width: 767px)
       display: none
   &__counter
     font: normal normal normal 22px/28px Inter

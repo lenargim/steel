@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <div class="about block">
+    <div class="about block page-text">
         <div class="container-outer">
             <div class="container">
                 {{ render(controller('App\\Controller\\PartController:breadcrumbs', {'page': page})) }}
@@ -12,7 +12,8 @@
         <div class="container-outer">
             <div class="container">
                 <div class="map__box">
-                    <div>
+                    <div class="map__box-title title">{{ 'Контакты' | getString('Главная') }}</div>
+                    <div class="map__box-container">
                         <a href="tel:{{ page.mapPhone   | replace({" ": "", "-": "", "(": "", ")": ""})  }}">{{ page.mapPhone }}</a>
                         <a href="mailto:{{ page.mapEmail }}">{{ page.mapEmail }}</a>
                         <address>{{ page.mapAddress | raw }}</address>
@@ -21,6 +22,15 @@
             </div>
         </div>
         <div id="googleMap" class="map__wrap"></div>
+    </div>
+    <div class="about block page-text">
+        <div class="container-outer">
+            <div class="container">
+                <div class="about__wrap">
+                    {{ page.text |  raw }}
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         function myMap() {
@@ -35,13 +45,4 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ page.mapKey }}&language=ru&callback=myMap"></script>
-    <div class="about block">
-        <div class="container-outer">
-            <div class="container">
-                <div class="about__wrap">
-                    {{ page.text |  raw }}
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock %}
