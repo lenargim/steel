@@ -16,6 +16,11 @@
   left: 50%
   transform: translate(-50%,-50%)
   display: none
+  @media screen and (max-width: 767px)
+    top: 0
+    left: 0
+    right: 0
+    transform: unset
   &.active
     display: block
   &__close
@@ -44,6 +49,11 @@
       transform: rotate(45deg)
     &:after
       transform: rotate(-45deg)
+    @media screen and (max-width: 767px)
+      width: 32px
+      height: 32px
+      top: 17px
+      right: 17px
   &__arrow
     cursor: pointer
     position: absolute
@@ -94,7 +104,7 @@
       @media screen and (min-width: 1280px) and (max-width: 1659px)
         padding: 5px 10px
         font-size: 18px
-.modal-callback, .modal-header
+.modal-callback, .modal-header, .modal-msg
   background-color: $colorMain
   padding: 56px 133px 66px
   width: 100%
@@ -102,29 +112,48 @@
   @media screen and (min-width: 1280px) and (max-width: 1659px)
     padding: 40px 100px 50px
     max-width: 80vw
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+    padding: 44px 32px
+    max-width: calc(100% - 40px)
+  @media screen and (max-width: 767px)
+    padding: 89px 17px 57px
+    max-width: 100%
   &__title
     color: rgba(47, 58, 65, 1)
     font-size: 48px
-    line-height: 56px
+    line-height: 117%
     padding-bottom: 37px
     font-weight: 500
+    @media screen and (max-width: 767px)
+      font-size: 32px
+      font-weight: 600
   &__desc
     max-width: 549px
     font-size: 28px
     line-height: 32px
     font-weight: 500
     padding-bottom: 59px
+    @media screen and (max-width: 767px)
+      font-size: 20px
+      padding-bottom: 50px
   &__row
     display: flex
     align-items: center
     justify-content: space-between
     gap: 32px
-    padding-bottom: 88px
-    @media screen and (min-width: 1280px) and (max-width: 1659px)
+    padding-bottom: 44px
+    &:last-of-type
+      padding-bottom: 88px
+    @media screen and (min-width: 768px) and (max-width: 1659px)
       padding-bottom: 40px
+    @media screen and (max-width: 767px)
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-start
   &__field
     width: 100%
   &__label
+    display: inline-block
     font: normal normal normal 14px/24px Inter
     color: rgba(65, 65, 65, 1)
     padding-bottom: 16px
@@ -134,8 +163,38 @@
     background-color: transparent
     width: 100%
     padding: 5px 10px
+  &__textarea
+    border: 1px solid rgba(150, 150, 150, 1)
+    height: 100px
+    background-color: transparent
+    width: 100%
+    padding: 5px 10px
   &__submit
     padding: 20px 66px
     display: block
     margin-left: auto
     border: none
+    @media screen and (max-width: 767px)
+      margin: 0
+      width: 100%
+.modal-msg
+  &__desc
+    max-width: 759px
+  &__check
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    @media screen and (max-width: 767px)
+      flex-direction: column
+      justify-content: flex-start
+      gap: 32px
+    span
+      font-family: Inter, sans-serif
+      color: #898989
+      max-width: 500px
+      @media screen and (min-width: 1280px) and (max-width: 1365px)
+        max-width: 467px
+      @media screen and (min-width: 768px) and (max-width: 1279px)
+        max-width: 374px
+      @media screen and (max-width: 767px)
+        max-width: 100%

@@ -184,3 +184,7 @@ function swipeFunction(event) {
     $(event.target).removeClass('mobile-swipe');
 }
 
+$('.map__box-button').on('click', function(){
+    $('.overlay').addClass('active')
+    $('.modal-msg').addClass('active')
+})
