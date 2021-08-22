@@ -67,7 +67,7 @@ trait SeoPageFields
      */
     protected $menutitle;
     /**
-     * @ORM\Column(type="text", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $description;
     /**
