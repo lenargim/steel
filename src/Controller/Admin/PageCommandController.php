@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -193,9 +194,10 @@ class PageCommandController extends AbstractController
         $content = '';
         try {
             $filesystem = new Filesystem();
+            $filesystem->chmod($kernel->getCacheDir(), 0777, 0000, true);
             $filesystem->remove($kernel->getCacheDir());
             $content .= 'Папка кеша очищена' . PHP_EOL;
-        } catch (\Exception $e) {
+        } catch (IOException $e) {
             $content .= 'При очистке папки кеша произошла ошибка: ' . $e->getMessage() . PHP_EOL;
         }
         return new Response($content);
