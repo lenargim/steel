@@ -22,7 +22,7 @@
                     {% for item in favorites %}
                         <a href="{{ sitePath(item.route) }}" class="catalog-page__item">
                             <div class="catalog-page__img img">
-                                <img src="{{ item.getWebPath('image') | thumb(441, 314) }}" alt="{{ item.menutitle }}">
+                                <img src="{{ item.getWebPath('image2') | thumb(441, 314) }}" alt="{{ item.menutitle }}">
                             </div>
                             <div class="portfolio__gallery-box">
                                 <span class="portfolio__gallery-title">{{ item.menutitle }}</span>
