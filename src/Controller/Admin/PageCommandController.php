@@ -192,13 +192,17 @@ class PageCommandController extends AbstractController
     public function removeCache(KernelInterface $kernel)
     {
         $content = '';
-        try {
-            $filesystem = new Filesystem();
-            $filesystem->chmod($kernel->getCacheDir(), 0777, 0000, true);
-            $filesystem->remove($kernel->getCacheDir());
-            $content .= 'Папка кеша очищена' . PHP_EOL;
-        } catch (IOException $e) {
-            $content .= 'При очистке папки кеша произошла ошибка: ' . $e->getMessage() . PHP_EOL;
+        if (file_exists($kernel->getCacheDir())) {
+            $content .= 'Папка кеша пустая' . PHP_EOL;
+        } else {
+            try {
+                $filesystem = new Filesystem();
+                $filesystem->chmod($kernel->getCacheDir(), 0777, 0000, true);
+                $filesystem->remove($kernel->getCacheDir());
+                $content .= 'Папка кеша очищена' . PHP_EOL;
+            } catch (IOException $e) {
+                $content .= 'При очистке папки кеша произошла ошибка: ' . $e->getMessage() . PHP_EOL;
+            }
         }
         return new Response($content);
     }
