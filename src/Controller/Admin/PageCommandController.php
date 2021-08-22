@@ -192,7 +192,7 @@ class PageCommandController extends AbstractController
     public function removeCache(KernelInterface $kernel)
     {
         $content = '';
-        if (file_exists($kernel->getCacheDir())) {
+        if (!file_exists($kernel->getCacheDir())) {
             $content .= 'Папка кеша пустая' . PHP_EOL;
         } else {
             try {
