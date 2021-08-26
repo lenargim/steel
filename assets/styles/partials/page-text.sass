@@ -5,6 +5,11 @@
     padding-bottom: 18px
   h4
     padding-bottom: 18px
+  h2, h3, h4
+    @media screen and (min-width: 1280px)
+      max-width: 584px
+    @media screen and (max-width: 1279px)
+      max-width: 326px
   table
     width: 100%
     border-spacing: 32px 0
@@ -55,3 +60,12 @@
     padding-bottom: 1em
     &:last-of-type
       padding-bottom: 0
+  ul, ol, p
+    @media screen and (min-width: 1660px)
+      width: 766px
+    @media screen and (min-width: 1280px) and (max-width: 1659px)
+      width: 616px
+  .block
+    padding-bottom: 88px
+    @media screen and (max-width: 1659px)
+      padding-bottom: 60px

@@ -10,6 +10,11 @@
     flex-wrap: wrap
     justify-content: flex-start
     align-items: flex-start
+    font: normal normal normal 16px/28px Inter
+    color: #414141
+    @media screen and (max-width: 1279px)
+      font-size: 14px
+      line-height: 24px
     &:hover
       .interior__item-title:before
         width: 100px
@@ -39,7 +44,6 @@
       font-size: 20px
       line-height: 24px
       position: relative
-      white-space: nowrap
       &:before
         content: ""
         position: absolute
@@ -49,12 +53,6 @@
         transition: width 0.3s ease-in-out
         left: 0
         top: -10px
-    &-text
-      font: normal normal normal 16px/28px Inter
-      color: #414141
-      @media screen and (max-width: 1279px)
-        font-size: 14px
-        line-height: 24px
 .interior-detailed
   &__item
     display: flex
