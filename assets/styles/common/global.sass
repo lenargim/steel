@@ -28,6 +28,12 @@ section
   position: relative
   @media screen and (min-width: 1920px)
     max-width: 1830px
+  @media screen and (min-width: 1660px) and (max-width: 1919px)
+    max-width: 1564px
+  @media screen and (min-width: 1366px) and (max-width: 1659px)
+    max-width: 1270px
+  @media screen and (min-width: 1280px) and (max-width: 1365px)
+    max-width: 1184px
   @media screen and (min-width: 1280px) and (max-width: 1919px)
     padding: 0 48px
   @media screen and (max-width: 1279px)
@@ -324,3 +330,5 @@ select
       left: 50vw
       top: 78px
       transform: translateX(-50%)
+.inverting
+  transition: all 0.3s ease

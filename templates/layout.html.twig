@@ -9,8 +9,8 @@
     {{ render(controller('App\\Controller\\PartController::header', {'request': app.request, 'page': page})) }}
     <main>
         <div class="side-menu">
-            <div class="side-menu__burger"><span></span></div>
-            <div class="side-menu__copy"><span>&#169;</span> {{ 'Сталь в интерьерах, 2021' | getString('Шапка') }}</div>
+            <div class="side-menu__burger inverting"><span></span></div>
+            <div class="side-menu__copy inverting"><span>&#169;</span> {{ 'Сталь в интерьерах, 2021' | getString('Шапка') }}</div>
             <div class="side-menu__socials side-menu__socials_desktop">
                 {% if 'vk ссылка' | getString('Шапка') %}
                 <a target="_blank" href="{{ 'vk ссылка' | getString('Шапка') }}" class="side-menu__social">

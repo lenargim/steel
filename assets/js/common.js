@@ -75,7 +75,7 @@ reviewsSlider.on('init afterChange', function (event, slick) {
 
 let updateReviewsSliderCounter = function (slick) {
     currentSlide = slick.slickCurrentSlide() + 1;
-    slidesCount = slick.slideCount;
+    slidesCount = slick.slideCount - 1;
     reviewsSliderCounter.html(`${currentSlide}/${slidesCount}`);
 };
 
@@ -83,7 +83,7 @@ let reviewsPrevArrow = $('.reviews__slider-arrow-box .default-arrow_left');
 let reviewsNextArrow = $('.reviews__slider-arrow-box .default-arrow_right');
 
 reviewsSlider.slick({
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     arrows: true,
     appendArrows: $('.reviews__slider-arrow-box'),
@@ -91,6 +91,8 @@ reviewsSlider.slick({
     nextArrow: reviewsNextArrow,
     draggable: false,
     infinite: false,
+    variableWidth: true,
+    adaptiveHeight: true,
     responsive: [
                 {
                   breakpoint: 1279,
@@ -188,3 +190,26 @@ $('.map__box-button').on('click', function(){
     $('.overlay').addClass('active')
     $('.modal-msg').addClass('active')
 })
+
+
+$(window).scroll(function() {
+    let dark = $('.dark');
+    let element = $('.inverting');
+    dark.each(function() {
+       let offsetT = $(this).offset().top
+       let offsetB = $(this).offset().top + $(this).height();
+       element.each(function() {
+           if ( $(this).hasClass('processing') ) {
+            return false;
+           }
+           let elementT = $(this).offset().top;
+           let elementB = elementT + $(this).height();
+           if ( elementT > offsetT && elementB < offsetB ) {
+            $(this).addClass('invert processing')
+           } else {
+            $(this).removeClass('invert')
+           }
+       });
+    });
+    element.removeClass('processing')
+});

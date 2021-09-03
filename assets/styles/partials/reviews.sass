@@ -45,14 +45,18 @@
       display: flex
       align-items: flex-start
       justify-content: flex-start
-      height: 316px
       position: relative
+      width: 766px
+      @media screen and (min-width: 1366px) and (max-width: 1659px)
+        width: 724px
+      @media screen and (min-width: 1280px) and (max-width: 1365px)
+        width: 675px
       @media screen and (min-width: 768px) and (max-width: 1279px)
-        height: auto
         padding: 44px 56px 80px
+        width: 568px
       @media screen and (max-width: 767px)
         padding: 58px 50px 17px
-        height: unset
+        width: 100%
     &-img
       border-radius: 50%
       overflow: hidden
