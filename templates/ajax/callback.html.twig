@@ -15,22 +15,25 @@
                     {{ form_widget(form.form.phone, {'attr' : {'class': 'modal-callback__input tel-input' }}) }}
                     <div class="error-msg">{{ 'Введите Ваш номер телефона' | getString('Обратный звонок') }}</div>
                 </div>
-                <div class="modal-callback__field js_wrap_input">
-                    {{  form_widget(form.form.policy, {'attr': {'class': 'js_policy_chekbox checkbox'} })  }}
-                    <label for="callback_mail_policy">
-                        {% set policy = 'policy_page' | pageByDiscr %}
-                        {% if policy %}
-                            <a href="{{ sitePath(policy.route) }}" target="_blank">
-                                {{ 'forms_label_policy' | getString('Обратный звонок') }}
-                            </a>
-                        {% else %}
-                            {{ 'forms_label_policy' | getString('Обратный звонок') }}
-                        {% endif %}
-                    </label>
-                    <span class="error-msg">{{ 'forms_error_policy' | getString('Обратный звонок') }}</span>
-                </div>
+            </div>
+        <div class="modal-callback__row-submit">
+            <div class="modal-callback__field modal-callback__checkbox js_wrap_input">
+                {{  form_widget(form.form.policy, {'attr': {'class': 'js_policy_chekbox checkbox'} })  }}
+                <label for="callback_mail_policy">
+                    {% set policy = 'policy_page' | pageByDiscr %}
+                    {% if policy %}
+                        Я даю согласие на обработку <a href="/politika_konfidentsialnosti" target="_blank">персональных данных</a>
+{#                        <a href="{{ sitePath(policy.route) }}" target="_blank">#}
+{#                            {{ 'forms_label_policy' | getString('Обратный звонок') }}#}
+{#                        </a>#}
+                    {% else %}
+                        {{ 'forms_label_policy' | getString('Обратный звонок') }}
+                    {% endif %}
+                </label>
+                <span class="error-msg">{{ 'forms_error_policy' | getString('Обратный звонок') }}</span>
             </div>
             <input type="submit" class="modal-callback__submit button" value="{{ 'Отправить' | getString('Обратный звонок') }}">
+        </div>
         {{ form_end(form.form) }}
     </div>
 </div>
