@@ -37,6 +37,8 @@
     justify-content: flex-start
     @media screen and (min-width: 1280px) and (max-width: 1659px)
       gap: 32px
+    @media screen and (max-width: 1279px)
+      flex-direction: column
   &__img
     width: 633px
     height: 500px
@@ -47,6 +49,10 @@
       width: 50%
       margin-right: 0
       height: auto
+    @media screen and (max-width: 1279px)
+      width: 100%
+      height: auto
+      margin: 0 0 32px
   &__text
     width: 367px
     min-height: 500px
@@ -58,8 +64,13 @@
       width: auto
       max-width: 50%
       min-height: unset
+    @media screen and (max-width: 1279px)
+      min-height: unset
+      width: 100%
   &__button
     position: absolute
     bottom: 0
     left: 0
     white-space: nowrap
+    @media screen and (max-width: 1279px)
+      margin-top: 64px
