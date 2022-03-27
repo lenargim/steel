@@ -59,7 +59,7 @@
       </form>
     </div>
   </div>
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=c2234f8a-94ba-4545-af12-9caba365aa64&lang=ru_RU"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey={{ page.mapKey }}&lang=ru_RU"></script>
   <script>
     function initMap() {
         var point = [{{ page.mapLat }}, {{ page.mapLng }}];
@@ -73,5 +73,4 @@
     }
     ymaps.ready(initMap);
   </script>
-{#  <script src="https://maps.googleapis.com/maps/api/js?key={{ page.mapKey }}&language=ru&callback=myMap"></script>#}
 {% endblock %}
