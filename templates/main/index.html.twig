@@ -206,17 +206,18 @@
         </div>
         <div id="googleMap" class="map__wrap"></div>
     </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey={{ contacts.mapKey }}&lang=ru_RU"></script>
     <script>
-        function myMap() {
-            const office = {lat: {{ contacts.mapLat }}, lng: {{ contacts.mapLng }} };
-            var mapProp = {
-                center: new google.maps.LatLng({{ contacts.mapLat }}, {{ contacts.mapLng }} ),
-                zoom: 17,
-                disableDefaultUI: true,
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-            const marker = new google.maps.Marker({map, position: office});
+        function initMap() {
+            var point = [{{ contacts.mapLat }}, {{ contacts.mapLng }}];
+            var myMap = new ymaps.Map(document.getElementById("googleMap"), {
+                center: point,
+                zoom: 17
+            });
+            myMap.behaviors.disable('scrollZoom');
+            var myPlacemark = new ymaps.Placemark(point);
+            myMap.geoObjects.add(myPlacemark);
         }
+        ymaps.ready(initMap);
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ contacts.mapKey }}&language=ru&callback=myMap"></script>
 {% endblock %}

@@ -59,17 +59,18 @@
       </form>
     </div>
   </div>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey={{ page.mapKey }}&lang=ru_RU"></script>
   <script>
-    function myMap() {
-      const office = {lat: {{ page.mapLat }}, lng: {{ page.mapLng }} };
-      var mapProp = {
-        center: new google.maps.LatLng({{ page.mapLat }}, {{ page.mapLng }} ),
-        zoom: 17,
-        disableDefaultUI: true,
-      };
-      var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-      const marker = new google.maps.Marker({map, position: office});
+    function initMap() {
+        var point = [{{ page.mapLat }}, {{ page.mapLng }}];
+        var myMap = new ymaps.Map(document.getElementById("googleMap"), {
+            center: point,
+            zoom: 17
+        });
+        myMap.behaviors.disable('scrollZoom');
+        var myPlacemark = new ymaps.Placemark(point);
+        myMap.geoObjects.add(myPlacemark);
     }
+    ymaps.ready(initMap);
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key={{ page.mapKey }}&language=ru&callback=myMap"></script>
 {% endblock %}

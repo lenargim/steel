@@ -41,8 +41,8 @@ class ContactsPageAdmin extends BaseAdmin
                 'required' => false,
             ])
             ->add('mapKey', null, [
-                'label' => 'maps.googleapis.com key',
-                'help' => 'Токен API google , инструкция ка кподключить: https://developers.google.com/maps/gmp-get-started',
+                'label' => 'Ключ для yandex карты',
+                'help' => 'Ключ для yandex карты , инструкция ка кподключить: https://nethouse.ru/about/instructions/kak_poluchit_apikey_dlya_kart_yandex',
                 'required' => false,
             ])
             ->end()
