@@ -12,12 +12,7 @@
                     </div>
                 {% endif %}
                 <div class="header__contact">
-                    <a data-reachgoal="callback-button"
-                       data-type="callback"
-                       href="{{ sitePath('app_main.ajax_get_popup', { 'type': 'callback', 'route': page.route }) }}"
-                       class="header__callback js-popup-open js-reachgoal">
-                        {{ 'Заказать звонок' | getString('Шапка') }}
-                    </a>
+                  <a href="mailto:steelinterrior@yandex.ru" class="header__mail">steelinterrior@yandex.ru</a>
                     <a href="{{ ('Код телефона' | getString('Шапка')) ~ ('Номер телефона' | getString('Шапка'))  | replace({" ": "", "-": "", "(": "", ")": ""})  }}"
                        class="header__phone">
                         <span class="grey">
